@@ -10,19 +10,24 @@ const MenuProps = {
     }
 };
 
-const getStyles = (health, healthLabel, theme) => {
+const getStyles = (labelsArray, label, theme) => {
     return {
         fontWeight:
-            healthLabel.indexOf(health) === -1
+            label.indexOf(labelsArray) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium
     };
 };
 
 const muiStyles = {
+    singleSelectFormControl: {
+        marginTop: 1,
+        width: "100%",
+        flex: 1
+    },
     formControl: {
-        marginTop: 3,
-        width: 200
+        marginTop: 1,
+        width: "100%"
     },
     select: {
         ".MuiOutlinedInput-notchedOutline": {
@@ -37,7 +42,8 @@ const muiStyles = {
         },
         ".MuiSvgIcon-root": {
             color: "white"
-        }
+        },
+        color: "white"
     },
     inputLabel: {
         "&.MuiInputLabel-outlined.Mui-focused": {
@@ -53,7 +59,7 @@ const muiStyles = {
         gap: 1
     },
     chip: {
-        background: "#a1cf6bff",
+        background: "#7ac74fff",
         fontWeight: "bold",
         color: "whitesmoke"
     }

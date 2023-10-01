@@ -1,11 +1,18 @@
+import { Link } from "react-router-dom";
+
 const Welcome = () => {
     return (
         <>
             <div className="welcome-bg" />
             <section className="welcome">
-                <div>
-                    <h2>Cooking Home</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, sequi provident natus veniam consectetur sunt temporibus aliquid maiores vitae nulla eligendi dignissimos itaque blanditiis praesentium voluptate aut quos. Non, quasi.</p>
+                <div className="welcome-text">
+                    <h2>WELCOME!</h2>
+                    <p><span className="title">COOKING HOME</span> provides extensive recipe search engine</p>
+                    <p>and recommends recipes using ingredients you have at home.</p>
+                    <p>Discover recipes perfect for you and cook at home.</p>
+                    <p>Dine well and stay healthy with <span className="title">COOKING HOME</span>.</p>
+                    <br />
+                    <Link to="/login" className="start-link">Get Started</Link>
                 </div>
             </section>
         </>

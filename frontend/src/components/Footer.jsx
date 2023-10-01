@@ -22,10 +22,10 @@ const Footer = () => {
             </div>
             <div className="footer-column">
                 <h5>SOCIAL LINKS</h5>
-                <p>facebook</p>
-                <p>twitter</p>
-                <p>linkedin</p>
-                <p>github</p>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>LinkedIn</p>
+                <p>Github</p>
             </div>
         </footer>
     );

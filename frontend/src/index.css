@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/***** General *****/
 :root {
     --mantis: #7ac74fff;
     --pistachio: #a1cf6bff;
@@ -34,12 +35,17 @@ body {
     z-index: 100;
 }
 
+.scrolled {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
 .login-button {
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 20px;
     padding: 5px 20px;
     text-decoration: none;
     color: white;
+    font-weight: bold;
 }
 
 .login-button:hover {
@@ -51,8 +57,12 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 20px 20px;
-    background-color: black;
+    background-color: var(--raisin-black);
     color: white;
+}
+
+.footer h1 {
+    color: var(--pistachio);
 }
 
 .footer-column-first {
@@ -83,17 +93,54 @@ body {
     top: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
     height: calc(100vh - 67.5px);
-    color: black;
+    color: white;
     padding: 50px;
+}
+
+.welcome h2 {
+    font-size: 40px;
+    padding-bottom: 10px;
+    color: whitesmoke;
+}
+
+.welcome p {
+    font-size: large;
+}
+
+.welcome-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.start-link {
+    background-color: var(--mantis);
+    padding: 10px 40px;
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.start-link:hover {
+    transform: scale(1.05);
+}
+
+.title {
+    font-weight: bold;
+    color: var(--pistachio);
+    font-size: larger;
 }
 
 .welcome-bg {
     position: absolute;
     top: 0;
-    background-image: url("./images/welcome.jpg");
+    background-image: linear-gradient(to bottom, transparent, black), url("./images/welcome.jpg");
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -109,78 +156,135 @@ body {
     background-color: black;
     color: white;
     min-height: 100vh;
-    padding: 100px 10px 10px;
+    padding: 40px 0px 20px;
+}
+
+.search-bg {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), black), url("./images/search.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
 .search-container {
     display: flex;
     flex-direction: column;
-    background-color: var(--raisin-black);
-    padding: 20px;
+    width: 60vw;
 }
 
 .search-title {
-    font-size: xx-large;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
 }
 
-.search-desc {
-    padding-bottom: 10px;
+.search-title h2 {
+    font-size: xx-large;
+    color: var(--mantis);
 }
 
 .search-bar-container {
+    position: relative;
     display: flex;
     align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
 }
 
 .filter-container {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.single-select-group {
+    display: flex;
+    gap: 8px;
 }
 
 .search-bar {
-    width: 50vw;
-    padding: 10px 20px;
-    border: 2px solid var(--pistachio);
-    border-top-left-radius: 22.5px;
-    border-bottom-left-radius: 22.5px;
+    width: 60vw;
+    padding: 15px 10px;
+    padding-right: 100px;
+    border: 2px solid white;
+    border-radius: 5px;
     color: black;
     font-size: large;
+    background-color: whitesmoke;
 }
 
 .search-button {
-    /* width: 45px; */
-    padding: 0 15px;
-    height: 45px;
-    background-color: var(--pistachio);
+    position: absolute;
+    right: 5px;
+    padding: 10px;
+    background-color: var(--mantis);
     color: white;
-    border: 2px solid var(--pistachio);
-    font-size: x-large;
-    border-top-right-radius: 22.5px;
-    border-bottom-right-radius: 22.5px;
-    border-left: none;
+    border: 2px solid var(--mantis);
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
 }
 
 .search-button:hover {
-    background-color: var(--mantis);
-    border-color: var(--mantis);
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .result-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 20px;
     flex: 1;
+    width: 100%;
+}
+
+.no-result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    flex: 1;
+}
+
+.search-loading {
+    font-size: x-large;
+    font-weight: bold;
+    color: var(--straw);
+}
+
+.search-error {
+    font-size: x-large;
+    font-weight: bold;
+    color: var(--bittersweet);
+}
+
+.search-notfound {
+    font-size: x-large;
+    font-weight: bold;
+    color: var(--citron);
+}
+
+.search-message {
+    font-size: x-large;
+    font-weight: bold;
+    color: var(--straw);
 }
 
 .recipe-card {
     width: 320px;
     margin: 10px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     background-color: var(--raisin-black);
 }
@@ -190,7 +294,7 @@ body {
 }
 
 .recipe-image {
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .recipe-label {

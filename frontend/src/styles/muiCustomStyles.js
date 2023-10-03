@@ -20,14 +20,8 @@ const getStyles = (labelsArray, label, theme) => {
 };
 
 const muiStyles = {
-    singleSelectFormControl: {
-        marginTop: 1,
-        width: "100%",
-        flex: 1
-    },
     formControl: {
-        marginTop: 1,
-        width: "100%"
+        flex: 1
     },
     select: {
         ".MuiOutlinedInput-notchedOutline": {

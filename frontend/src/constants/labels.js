@@ -1,4 +1,4 @@
-const DIET_LABELS = [
+const dietLabels = [
     "balanced",
     "high-protein",
     "high-fiber",
@@ -7,7 +7,7 @@ const DIET_LABELS = [
     "low-sodium"
 ];
 
-const HEALTH_LABELS = [
+const healthLabels = [
     "alcohol-cocktail",
     "alcohol-free",
     "celery-free",
@@ -45,7 +45,7 @@ const HEALTH_LABELS = [
     "wheat-free"
 ];
 
-const CUISINE_TYPE_LABELS = [
+const cuisineTypeLabels = [
     "american",
     "asian",
     "british",
@@ -69,7 +69,7 @@ const CUISINE_TYPE_LABELS = [
     "world"
 ];
 
-const MEAL_TYPE_LABELS = [
+const mealTypeLabels = [
     "breakfast",
     "brunch",
     "lunch",
@@ -78,7 +78,7 @@ const MEAL_TYPE_LABELS = [
     "teatime"
 ];
 
-const DISH_TYPE_LABELS = [
+const dishTypeLabels = [
     "alcohol cocktail",
     "biscuits and cookies",
     "bread",
@@ -107,9 +107,9 @@ const DISH_TYPE_LABELS = [
 ];
 
 export {
-    DIET_LABELS,
-    HEALTH_LABELS,
-    CUISINE_TYPE_LABELS,
-    MEAL_TYPE_LABELS,
-    DISH_TYPE_LABELS
+    dietLabels,
+    healthLabels,
+    cuisineTypeLabels,
+    mealTypeLabels,
+    dishTypeLabels
 }

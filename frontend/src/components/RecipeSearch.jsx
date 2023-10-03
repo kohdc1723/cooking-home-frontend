@@ -1,29 +1,33 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 import { Box, OutlinedInput, InputLabel, MenuItem, FormControl, Select, Chip } from "@mui/material";
+import { selectQueryParams, setQueryParams, initQueryParams } from "../queryParamsSlice";
 import { RecipeSearchResult } from "./";
 import { CUISINE_TYPE_LABELS, DIET_LABELS, DISH_TYPE_LABELS, HEALTH_LABELS, MEAL_TYPE_LABELS } from "../../../constants/labels";
 import { muiStyles, MenuProps, getStyles } from "../../../styles/muiCustomStyles";
 
 const RecipeSearch = () => {
     const theme = useTheme();
+    const dispatch = useDispatch();
+
+    const queryParams = useSelector(selectQueryParams);
 
     // states
-    const [tempInput, setTempInput] = useState("");
-    const [query, setQuery] = useState("");
-    const [from, setFrom] = useState(0);
-    const [to, setTo] = useState(10);
-    const [diet, setDiet] = useState("");
-    const [health, setHealth] = useState([]);
-    const [cuisineType, setCuisineType] = useState([]);
-    const [mealType, setMealType] = useState("");
-    const [dishType, setDishType] = useState([]);
-    const queryParams = { query, from, to, diet, health, cuisineType, mealType, dishType };
+    const [query, setQuery] = useState(queryParams.query);
+    const [to, setTo] = useState(queryParams.to);
+    const [diet, setDiet] = useState(queryParams.diet);
+    const [mealType, setMealType] = useState(queryParams.mealType);
+    const [health, setHealth] = useState(queryParams.health);
+    const [cuisineType, setCuisineType] = useState(queryParams.cuisineType);
+    const [dishType, setDishType] = useState(queryParams.dishType);
 
     // handlers
-    const handleClickSearch = () => setQuery(tempInput);
-    const handleChangeTempInput = e => setTempInput(e.target.value);
+    const handleClickSearch = () => dispatch(setQueryParams({
+        ...queryParams, query, to, diet, mealType, health, cuisineType, dishType
+    }));
+    const handleChangeQuery = e => setQuery(e.target.value);
     const handleChangeDiet = e => setDiet(e.target.value);
     const handleChangeMealType = e => setMealType(e.target.value);
     const handleChangeHealth = e => {
@@ -37,11 +41,13 @@ const RecipeSearch = () => {
     const handleChangeDishType = e => {
         const value = e.target.value;
         setDishType(typeof value === "string" ? value.split(",") : value);
-    }
+    };
 
     const dietSelect = (
         <FormControl sx={muiStyles.singleSelectFormControl}>
-            <InputLabel id="diet-label" sx={muiStyles.inputLabel}>Diet</InputLabel>
+            <InputLabel id="diet-label" sx={muiStyles.inputLabel}>
+                Diet
+            </InputLabel>
             <Select
                 sx={muiStyles.select}
                 labelId="diet-label"
@@ -51,7 +57,7 @@ const RecipeSearch = () => {
                 onChange={handleChangeDiet}
             >
                 <MenuItem value="">NONE</MenuItem>
-                {DIET_LABELS.map(dietLabel => (
+                {DIET_LABELS.map((dietLabel) => (
                     <MenuItem key={dietLabel} value={dietLabel}>
                         {dietLabel}
                     </MenuItem>
@@ -62,7 +68,9 @@ const RecipeSearch = () => {
 
     const mealTypeSelect = (
         <FormControl sx={muiStyles.singleSelectFormControl}>
-            <InputLabel id="meal-type-label" sx={muiStyles.inputLabel}>Meal Type</InputLabel>
+            <InputLabel id="meal-type-label" sx={muiStyles.inputLabel}>
+                Meal Type
+            </InputLabel>
             <Select
                 sx={muiStyles.select}
                 labelId="meal-type-label"
@@ -72,7 +80,7 @@ const RecipeSearch = () => {
                 onChange={handleChangeMealType}
             >
                 <MenuItem value="">NONE</MenuItem>
-                {MEAL_TYPE_LABELS.map(mealTypeLabel => (
+                {MEAL_TYPE_LABELS.map((mealTypeLabel) => (
                     <MenuItem key={mealTypeLabel} value={mealTypeLabel}>
                         {mealTypeLabel}
                     </MenuItem>
@@ -83,7 +91,9 @@ const RecipeSearch = () => {
 
     const healthSelect = (
         <FormControl sx={muiStyles.formControl}>
-            <InputLabel id="health-label" sx={muiStyles.inputLabel}>Health</InputLabel>
+            <InputLabel id="health-label" sx={muiStyles.inputLabel}>
+                Health
+            </InputLabel>
             <Select
                 sx={muiStyles.select}
                 labelId="health-label"
@@ -94,14 +104,14 @@ const RecipeSearch = () => {
                 input={<OutlinedInput id="select-multiple-health" label="Health" />}
                 renderValue={(selected) => (
                     <Box sx={muiStyles.box}>
-                        {selected.map(value => (
+                        {selected.map((value) => (
                             <Chip key={value} label={value} sx={muiStyles.chip} />
                         ))}
                     </Box>
                 )}
                 MenuProps={MenuProps}
             >
-                {HEALTH_LABELS.map(healthLabel => (
+                {HEALTH_LABELS.map((healthLabel) => (
                     <MenuItem
                         key={healthLabel}
                         value={healthLabel}
@@ -116,7 +126,9 @@ const RecipeSearch = () => {
 
     const cuisineTypeSelect = (
         <FormControl sx={muiStyles.formControl}>
-            <InputLabel id="cuisine-type-label" sx={muiStyles.inputLabel}>Cuisine Type</InputLabel>
+            <InputLabel id="cuisine-type-label" sx={muiStyles.inputLabel}>
+                Cuisine Type
+            </InputLabel>
             <Select
                 sx={muiStyles.select}
                 labelId="cuisine-type-label"
@@ -124,17 +136,22 @@ const RecipeSearch = () => {
                 multiple
                 value={cuisineType}
                 onChange={handleChangeCuisineType}
-                input={<OutlinedInput id="select-multiple-cuisine-type" label="Cuisine Type" />}
+                input={
+                    <OutlinedInput
+                        id="select-multiple-cuisine-type"
+                        label="Cuisine Type"
+                    />
+                }
                 renderValue={(selected) => (
                     <Box sx={muiStyles.box}>
-                        {selected.map(value => (
+                        {selected.map((value) => (
                             <Chip key={value} label={value} sx={muiStyles.chip} />
                         ))}
                     </Box>
                 )}
                 MenuProps={MenuProps}
             >
-                {CUISINE_TYPE_LABELS.map(cuisineTypeLabel => (
+                {CUISINE_TYPE_LABELS.map((cuisineTypeLabel) => (
                     <MenuItem
                         key={cuisineTypeLabel}
                         value={cuisineTypeLabel}
@@ -149,7 +166,9 @@ const RecipeSearch = () => {
 
     const dishTypeSelect = (
         <FormControl sx={muiStyles.formControl}>
-            <InputLabel id="dish-type-label" sx={muiStyles.inputLabel}>Dish Type</InputLabel>
+            <InputLabel id="dish-type-label" sx={muiStyles.inputLabel}>
+                Dish Type
+            </InputLabel>
             <Select
                 sx={muiStyles.select}
                 labelId="dish-type-label"
@@ -157,17 +176,19 @@ const RecipeSearch = () => {
                 multiple
                 value={dishType}
                 onChange={handleChangeDishType}
-                input={<OutlinedInput id="select-multiple-dish-type" label="Dish Type" />}
+                input={
+                    <OutlinedInput id="select-multiple-dish-type" label="Dish Type" />
+                }
                 renderValue={(selected) => (
                     <Box sx={muiStyles.box}>
-                        {selected.map(value => (
+                        {selected.map((value) => (
                             <Chip key={value} label={value} sx={muiStyles.chip} />
                         ))}
                     </Box>
                 )}
                 MenuProps={MenuProps}
             >
-                {DISH_TYPE_LABELS.map(dishTypeLabel => (
+                {DISH_TYPE_LABELS.map((dishTypeLabel) => (
                     <MenuItem
                         key={dishTypeLabel}
                         value={dishTypeLabel}
@@ -192,14 +213,11 @@ const RecipeSearch = () => {
                         <input
                             type="text"
                             className="search-bar"
-                            value={tempInput}
-                            onChange={handleChangeTempInput}
+                            value={query}
+                            onChange={handleChangeQuery}
                             placeholder="egg, bacon, onion"
                         />
-                        <button
-                            onClick={handleClickSearch}
-                            className="search-button"
-                        >
+                        <button onClick={handleClickSearch} className="search-button">
                             Search
                         </button>
                     </div>

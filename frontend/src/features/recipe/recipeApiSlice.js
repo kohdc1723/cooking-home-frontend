@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
-
-const baseUrl = "https://api.edamam.com/search";
+import edamamApiSlice from "../../app/api/edamamApiSlice";
 
 const getQueryStringOf = (name, params) => {
     let queryString = "";
@@ -33,15 +32,15 @@ const createQueryString = (query, from, to, diet, health, cuisineType, mealType,
     return url;
 };
 
-// const recipesAdapter = createEntityAdapter({
-//     selectId: recipe => recipe.uri
-// });
+const recipesAdapter = createEntityAdapter({
+    selectId: recipe => recipe.id
+});
 
-// const initialState = recipesAdapter.getInitialState();
+const initialState = recipesAdapter.getInitialState({
+    count: 0
+});
 
-const edamamApiSlice = createApi({
-    reducerPath: "edamamApi",
-    baseQuery: fetchBaseQuery({ baseUrl }),
+const recipeApiSlice = edamamApiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getRecipes: builder.query({
             query: ({ query, from, to, diet, health, cuisineType, mealType, dishType }) => {
@@ -59,12 +58,17 @@ const edamamApiSlice = createApi({
                     return hit.recipe;
                 });
 
-                return loadedRecipes;
+                const count = response?.count;
+
+                return {
+                    ...recipesAdapter.setAll(initialState, loadedRecipes),
+                    count
+                };
             }
         })
     })
 });
 
-export const { useGetRecipesQuery } = edamamApiSlice;
+export const { useGetRecipesQuery } = recipeApiSlice;
 
-export default edamamApiSlice;
+export default recipeApiSlice;

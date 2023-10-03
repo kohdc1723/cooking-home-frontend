@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const capitalizeFirstLetter = (array) => {
     return array.map(ele => ele.charAt(0).toUpperCase() + ele.slice(1));
 };
@@ -10,7 +12,11 @@ const formatCuisineType = (types) => {
 };
 
 const RecipeCard = ({ recipe }) => {
+    const navigate = useNavigate();
+
     const cuisineTypeString = formatCuisineType(recipe.cuisineType);
+
+    const handleClickCard = () => navigate(`/recipes/${recipe.id}`);
 
     return (
         <div className="recipe-card">

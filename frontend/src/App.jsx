@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, MemoryRouter } from "react-router-dom";
 import { Layout, Welcome } from "./components";
 import { Login, Register } from "./features/auth/components";
 import { RecipeDetail, RecipeFinder, RecipeSearch } from "./features/recipe/components";

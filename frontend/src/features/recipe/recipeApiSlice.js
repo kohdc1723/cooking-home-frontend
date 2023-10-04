@@ -1,5 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
+import { createEntityAdapter } from "@reduxjs/toolkit";
 import edamamApiSlice from "../../app/api/edamamApiSlice";
 
 const getQueryStringOf = (name, params) => {
@@ -14,13 +13,13 @@ const getQueryStringOf = (name, params) => {
     return queryString;
 };
 
-const createQueryString = (query, from, to, diet, health, cuisineType, mealType, dishType) => {
+const createQueryString = (query, page, diet, health, cuisineType, mealType, dishType) => {
     const edamamAppId = process.env.REACT_APP_EDAMAM_APP_ID;
     const edamamApiKey = process.env.REACT_APP_EDAMAM_API_KEY;
     const authString = `&app_id=${edamamAppId}&app_key=${edamamApiKey}`;
 
     const queryString = query?.trim() ? `q=${query.trim()}` : "";
-    const fromToString = `&from=${from}&to=${to}`;
+    const fromToString = `&from=${(page - 1) * 10}&to=${page * 10}`;
     const dietString = diet ? `&diet=${diet}` : "";
     const healthString = getQueryStringOf("health", health);
     const cuisineTypeString = getQueryStringOf("cuisineType", cuisineType);
@@ -43,8 +42,8 @@ const initialState = recipesAdapter.getInitialState({
 const recipeApiSlice = edamamApiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getRecipes: builder.query({
-            query: ({ query, from, to, diet, health, cuisineType, mealType, dishType }) => {
-                const url = createQueryString(query, from, to, diet, health, cuisineType, mealType, dishType);
+            query: ({ query, page, diet, health, cuisineType, mealType, dishType }) => {
+                const url = createQueryString(query, page, diet, health, cuisineType, mealType, dishType);
                 const validateStatus = (response, result) => response.status === 200 && !result.isError;
                 console.log(url);
 
@@ -58,7 +57,7 @@ const recipeApiSlice = edamamApiSlice.injectEndpoints({
                     return hit.recipe;
                 });
 
-                const count = response?.count;
+                const count = Math.min(response?.count, 100);
 
                 return {
                     ...recipesAdapter.setAll(initialState, loadedRecipes),

@@ -6,17 +6,21 @@ import { muiStyles, MenuProps, getStyles } from "../../../styles/muiCustomStyles
 import { dietLabels, healthLabels, cuisineTypeLabels, mealTypeLabels, dishTypeLabels } from "../../../constants/labels";
 import { RecipeResult } from "./";
 
-const createQueryString = (query, from, to, diet, mealType, health, cuisineType, dishType) => {
+// create query params
+const createQueryParams = (currentId, query, page, diet, mealType, health, cuisineType, dishType) => {
     const queryParams = new URLSearchParams();
     
+    currentId && queryParams.append("currentId", currentId);
     query && queryParams.append("query", query);
     diet && queryParams.append("diet", diet);
     mealType && queryParams.append("mealType", mealType);
-    health?.map(h => queryParams.append("health", h));
-    cuisineType?.map(ct => queryParams.append("cuisineType", ct));
-    dishType?.map(dt => queryParams.append("dishType", dt));
-    queryParams.append("from", from);
-    queryParams.append("to", to);
+    health?.length && health.map(h => queryParams.append("health", h));
+    cuisineType?.length && cuisineType.map(ct => queryParams.append("cuisineType", ct));
+    dishType?.length && dishType.map(dt => queryParams.append("dishType", dt));
+
+    if (query) {
+        queryParams.append("page", page);
+    }
 
     return queryParams;
 };
@@ -24,20 +28,21 @@ const createQueryString = (query, from, to, diet, mealType, health, cuisineType,
 const RecipeFinder = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
     const theme = useTheme();
 
+    const queryParams = new URLSearchParams(location.search);
+    const [currentId, setCurrentId] = useState(queryParams.get("currentId") || "");
     const [query, setQuery] = useState(queryParams.get("query") || "");
-    const [from, setFrom] = useState(Number(queryParams.get("from")) || 0);
-    const [to, setTo] = useState(Number(queryParams.get("to")) || 10);
+    const [page, setPage] = useState(Number(queryParams.get("page")) || 1);
     const [diet, setDiet] = useState(queryParams.get("diet") || "");
     const [mealType, setMealType] = useState(queryParams.get("mealType") || "");
     const [health, setHealth] = useState(queryParams.getAll("health") || []);
     const [cuisineType, setCuisineType] = useState(queryParams.getAll("cuisineType") || []);
     const [dishType, setDishType] = useState(queryParams.getAll("dishType") || []);
-    // const [searchParams, setSearchParams] = useState({ query, from, to, diet, mealType, health, cuisineType, dishType });
 
     useEffect(() => {
+        queryParams.set("currentId", currentId);
+        queryParams.set("page", page);
         queryParams.set("diet", diet);
         queryParams.set("mealType", mealType);
 
@@ -50,17 +55,18 @@ const RecipeFinder = () => {
         queryParams.delete("dishType");
         dishType.forEach(dt => queryParams.append("dishType", dt));
 
-        const params = createQueryString(query, from, to, diet, mealType, health, cuisineType, dishType);
+        const params = createQueryParams(currentId, query, page, diet, mealType, health, cuisineType, dishType);
         navigate(`?${params.toString()}`);
     }, [diet, mealType, health, cuisineType, dishType]);
 
     const handleClickSearch = () => {
-        if (query) {
-            // setSearchParams({ query, from, to, diet, mealType, health, cuisineType, dishType });
-            const params = createQueryString(query, from, to, diet, mealType, health, cuisineType, dishType);
+        // only when there is input in search bar && query input has changed from the previous query input
+        if (query && (queryParams.get("query") !== query)) {
+            const params = createQueryParams(null, query, page, diet, mealType, health, cuisineType, dishType);
             navigate(`?${params.toString()}`);
         }
     }
+
     const handleChangeQuery = e => setQuery(e.target.value);
     const handleChangeDiet = e => setDiet(e.target.value);
     const handleChangeMealType = e => setMealType(e.target.value);

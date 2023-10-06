@@ -4,6 +4,7 @@ const baseUrl = "https://api.edamam.com/search";
 
 const edamamApiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl }),
+    tagTypes: ["Recipe"],
     endpoints: builder => ({})
 });
 

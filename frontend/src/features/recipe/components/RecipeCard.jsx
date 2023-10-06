@@ -1,4 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { AiOutlineLink } from "react-icons/ai";
 
 const capitalizeFirstLetter = (array) => {
     return array.map(ele => ele.charAt(0).toUpperCase() + ele.slice(1));
@@ -42,7 +43,7 @@ const RecipeCard = ({ recipe }) => {
                 <div>
                     {"Source: "}
                     <Link to={recipe?.url} target="_blank" rel="noopener noreferrer">
-                        {recipe?.source}
+                        {recipe?.source}<AiOutlineLink />
                     </Link>
                 </div>
             </div>

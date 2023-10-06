@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { AiOutlineLink } from "react-icons/ai";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RecipeDetail = ({ recipe }) => {
     if (recipe) {
@@ -49,14 +51,16 @@ const RecipeDetail = ({ recipe }) => {
                     <div className="recipe-detail__col">
                         <h2>Ingredients</h2>
                         {ingredientLines.map(line => (
-                            <p key={line}>● {line}</p>
+                            <p key={line}>
+                                <FontAwesomeIcon icon={faCheck} color="#e0c879ff" /> {line}
+                            </p>
                         ))}
                     </div>
                     <div className="recipe-detail__col">
                         <h2>Cautions</h2>
                         {cautions?.length ? (
                             cautions.map(caution => (
-                                <p>● {caution}</p>
+                                <p key={caution}>● {caution}</p>
                             ))
                         ) : (
                             <p>No cautions</p>
@@ -68,7 +72,7 @@ const RecipeDetail = ({ recipe }) => {
                         <h2>Health Label</h2>
                         <div className="recipe-detail__chip-container">
                             {healthLabels.map(health => (
-                                <div className="recipe-detail__chip">{health}</div>
+                                <div key={health} className="recipe-detail__chip">{health}</div>
                             ))}
                         </div>
                     </div>
@@ -76,7 +80,7 @@ const RecipeDetail = ({ recipe }) => {
                         <h2>Diet Label</h2>
                         <div className="recipe-detail__chip-container">
                             {dietLabels.map(diet => (
-                                <div className="recipe-detail__chip">
+                                <div key={diet} className="recipe-detail__chip">
                                     {diet}
                                 </div>
                             ))}

@@ -21,11 +21,11 @@ body {
     min-height: 100vh;
 }
 
-/* .main {
-    min-height: 100vh;
-} */
+.off-screen {
+    display: none;
+}
 
-/***** Layout *****/
+/***** Header Component *****/
 .header {
     position: sticky;
     top: 0;
@@ -39,11 +39,26 @@ body {
     z-index: 100;
 }
 
-.scrolled {
+.header__scrolled {
     background-color: rgba(0, 0, 0, 0.85);
 }
 
-.login-button {
+.header__nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.header__nav a:hover {
+    transform: scale(1.05);
+}
+
+.header__login-button {
     border: 2px solid white;
     border-radius: 20px;
     padding: 5px 20px;
@@ -52,11 +67,11 @@ body {
     font-weight: bold;
 }
 
-.login-button:hover {
+.header__login-button:hover {
     transform: scale(1.05);
 }
 
-/***** Footer *****/
+/***** Footer Component *****/
 .footer {
     display: flex;
     justify-content: space-around;
@@ -69,7 +84,7 @@ body {
     color: var(--pistachio);
 }
 
-.footer-column-first {
+.footer__title-column {
     flex: 3;
     display: flex;
     flex-direction: column;
@@ -77,71 +92,24 @@ body {
     justify-content: center;
 }
 
-.footer-column {
+.footer__column {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.footer-column h5 {
+.footer__column h5 {
     font-size: medium;
     padding-bottom: 5px;
+    color: var(--mantis);
 }
 
-.footer-column p {
+.footer__column p {
     font-size: small;
 }
 
-/***** Welcome Page *****/
-.welcome {
-    top: 0;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    width: 100%;
-    height: calc(100vh - 67.5px);
-    color: white;
-    padding: 50px;
-}
-
-.welcome h2 {
-    font-size: 40px;
-    padding-bottom: 10px;
-    color: whitesmoke;
-}
-
-.welcome p {
-    font-size: large;
-}
-
-.welcome-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-.start-link {
-    background-color: var(--mantis);
-    padding: 10px 40px;
-    text-decoration: none;
-    color: white;
-    font-size: large;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.start-link:hover {
-    transform: scale(1.05);
-}
-
-.title {
-    font-weight: bold;
-    color: var(--pistachio);
-    font-size: larger;
-}
-
-.welcome-bg {
+/***** Welcome Component *****/
+.welcome__background {
     position: absolute;
     top: 0;
     background-image: linear-gradient(to bottom, transparent, black), url("./images/welcome.jpg");
@@ -151,19 +119,293 @@ body {
     z-index: -1;
 }
 
+.welcome {
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 67.5px);
+    color: white;
+    padding: 50px;
+}
+
+.welcome__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.welcome__text h2 {
+    font-size: 40px;
+    padding-bottom: 10px;
+    color: whitesmoke;
+}
+
+.welcome__text p {
+    font-size: large;
+}
+
+.welcome__text span {
+    font-weight: bold;
+    color: var(--pistachio);
+    font-size: larger;
+}
+
+.welcome__text a {
+    background-color: var(--mantis);
+    padding: 10px 40px;
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.welcome__text a:hover {
+    transform: scale(1.05);
+}
+
+/***** Register Component *****/
+.register {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/register.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register h1 {
+    text-align: center;
+    color: var(--pistachio);
+}
+
+.register h1:hover {
+    cursor: pointer;
+}
+
+.register h2 {
+    text-align: center;
+}
+
+.register a {
+    text-decoration: none;
+    color: var(--citron);
+    font-style: italic;
+}
+
+.register a:hover {
+    font-weight: bold;
+}
+
+.register__container {
+    color: white;
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.register__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.register__input {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    border: 2px solid white;
+}
+
+.register__input-invalid {
+    border: 2px solid red;
+}
+
+.register__form button {
+    font-weight: bold;
+    border: 2px solid var(--mantis);
+    border-radius: 10px;
+    background-color: var(--mantis);
+    color: black;
+    width: 100%;
+    padding: 10px;
+}
+
+.register__form button:hover {
+    background-color: var(--pistachio);
+}
+
+.register__form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.register__instruction {
+    font-size: small;
+    border-radius: 10px;
+    background-color: var(--raisin-black);
+    color: white;
+    padding: 10px;
+    /* position: relative;
+    bottom: -10px; */
+}
+
+/***** Login Component *****/
+.login {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login h1 {
+    text-align: center;
+    color: var(--pistachio);
+}
+
+.login h1:hover {
+    cursor: pointer;
+}
+
+.login h2 {
+    text-align: center;
+}
+
+.login a {
+    text-decoration: none;
+    color: var(--citron);
+    font-style: italic;
+}
+
+.login a:hover {
+    font-weight: bold;
+}
+
+.login__container {
+    color: white;
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.login__input {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.login__form button {
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: var(--mantis);
+    color: black;
+    width: 100%;
+    padding: 10px;
+}
+
+.login__form button:hover {
+    background-color: var(--pistachio);
+}
+
+.login__form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.login__persist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login__persist input {
+    height: 15px;
+    width: 15px;
+}
+
 /***** Recipe Finder Component *****/
 .recipe-finder {
     height: 100vh;
 }
 
-.search-bar-container {
+.recipe-finder__header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--raisin-black);
+    box-shadow: 0px 2px 2px black;
+    padding-bottom: 10px;
+}
+
+.recipe-finder__header h1 {
+    color: var(--pistachio);
+    font-size: medium;
+}
+
+.recipe-finder__header h1:hover {
+    cursor: pointer;
+}
+
+.recipe-finder__header a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 2px solid white;
+    border-radius: 19px;
+    font-weight: bold;
+}
+
+.recipe-finder__header a:hover {
+    transform: scale(1.05);
+}
+
+.recipe-finder__header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 0px;
+}
+
+.recipe-finder__filter-container {
+    gap: 10px;
+}
+
+.recipe-finder__search-bar-container {
     position: relative;
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.search-bar {
+.recipe-finder__search-bar {
     width: 50vw;
     padding: 10px 90px 10px 20px;
     border: 2px solid white;
@@ -173,7 +415,7 @@ body {
     background-color: whitesmoke;
 }
 
-.search-button {
+.recipe-finder__search-button {
     position: absolute;
     right: 6px;
     padding: 5px 10px;
@@ -184,42 +426,21 @@ body {
     font-size: medium;
 }
 
-.search-button:hover {
+.recipe-finder__search-button:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.recipe-finder-header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: var(--raisin-black);
-    box-shadow: 0px 2px 2px black;
+.recipe-finder__reset-button {
+    padding: 5px 20px;
+    border-radius: 22px;
+    color: white;
+    background-color: var(--mantis);
 }
 
-.recipe-finder-header > div:nth-child(1) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px 10px;
-}
-
-.recipe-finder-header > div:nth-child(2) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 80px 10px;
-}
-
-.recipe-finder-header h1 {
-    color: var(--pistachio);
-}
-
-.search-filter-container {
-    display: flex;
-    gap: 10px;
+.recipe-finder__reset-button:hover {
+    background-color: var(--pistachio);
+    cursor: pointer;
 }
 
 /***** Recipe Result Component *****/
@@ -303,7 +524,7 @@ body {
 }
 
 .recipe-card__focused {
-    background-color: black;
+    background-color: rgba(122, 199, 79, 0.2);
 }
 
 .recipe-card__desc {
@@ -327,7 +548,7 @@ body {
 .recipe-card__desc a {
     text-decoration: none;
     font-style: italic;
-    color: var(--citron);
+    color: var(--bittersweet);
 }
 
 .recipe-card__desc a:hover {

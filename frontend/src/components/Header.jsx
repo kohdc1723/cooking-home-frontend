@@ -22,9 +22,12 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={`header ${isScrolled && "scrolled"}`}>
+        <header className={`header ${isScrolled && "header__scrolled"}`}>
             <h1>COOKING HOME</h1>
-            <Link className="login-button" to="/login">Sign In</Link>
+            <nav className="header__nav">
+                <Link to="/recipes">Recipe Finder</Link>
+                <Link className="header__login-button" to="/login">Sign In</Link>
+            </nav>
         </header>
     );
 };

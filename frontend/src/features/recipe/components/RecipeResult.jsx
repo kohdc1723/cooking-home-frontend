@@ -1,26 +1,23 @@
-import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Pagination, PaginationItem } from "@mui/material";
 import { useGetRecipesQuery } from "../recipeApiSlice";
 import { RecipeCard, RecipeDetail } from "./";
+import { muiStyles } from "../../../styles/muiCustomStyles";
 
 const RecipeResult = () => {
     const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
 
-    const [queryParams, setQueryParams] = useState(() => {
-        const queryParams = new URLSearchParams(location.search);
-
-        return {
-            currentId: queryParams.get("currentId"),
-            query: queryParams.get("query"),
-            page: queryParams.get("page"),
-            diet: queryParams.get("diet"),
-            mealType: queryParams.get("mealType"),
-            health: queryParams.getAll("health"),
-            cuisineType: queryParams.getAll("cuisineType"),
-            dishType: queryParams.getAll("dishType"),
-        };
-    });
+    const queryParams = {
+        currentId: searchParams.get("currentId"),
+        query: searchParams.get("query"),
+        page: searchParams.get("page"),
+        diet: searchParams.get("diet"),
+        mealType: searchParams.get("mealType"),
+        health: searchParams.getAll("health"),
+        cuisineType: searchParams.getAll("cuisineType"),
+        dishType: searchParams.getAll("dishType")
+    };
 
     const { query } = queryParams;
 
@@ -30,20 +27,6 @@ const RecipeResult = () => {
         isSuccess,
         isError,
     } = useGetRecipesQuery(queryParams, { skip: !query });
-
-    useEffect(() => {
-        const queryParams = new URLSearchParams(location.search);
-        setQueryParams({
-            currentId: queryParams.get("currentId"),
-            query: queryParams.get("query"),
-            page: queryParams.get("page"),
-            diet: queryParams.get("diet"),
-            mealType: queryParams.get("mealType"),
-            health: queryParams.getAll("health"),
-            cuisineType: queryParams.getAll("cuisineType"),
-            dishType: queryParams.getAll("dishType")
-        });
-    }, [location.search]);
 
     if (isSuccess) {
         const { ids, entities, count } = recipes;
@@ -62,33 +45,21 @@ const RecipeResult = () => {
                         {ids?.length ? (
                             <div className="recipe-result__card-container">
                                 {ids?.map(id => (
-                                    <RecipeCard key={id} recipe={entities[id]} queryParams={queryParams} />
+                                    <RecipeCard key={id} recipe={entities[id]} />
                                 ))}
                                 <Pagination
-                                    sx={{
-                                        padding: "20px",
-                                        display: "flex",
-                                        justifyContent: "center"
-                                    }}
+                                    sx={muiStyles.pagination}
                                     page={page}
                                     count={totalPage}
                                     renderItem={(item) => {
                                         const params = new URLSearchParams(location.search);
                                         params.set("page", item.page);
-                                        const newQueryString = params.toString();
 
                                         return (
                                             <PaginationItem
-                                                sx={{
-                                                    "&.MuiButtonBase-root": {
-                                                        color: "white"
-                                                    },
-                                                    "&.MuiButtonBase-root.Mui-selected": {
-                                                        background: "gray"
-                                                    }
-                                                }}
+                                                sx={muiStyles.paginationItem}
                                                 component={Link}
-                                                to={`/recipes?${newQueryString}`}
+                                                to={`/recipes?${params.toString()}`}
                                                 {...item}
                                             />
                                         );
@@ -102,7 +73,7 @@ const RecipeResult = () => {
                         )}
                     </div>
                     <div className="recipe-result__detail-container">
-                        <RecipeDetail recipe={entities[queryParams.currentId]} />
+                        <RecipeDetail recipe={entities[queryParams.currentId]} recipeId={queryParams.currentId} />
                     </div>
                 </div>
             </div>

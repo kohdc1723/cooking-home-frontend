@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import edamamApiSlice from "./api/edamamApiSlice";
-import queryParamsReducer from "../features/recipe/queryParamsSlice";
 
 const store = configureStore({
     reducer: {
-        [edamamApiSlice.reducerPath]: edamamApiSlice.reducer,
-        queryParams: queryParamsReducer
+        [edamamApiSlice.reducerPath]: edamamApiSlice.reducer
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware().concat(edamamApiSlice.middleware),

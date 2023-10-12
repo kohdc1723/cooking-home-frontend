@@ -25,42 +25,37 @@ const muiStyles = {
     },
     select: {
         ".MuiOutlinedInput-notchedOutline": {
-            borderColor: "white",
+            borderColor: "#FCFAF9",
             borderWidth: "2px",
             borderRadius: "28px",
         },
         "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "white"
+            borderColor: "#FCFAF9"
         },
         "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "white"
+            borderColor: "#FCFAF9"
         },
         ".MuiSvgIcon-root": {
-            color: "white"
+            color: "#FCFAF9"
         },
         ".MuiSelect-select": {
-            color: "#7ac74fff",
-            fontWeight: "bold"
+            color: "#BABD8D",
+            fontWeight: "bold",
         },
-        color: "white"
+        color: "#FCFAF9"
     },
     inputLabel: {
         "&.MuiInputLabel-outlined.Mui-focused": {
-            color: "white"
+            color: "#FCFAF9"
         },
         "&.MuiInputLabel-outlined": {
-            color: "white"
+            color: "#FCFAF9"
         }
     },
     box: {
         display: "flex",
         flexWrap: "wrap",
         gap: 1
-    },
-    chip: {
-        background: "#7ac74fff",
-        fontWeight: "bold",
-        color: "whitesmoke"
     },
     pagination: {
         padding: "20px",
@@ -69,7 +64,7 @@ const muiStyles = {
     },
     paginationItem: {
         "&.MuiButtonBase-root": {
-            color: "white"
+            color: "#FCFAF9"
         },
         "&.MuiButtonBase-root.Mui-selected": {
             background: "gray"

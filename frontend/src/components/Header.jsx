@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { AuthButton } from "../features/auth/components";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -25,8 +26,9 @@ const Header = () => {
         <header className={`header ${isScrolled && "header__scrolled"}`}>
             <h1>COOKING HOME</h1>
             <nav className="header__nav">
-                <Link to="/recipes">Recipe Finder</Link>
-                <Link className="header__login-button" to="/login">Sign In</Link>
+                <Link to="/recipes">Search</Link>
+                <Link to="/suggest">Suggest</Link>
+                <AuthButton />
             </nav>
         </header>
     );

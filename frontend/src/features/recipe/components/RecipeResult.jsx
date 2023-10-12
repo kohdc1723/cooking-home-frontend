@@ -1,11 +1,12 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Pagination, PaginationItem } from "@mui/material";
-import { useGetRecipesQuery } from "../recipeApiSlice";
+import { useGetRecipesQuery } from "../searchApiSlice";
 import { RecipeCard, RecipeDetail } from "./";
 import { muiStyles } from "../../../styles/muiCustomStyles";
 
 const RecipeResult = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const searchParams = new URLSearchParams(location.search);
 
     const queryParams = {
@@ -30,6 +31,12 @@ const RecipeResult = () => {
 
     if (isSuccess) {
         const { ids, entities, count } = recipes;
+
+        if (!queryParams.currentId || !ids.includes(queryParams.currentId)) {
+            searchParams.set("currentId", ids[0]);
+            navigate(`?${searchParams.toString()}`);
+        }
+
         const totalPage = Math.ceil(count / 10);
         const page = Number(new URLSearchParams(location.search).get("page"));
         const from = (page - 1) * 10 + 1;

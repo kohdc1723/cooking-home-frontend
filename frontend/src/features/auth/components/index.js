@@ -1,7 +1,11 @@
 import Login from "./Login";
-import Register from "./Register";
+import RequireAuth from "./RequireAuth";
+import PersistLogin from "./PersistLogin";
+import AuthButton from "./AuthButton";
 
 export {
     Login,
-    Register
+    RequireAuth,
+    PersistLogin,
+    AuthButton
 };

@@ -1,22 +1,26 @@
 import { Routes, Route } from "react-router-dom";
 import { Layout, Welcome } from "./components";
-import { Login, Register } from "./features/auth/components";
-import { RecipeDetail, RecipeFinder, RecipeSearch } from "./features/recipe/components";
+import { Login, RequireAuth, PersistLogin } from "./features/auth/components";
+import { RecipeFinder, RecipeSuggest } from "./features/recipe/components";
+import { Register, Profile } from "./features/users/components";
 
 const App = () => {
     return (
         <Routes>
-            {/* // public routes start */}
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="recipes" element={<RecipeFinder />} />
 
-            <Route path="recipes">
-                <Route index element={<RecipeFinder />} />
-            </Route>
-
-            <Route path="/" element={<Layout />}>
+            <Route element={<Layout />}>
                 <Route index element={<Welcome />} />
-                {/* public routes end // */}
+
+                {/* protected routes */}
+                <Route element={<PersistLogin />}>
+                    <Route element={<RequireAuth />}>
+                        <Route path="suggest" element={<RecipeSuggest />} />
+                        <Route path="profile" element={<Profile />} />
+                    </Route>
+                </Route>
             </Route>
         </Routes>
     );

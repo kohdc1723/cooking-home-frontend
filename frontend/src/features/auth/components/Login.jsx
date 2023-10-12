@@ -1,10 +1,15 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../authSlice";
+import { useLoginMutation } from "../authApiSlice";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 
 const Login = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const usernameRef = useRef();
     const errorRef = useRef();
@@ -14,6 +19,8 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState("");
     const [persist, setPersist] = useLocalStorage("persist", false);
 
+    const [login, { isLoading }] = useLoginMutation();
+
     useEffect(() => {
         usernameRef.current.focus();
     }, []);
@@ -22,10 +29,35 @@ const Login = () => {
         setErrMsg("");
     }, [username, password]);
 
-    const handleClickHome = e => navigate("/");
+    const handleClickHome = () => navigate("/");
     const handleChangeUsername = e => setUsername(e.target.value);
     const handleChangePassword = e => setPassword(e.target.value);
-    const handleChangePersist = e => setPersist(prev => !prev);
+    const handleChangePersist = () => setPersist(prev => !prev);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const { accessToken } = await login({ username, password }).unwrap();
+            dispatch(setCredentials({ accessToken }));
+            setUsername("");
+            setPassword("");
+
+            navigate(from, { replace: true });
+        } catch (err) {
+            if (!err?.status) {
+                setErrMsg("No server response");
+            } else if (err.status === 400) {
+                setErrMsg("Username and password are required");
+            } else if (err.status === 401) {
+                setErrMsg("Unauthorized");
+            } else {
+                setErrMsg(err.data?.message);
+            }
+
+            errorRef.current.focus();
+        }
+    };
 
     return (
         <main className="login">
@@ -35,10 +67,14 @@ const Login = () => {
                 <p
                     ref={errorRef}
                     aria-live="assertive"
+                    className={errMsg ? "login__errmsg" : "off-screen"}
                 >
                     {errMsg}
                 </p>
-                <form className="login__form">
+                <form
+                    className="login__form"
+                    onSubmit={handleSubmit}
+                >
                     <input
                         type="text"
                         id="username"

@@ -2,7 +2,15 @@
 
 /***** General *****/
 :root {
-    --mantis: #7ac74fff;
+    --licorice: #110B11;
+    --dark-green: #14342bff;
+    --asparagus: #60935dff;
+    --avocado: #598B2C;
+    --tomato: #F95738;
+    --pumpkin:#F0803C;
+    --sea-salt: #FCFAF9;
+    --sage: #BABD8D;
+    --salmon: #FF8E72;
     --pistachio: #a1cf6bff;
     --straw: #d5d887ff;
     --citron: #e0c879ff;
@@ -19,10 +27,62 @@
 body {
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
+    background-color: var(--licorice);
+    color: var(--sea-salt);
 }
 
 .off-screen {
     display: none;
+}
+
+/***** DropdownButton Component *****/
+.dropdown-button {
+    background-color: var(--raisin-black);
+    position: relative;
+    border: 2px solid var(--sea-salt);
+    border-radius: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
+    color: var(--sea-salt);
+    font-weight: bold;
+}
+
+.dropdown-button:hover {
+    cursor: pointer;
+}
+
+.dropdown-button__header {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-button__list {
+    background-color: var(--raisin-black);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 41px;
+    left: 0px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.dropdown-button__item {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 10px 0px;
+    text-decoration: none;
+    color: var(--sea-salt);
+    font-size: medium;
+    font-weight: normal;
+    text-align: center;
+}
+
+.dropdown-button__item:hover {
+    color: var(--sage);
 }
 
 /***** Header Component *****/
@@ -34,13 +94,13 @@ body {
     align-items: center;
     padding: 10px 20px;
     width: 100%;
-    color: white;
+    color: var(--sea-salt);
     background-color: transparent;
     z-index: 100;
 }
 
 .header__scrolled {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(35, 32, 32, 0.8);
 }
 
 .header__nav {
@@ -51,7 +111,7 @@ body {
 
 .header__nav a {
     text-decoration: none;
-    color: white;
+    color: var(--sea-salt);
 }
 
 .header__nav a:hover {
@@ -59,11 +119,11 @@ body {
 }
 
 .header__login-button {
-    border: 2px solid white;
+    border: 2px solid var(--sea-salt);
     border-radius: 20px;
     padding: 5px 20px;
     text-decoration: none;
-    color: white;
+    color: var(--sea-salt);
     font-weight: bold;
 }
 
@@ -76,12 +136,12 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 20px 20px;
-    background-color: black;
-    color: white;
+    background-color: var(--licorice);
+    color: var(--sea-salt);
 }
 
 .footer h1 {
-    color: var(--pistachio);
+    color: var(--avocado);
 }
 
 .footer__title-column {
@@ -101,7 +161,7 @@ body {
 .footer__column h5 {
     font-size: medium;
     padding-bottom: 5px;
-    color: var(--mantis);
+    color: var(--pistachio);
 }
 
 .footer__column p {
@@ -112,7 +172,7 @@ body {
 .welcome__background {
     position: absolute;
     top: 0;
-    background-image: linear-gradient(to bottom, transparent, black), url("./images/welcome.jpg");
+    background-image: linear-gradient(to bottom, transparent, var(--licorice)), url("./images/welcome.jpg");
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -125,7 +185,7 @@ body {
     justify-content: center;
     width: 100%;
     height: calc(100vh - 67.5px);
-    color: white;
+    color: var(--sea-salt);
     padding: 50px;
 }
 
@@ -139,7 +199,7 @@ body {
 .welcome__text h2 {
     font-size: 40px;
     padding-bottom: 10px;
-    color: whitesmoke;
+    color: var(--sea-salt);
 }
 
 .welcome__text p {
@@ -148,15 +208,15 @@ body {
 
 .welcome__text span {
     font-weight: bold;
-    color: var(--pistachio);
+    color: var(--avocado);
     font-size: larger;
 }
 
 .welcome__text a {
-    background-color: var(--mantis);
+    background-color: var(--avocado);
     padding: 10px 40px;
     text-decoration: none;
-    color: white;
+    color: var(--sea-salt);
     font-size: large;
     font-weight: bold;
     border-radius: 5px;
@@ -164,6 +224,13 @@ body {
 
 .welcome__text a:hover {
     transform: scale(1.05);
+}
+
+/***** Home Component *****/
+.home {
+    color: var(--sea-salt);
+    background-color: var(--licorice);
+    padding: 20px;
 }
 
 /***** Register Component *****/
@@ -179,7 +246,7 @@ body {
 
 .register h1 {
     text-align: center;
-    color: var(--pistachio);
+    color: var(--avocado);
 }
 
 .register h1:hover {
@@ -192,7 +259,7 @@ body {
 
 .register a {
     text-decoration: none;
-    color: var(--citron);
+    color: var(--sage);
     font-style: italic;
 }
 
@@ -202,7 +269,7 @@ body {
 
 .register__container {
     color: white;
-    background-color: black;
+    background-color: var(--licorice);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -222,25 +289,27 @@ body {
     padding: 10px;
     border-radius: 10px;
     width: 100%;
-    border: 2px solid white;
+    border: 2px solid var(--sea-salt);
 }
 
 .register__input-invalid {
-    border: 2px solid red;
+    border: 2px solid var(--tomato);
 }
 
 .register__form button {
     font-weight: bold;
-    border: 2px solid var(--mantis);
     border-radius: 10px;
-    background-color: var(--mantis);
+    border: 2px solid var(--avocado);
+    background-color: var(--avocado);
     color: black;
     width: 100%;
     padding: 10px;
 }
 
 .register__form button:hover {
-    background-color: var(--pistachio);
+    border: 2px solid var(--asparagus);
+    background-color: var(--asparagus);
+    cursor: pointer;
 }
 
 .register__form-row {
@@ -256,8 +325,16 @@ body {
     background-color: var(--raisin-black);
     color: white;
     padding: 10px;
-    /* position: relative;
-    bottom: -10px; */
+}
+
+.register__errmsg {
+    text-align: center;
+    color: var(--tomato);
+}
+
+.register__sucmsg {
+    text-align: center;
+    color: var(--asparagus);
 }
 
 /***** Login Component *****/
@@ -273,7 +350,7 @@ body {
 
 .login h1 {
     text-align: center;
-    color: var(--pistachio);
+    color: var(--avocado);
 }
 
 .login h1:hover {
@@ -286,7 +363,7 @@ body {
 
 .login a {
     text-decoration: none;
-    color: var(--citron);
+    color: var(--sage);
     font-style: italic;
 }
 
@@ -296,7 +373,7 @@ body {
 
 .login__container {
     color: white;
-    background-color: black;
+    background-color: var(--licorice);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -316,19 +393,23 @@ body {
     padding: 10px;
     border-radius: 10px;
     width: 100%;
+    border: 2px solid var(--sea-salt);
 }
 
 .login__form button {
     font-weight: bold;
     border-radius: 10px;
-    background-color: var(--mantis);
+    border: 2px solid var(--avocado);
+    background-color: var(--avocado);
     color: black;
     width: 100%;
     padding: 10px;
 }
 
 .login__form button:hover {
-    background-color: var(--pistachio);
+    border: 2px solid var(--asparagus);
+    background-color: var(--asparagus);
+    cursor: pointer;
 }
 
 .login__form-row {
@@ -349,6 +430,11 @@ body {
     width: 15px;
 }
 
+.login__errmsg {
+    text-align: center;
+    color: var(--tomato);
+}
+
 /***** Recipe Finder Component *****/
 .recipe-finder {
     height: 100vh;
@@ -366,7 +452,7 @@ body {
 }
 
 .recipe-finder__header h1 {
-    color: var(--pistachio);
+    color: var(--avocado);
     font-size: medium;
 }
 
@@ -412,16 +498,16 @@ body {
     border-radius: 22.5px;
     color: black;
     font-size: large;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .recipe-finder__search-button {
     position: absolute;
     right: 6px;
     padding: 5px 10px;
-    background-color: var(--mantis);
+    background-color: var(--avocado);
     color: white;
-    border: 2px solid var(--mantis);
+    border: 2px solid var(--avocado);
     border-radius: 16px;
     font-size: medium;
 }
@@ -435,17 +521,17 @@ body {
     padding: 5px 20px;
     border-radius: 22px;
     color: white;
-    background-color: var(--mantis);
+    background-color: var(--avocado);
 }
 
 .recipe-finder__reset-button:hover {
-    background-color: var(--pistachio);
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 /***** Recipe Result Component *****/
 .recipe-result {
-    background-color: black;
+    background-color: var(--licorice);
     height: calc(100vh - 133.5px);
     display: flex;
     justify-content: center;
@@ -455,14 +541,14 @@ body {
 
 .recipe-result__error {
     align-items: center;
-    color: var(--bittersweet);
+    color: var(--tomato);
     font-size: x-large;
     font-weight: bold;
 }
 
 .recipe-result__loading {
     align-items: center;
-    color: var(--citron);
+    color: var(--pumpkin);
     font-size: x-large;
     font-weight: bold;
 }
@@ -480,11 +566,11 @@ body {
 
 .recipe-result__count {
     height: 60px;
-    background-color: var(--mantis);
+    background-color: var(--avocado);
     display: flex;
     align-items: center;
     padding: 10px;
-    color: var(--raisin-black);
+    color: var(--licorice);
 }
 
 .recipe-result__card-container {
@@ -512,7 +598,7 @@ body {
 .recipe-card {
     width: 100%;
     height: 200px;
-    box-shadow: 0px 2px 2px black;
+    box-shadow: 0px 2px 2px var(--licorice);
     padding: 20px;
     display: flex;
     gap: 10px;
@@ -520,11 +606,11 @@ body {
 
 .recipe-card:hover {
     cursor: pointer;
-    background-color: black;
+    background: linear-gradient(to right, var(--raisin-black), var(--licorice));
 }
 
 .recipe-card__focused {
-    background-color: rgba(122, 199, 79, 0.2);
+    background-color: var(--licorice);
 }
 
 .recipe-card__desc {
@@ -536,8 +622,8 @@ body {
 }
 
 .recipe-card__desc h6 {
-    color: var(--pistachio);
-    font-size: large;
+    color: var(--sea-salt);
+    font-size: larger;
 }
 
 .recipe-card__desc-row {
@@ -548,7 +634,7 @@ body {
 .recipe-card__desc a {
     text-decoration: none;
     font-style: italic;
-    color: var(--bittersweet);
+    color: var(--sage);
 }
 
 .recipe-card__desc a:hover {
@@ -567,7 +653,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--sea-salt);
     height: 100%;
 }
 
@@ -585,6 +671,12 @@ body {
     word-wrap: break-word;
 }
 
+.recipe-detail__col h1 {
+    font-size: x-large;
+    color: var(--sea-salt);
+    padding-bottom: 5px;
+}
+
 .recipe-detail__col h2 {
     font-size: x-large;
     color: var(--pistachio);
@@ -593,18 +685,18 @@ body {
 
 .recipe-detail__col h6 {
     font-size: large;
-    color: var(--citron);
+    color: var(--pistachio);
 }
 
 .recipe-detail__col p {
     font-size: medium;
-    color: white;
+    color: var(--sea-salt);
 }
 
 .recipe-detail__col a {
     text-decoration: none;
     font-style: italic;
-    color: var(--bittersweet);
+    color: var(--sage);
 }
 
 .recipe-detail__col a:hover {
@@ -618,7 +710,7 @@ body {
 }
 
 .recipe-detail__chip {
-    background-color: var(--straw);
+    background-color: var(--citron);
     color: var(--raisin-black);
     padding: 1px 7px;
     border-radius: 11px;

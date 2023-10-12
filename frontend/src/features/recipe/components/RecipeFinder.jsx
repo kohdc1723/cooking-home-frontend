@@ -84,6 +84,13 @@ const RecipeFinder = () => {
         setHealth([]);
         setCuisineType([]);
         setDishType([]);
+        searchParams.delete("diet");
+        searchParams.delete("mealType");
+        searchParams.delete("health");
+        searchParams.delete("cuisineType");
+        searchParams.delete("dishType");
+        searchParams.set("page", 1);
+        navigate(`?${searchParams.toString()}`);
     };
 
     return (
@@ -109,7 +116,13 @@ const RecipeFinder = () => {
                             Search
                         </button>
                     </div>
-                    <Link className="recipe-finder__login-button" to="/login">Sign In</Link>
+                    <Link
+                        className="recipe-finder__login-button"
+                        to="/login"
+                        state={{ from: location }}
+                    >
+                        Sign In
+                    </Link>
                 </div>
                 <div className="recipe-finder__header-row recipe-finder__filter-container">
                     <SingleSelect

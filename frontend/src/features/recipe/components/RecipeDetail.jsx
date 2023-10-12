@@ -26,7 +26,7 @@ const RecipeDetail = ({ recipe }) => {
                 <div className="recipe-detail__row">
                     <img src={image} alt="food" width={300} height={300} />
                     <div className="recipe-detail__col">
-                        <h2>{label}</h2>
+                        <h1>{label}</h1>
 
                         <h6>Cuisine Type</h6>
                         <p>{cuisineType}</p>
@@ -60,7 +60,9 @@ const RecipeDetail = ({ recipe }) => {
                         <h2>Cautions</h2>
                         {cautions?.length ? (
                             cautions.map(caution => (
-                                <p key={caution}>● {caution}</p>
+                                <p key={caution}>
+                                    <FontAwesomeIcon icon={faCheck} color="#F95738" /> {caution}
+                                </p>
                             ))
                         ) : (
                             <p>No cautions</p>

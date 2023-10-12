@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "https://api.edamam.com/search";
+const baseUrl = "https://api.edamam.com";
 
 const edamamApiSlice = createApi({
+    reducerPath: "edamamApi",
     baseQuery: fetchBaseQuery({ baseUrl }),
-    tagTypes: ["Recipe"],
     endpoints: builder => ({})
 });
 

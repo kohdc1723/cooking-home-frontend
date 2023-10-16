@@ -1,4 +1,4 @@
-import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
+import { createEntityAdapter } from "@reduxjs/toolkit";
 import apiSlice from "../../app/api/apiSlice";
 
 const usersAdapter = createEntityAdapter({});
@@ -31,6 +31,23 @@ const usersApiSlice = apiSlice.injectEndpoints({
                 }
             }
         }),
+        getUser: builder.query({
+            query: id => ({
+                url: `/users/${id}`,
+                validateStatus: (response, result) => response.status === 200 && !result.isError
+            }),
+            transformResponse: (response) => {
+                const user = { ...response, id: response.user._id };
+                return user;
+            },
+            providesTags: (result, error, arg) => {
+                if (result?.id) {
+                    return [{ type: "User", id: result.id }];
+                } else {
+                    return [];
+                }
+            }
+        }),
         createUser: builder.mutation({
             query: userData => ({
                 url: "/users",
@@ -44,6 +61,7 @@ const usersApiSlice = apiSlice.injectEndpoints({
 
 export const {
     useGetUsersQuery,
+    useGetUserQuery,
     useCreateUserMutation
 } = usersApiSlice;
 

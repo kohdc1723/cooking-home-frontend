@@ -5,8 +5,6 @@ const RequireAuth = () => {
     const location = useLocation();
     const { isAuth } = useAuth();
 
-    console.log(isAuth)
-
     if (isAuth) {
         return <Outlet />;
     } else {

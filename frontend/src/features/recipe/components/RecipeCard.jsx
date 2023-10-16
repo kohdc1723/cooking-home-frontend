@@ -1,5 +1,7 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineLink } from "react-icons/ai";
+import { setParam, selectCurrentId } from "../searchParamsSlice";
 
 const capitalizeFirstLetter = (array) => {
     return array.map(ele => ele.charAt(0).toUpperCase() + ele.slice(1));
@@ -13,19 +15,15 @@ const formatCuisineType = (types) => {
 };
 
 const RecipeCard = ({ recipe }) => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
+    const dispatch = useDispatch();
 
     const cuisineTypeString = formatCuisineType(recipe.cuisineType);
 
-    const handleClickCard = () => {
-        const queryParams = new URLSearchParams(location.search);
-        queryParams.set("currentId", recipe?.id);
-        navigate(`?${queryParams.toString()}`);
-    };
+    const currentId = useSelector(selectCurrentId);
 
-    const isFocused = () => recipe?.id === queryParams.get("currentId");
+    const handleClickCard = () => dispatch(setParam("currentId", recipe?.id));
+
+    const isFocused = () => recipe?.id === currentId;
 
     return (
         <div className={`recipe-card ${isFocused() && "recipe-card__focused"}`} onClick={handleClickCard}>

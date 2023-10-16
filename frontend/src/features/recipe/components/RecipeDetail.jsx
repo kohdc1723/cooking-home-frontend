@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const RecipeDetail = ({ recipe }) => {
     if (recipe) {
         const {
+            id,
             image,
             label,
             cuisineType,
@@ -50,8 +51,8 @@ const RecipeDetail = ({ recipe }) => {
                 <div className="recipe-detail__row">
                     <div className="recipe-detail__col">
                         <h2>Ingredients</h2>
-                        {ingredientLines.map(line => (
-                            <p key={line}>
+                        {ingredientLines.map((line, index) => (
+                            <p key={`${index}${line}`}>
                                 <FontAwesomeIcon icon={faCheck} color="#e0c879ff" /> {line}
                             </p>
                         ))}
@@ -60,7 +61,7 @@ const RecipeDetail = ({ recipe }) => {
                         <h2>Cautions</h2>
                         {cautions?.length ? (
                             cautions.map(caution => (
-                                <p key={caution}>
+                                <p key={`${caution}`}>
                                     <FontAwesomeIcon icon={faCheck} color="#F95738" /> {caution}
                                 </p>
                             ))
@@ -74,7 +75,7 @@ const RecipeDetail = ({ recipe }) => {
                         <h2>Health Label</h2>
                         <div className="recipe-detail__chip-container">
                             {healthLabels.map(health => (
-                                <div key={health} className="recipe-detail__chip">{health}</div>
+                                <div key={`${health}`} className="recipe-detail__chip">{health}</div>
                             ))}
                         </div>
                     </div>
@@ -82,7 +83,7 @@ const RecipeDetail = ({ recipe }) => {
                         <h2>Diet Label</h2>
                         <div className="recipe-detail__chip-container">
                             {dietLabels.map(diet => (
-                                <div key={diet} className="recipe-detail__chip">
+                                <div key={`${diet}`} className="recipe-detail__chip">
                                     {diet}
                                 </div>
                             ))}

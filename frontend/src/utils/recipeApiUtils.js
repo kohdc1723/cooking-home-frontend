@@ -10,22 +10,24 @@ const getQueryStringOf = (name, params) => {
     return queryString;
 };
 
-const createQueryStringOldVersion = (query, page, diet, health, cuisineType, mealType, dishType) => {
+const createQueryStringOldVersion = (searchParamsString) => {
     const edamamAppId = process.env.REACT_APP_EDAMAM_APP_ID;
     const edamamApiKey = process.env.REACT_APP_EDAMAM_API_KEY;
     const authString = `&app_id=${edamamAppId}&app_key=${edamamApiKey}`;
 
-    const queryString = query?.trim() ? `q=${query.trim()}` : "";
-    const fromToString = `&from=${(page - 1) * 10}&to=${page * 10}`;
-    const dietString = diet ? `&diet=${diet}` : "";
-    const healthString = getQueryStringOf("health", health);
-    const cuisineTypeString = getQueryStringOf("cuisineType", cuisineType);
-    const mealTypeString = mealType ? `&mealType=${mealType}` : "";
-    const dishTypeString = getQueryStringOf("dishType", dishType);
+    const searchParams = new URLSearchParams(searchParamsString.replace("query", "q"));
 
-    const _queryString = `${queryString}${dietString}${healthString}${mealTypeString}${cuisineTypeString}${dishTypeString}${fromToString}${authString}`;
+    if (!searchParams.has("page")) {
+        searchParams.set("page", 1);
+    }
+    
+    const page = searchParams.get("page");
+    searchParams.delete("page");
+    searchParams.set("from", (page - 1) * 10);
+    searchParams.set("to", page * 10);
+    const queryString = `${searchParams.toString()}${authString}`;
 
-    return _queryString;
+    return queryString;
 };
 
 const createQueryStringNewVersion = (query) => {

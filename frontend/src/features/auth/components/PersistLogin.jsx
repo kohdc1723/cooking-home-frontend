@@ -44,7 +44,6 @@ const PersistLogin = () => {
     } else if (isLoading) { // persist O, token X
         return <p>Loading...</p>;
     } else if (isError) { // persist O, token X
-        console.log(error)
         return <Outlet />;
     } else if (isSuccess && trueSuccess) { // persist O, token O
         return <Outlet />;

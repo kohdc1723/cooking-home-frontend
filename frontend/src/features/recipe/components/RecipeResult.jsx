@@ -1,44 +1,45 @@
-import { useLocation, useNavigate, Link } from "react-router-dom";
-import { Pagination, PaginationItem } from "@mui/material";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Pagination } from "@mui/material";
 import { useGetRecipesQuery } from "../searchApiSlice";
 import { RecipeCard, RecipeDetail } from "./";
 import { muiStyles } from "../../../styles/muiCustomStyles";
+import { setParam } from "../searchParamsSlice";
 
 const RecipeResult = () => {
     const location = useLocation();
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const searchParams = new URLSearchParams(location.search);
-
-    const queryParams = {
-        currentId: searchParams.get("currentId"),
-        query: searchParams.get("query"),
-        page: searchParams.get("page"),
-        diet: searchParams.get("diet"),
-        mealType: searchParams.get("mealType"),
-        health: searchParams.getAll("health"),
-        cuisineType: searchParams.getAll("cuisineType"),
-        dishType: searchParams.getAll("dishType")
-    };
-
-    const { query } = queryParams;
-
+    const currentId = searchParams.get("currentId");
+    
     const {
         data: recipes,
         isLoading,
         isSuccess,
-        isError,
-    } = useGetRecipesQuery(queryParams, { skip: !query });
+        isError
+    } = useGetRecipesQuery(location.search, {
+        skip: !searchParams.has("query")
+    });
+
+    useEffect(() => {
+        if (isSuccess) {
+            const { ids } = recipes;
+
+            if (!currentId || !ids.includes(currentId)) {
+                dispatch(setParam("currentId", ids[0]));
+            }
+        }
+    }, [recipes]);
+
+    const onChangePage = (event, value) => dispatch(setParam("page", value));
 
     if (isSuccess) {
         const { ids, entities, count } = recipes;
 
-        if (!queryParams.currentId || !ids.includes(queryParams.currentId)) {
-            searchParams.set("currentId", ids[0]);
-            navigate(`?${searchParams.toString()}`);
-        }
-
         const totalPage = Math.ceil(count / 10);
-        const page = Number(new URLSearchParams(location.search).get("page"));
+        const page = Number(searchParams.get("page"));
         const from = (page - 1) * 10 + 1;
         const to = page * 10;
 
@@ -56,21 +57,9 @@ const RecipeResult = () => {
                                 ))}
                                 <Pagination
                                     sx={muiStyles.pagination}
-                                    page={page}
                                     count={totalPage}
-                                    renderItem={(item) => {
-                                        const params = new URLSearchParams(location.search);
-                                        params.set("page", item.page);
-
-                                        return (
-                                            <PaginationItem
-                                                sx={muiStyles.paginationItem}
-                                                component={Link}
-                                                to={`/recipes?${params.toString()}`}
-                                                {...item}
-                                            />
-                                        );
-                                    }}
+                                    page={page}
+                                    onChange={onChangePage}
                                 />
                             </div>
                         ) : (
@@ -80,7 +69,7 @@ const RecipeResult = () => {
                         )}
                     </div>
                     <div className="recipe-result__detail-container">
-                        <RecipeDetail recipe={entities[queryParams.currentId]} recipeId={queryParams.currentId} />
+                        <RecipeDetail recipe={entities[currentId]} />
                     </div>
                 </div>
             </div>

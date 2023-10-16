@@ -58,17 +58,16 @@ const muiStyles = {
         gap: 1
     },
     pagination: {
+        ".MuiPaginationItem-root": { color: "white" },
+        ".MuiButtonBase-root": { color: "white", background: "#232020" },
+        ".MuiPaginationItem-previousNext": { background: "#232020" },
+        ".MuiPaginationItem-text": { color: "white" },
+        "&.MuiPagination-root .Mui-selected": { background: "#598B2C" },
+        ".MuiButtonBase-root.MuiPaginationItem-root:hover": { background: "black" },
         padding: "20px",
         display: "flex",
         justifyContent: "center",
-    },
-    paginationItem: {
-        "&.MuiButtonBase-root": {
-            color: "#FCFAF9"
-        },
-        "&.MuiButtonBase-root.Mui-selected": {
-            background: "gray"
-        }
+        color: "white"
     }
 };
 

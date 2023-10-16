@@ -29,7 +29,7 @@ const login = asyncHandler(async (req, res) => {
 
     // create access token
     const accessToken = jwt.sign(
-        { username: foundUser.username },
+        { username: foundUser.username, id: foundUser._id },
         process.env.ACCESS_TOKEN_SECRET,
         { expiresIn: "15m" }
     );
@@ -83,7 +83,7 @@ const refresh = (req, res) => {
 
         // create new access token
         const accessToken = jwt.sign(
-            { username: foundUser.username },
+            { username: foundUser.username, id: foundUser._id },
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: "15m" }
         );

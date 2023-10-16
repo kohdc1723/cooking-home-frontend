@@ -7,15 +7,17 @@ const useAuth = () => {
 
     if (token) {
         const decoded = jwtDecode(token);
-        const { username } = decoded;
+        const { username, id } = decoded;
 
         return {
             username,
+            id,
             isAuth: true
         };
     } else {
         return {
             username: "",
+            id: "",
             isAuth: false
         };
     }

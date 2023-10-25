@@ -1,9 +1,11 @@
 import Register from "./Register";
 import Profile from "./Profile";
-import UserInfo from "./UserInfo";
+import AccountSetting from "./AccountSetting";
+import AccountSettingForm from "./AccountSettingForm";
 
 export {
     Register,
     Profile,
-    UserInfo
+    AccountSetting,
+    AccountSettingForm
 };

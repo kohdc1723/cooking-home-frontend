@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGetRandomRecipesQuery } from "../../recipe/suggestApiSlice";
 
+const favorites = ["pasta", "sandwich", "burger", "soup"];
 const ingredients = ["beef", "garlic", "tomato", "potato", "onion", "egg", "cheese", "carrot", "chicken", "shrimp"];
 
 const getRandomTwo = (array) => {

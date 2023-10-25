@@ -1,21 +1,8 @@
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/User");
-
-/**
- * @desc Get all users
- * @route GET /users
- * @access Private
-**/
-const getAllUsers = asyncHandler(async (req, res) => {
-    const users = await User.find().select("-password").lean();
-
-    if (!users) {
-        return res.status(400).json({ message: "no users found" });
-    } else {
-        return res.json(users);
-    }
-});
+const Preference = require("../models/Preference");
 
 /**
  * @desc Get a user by id
@@ -77,40 +64,78 @@ const createUser = asyncHandler(async (req, res) => {
  * @route PATCH /users
  * @access Private
 **/
-// const updateUser = asyncHandler(async (req, res) => {
-//     const { id, username, password } = req.body;
+const updateUser = asyncHandler(async (req, res) => {
+    const { id, username, password } = req.body;
 
-//     // confirm body data
-//     if (!id || !username || !password) {
-//         return res.status(400).json({ message: "all fields are required" });
-//     }
+    // confirm body data
+    if (!id || !username) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
 
-//     // confirm the user existence
-//     const user = await User.findById(id).exec();
-//     if (!user) {
-//         return res.status(400).json({ message: "user not found" });
-//     }
+    // confirm the user existence
+    const user = await User.findById(id).exec();
+    if (!user) {
+        return res.status(400).json({ message: "User is not found" });
+    }
 
-//     // check for duplicate
-//     const duplicate = await User.findOne({ username }).collation({ locale: "en", strength: 2 }).lean().exec();
-//     // allow updates to the original user
-//     if (duplicate && duplicate?._id.toString() !== id) {
-//         return res.status(409).json({ message: "duplicate username" });
-//     }
+    // check for duplicate
+    const duplicate = await User.findOne({ username }).collation({ locale: "en", strength: 2 }).lean().exec();
+    // allow updates to the original user
+    if (duplicate && duplicate?._id.toString() !== id) {
+        return res.status(409).json({ message: "Username already exists" });
+    }
 
-//     // update the user
-//     user.username = username;
-//     user.roles = roles;
-//     user.active = active;
-//     if (password) user.password = await bcrypt.hash(password, 10);
+    // update the user
+    user.username = username;
+    if (password) user.password = await bcrypt.hash(password, 10);
 
-//     const updatedUser = await user.save();
+    const updatedUser = await user.save();
 
-//     return res.json({ message: `${updatedUser.username} updated` });
-// });
+    // create refresh token
+    const refreshToken = jwt.sign(
+        { username: updatedUser.username },
+        process.env.REFRESH_TOKEN_SECRET,
+        { expiresIn: "7d" }
+    );
+
+    // create secure cookie with refresh token
+    res.cookie("refreshToken", refreshToken, {
+        httpOnly: true, // accessible only by web server
+        secure: true, // https
+        sameSite: "none", // cross-site cookie
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    });
+
+    return res.json({ message: `User ${updatedUser.username} is updated` });
+});
+
+/**
+ * @desc Delete a user
+ * @route DELETE /users
+ * @access Private
+**/
+const deleteUser = asyncHandler(async (req, res) => {
+    const { id } = req.body;
+    if (!id) {
+        return res.status(400).json({ message: "User id is required" });
+    }
+
+    const preference = await Preference.findOne({ user: id }).lean().exec();
+    if (preference) {
+        await preference.deleteOne();
+    }
+
+    const user = await User.findById(id).exec();
+    if (!user) {
+        return res.status(404).json({ message: "User is not found" });
+    } else {
+        return res.json({ message: "User and its preference are deleted" });
+    }
+});
 
 module.exports = {
-    getAllUsers,
     getUser,
-    createUser
+    createUser,
+    updateUser,
+    deleteUser
 };

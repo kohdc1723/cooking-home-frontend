@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCreateUserMutation } from "../usersApiSlice";
+import { useCreatePreferenceMutation } from "../../preference/preferenceApiSlice";
 
 const USERNAME_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -25,9 +26,12 @@ const Register = () => {
     const [validConfirmPassword, setValidConfirmPassword] = useState(false);
     const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
 
-    // const [errMsg, setErrMsg] = useState("");
-
-    const [createUser, { isLoading, isSuccess, isError, error }] = useCreateUserMutation();
+    const [createUser, {
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    }] = useCreateUserMutation();
 
     useEffect(() => {
         usernameRef.current.focus();
@@ -77,8 +81,6 @@ const Register = () => {
         }
     };
 
-    console.log(isSuccess)
-
     return (
         <main className="register">
             <div className="register__container">
@@ -89,7 +91,7 @@ const Register = () => {
                     aria-live="assertive"
                     className={isError ? "register__errmsg" : "off-screen"}
                 >
-                    {error?.data?.message}
+                    Error occurred
                 </p>
                 <p
                     className={isSuccess ? "register__sucmsg" : "off-screen"}

@@ -1,52 +1,25 @@
 import { createEntityAdapter } from "@reduxjs/toolkit";
 import apiSlice from "../../app/api/apiSlice";
 
-const usersAdapter = createEntityAdapter({});
+const usersAdapter = createEntityAdapter({
+    selectId: user => user.id
+});
 
 const initialState = usersAdapter.getInitialState();
 
 const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
-        getUsers: builder.query({
-            query: () => ({
-                url: "/users",
-                validateStatus: (response, result) => response.status === 200 && !result.isError
-            }),
-            transformResponse: response => {
-                const loadedUsers = response.map(user => {
-                    user.id = user._id;
-                    return user;
-                });
-
-                return usersAdapter.setAll(initialState, loadedUsers);
-            },
-            providesTags: (result, error, arg) => {
-                if (result?.ids) {
-                    return [
-                        { type: "User", id: "LIST" },
-                        ...result.ids.map(id => ({ type: "User", id }))
-                    ];
-                } else {
-                    return [{ type: "User", id: "LIST" }];
-                }
-            }
-        }),
         getUser: builder.query({
             query: id => ({
                 url: `/users/${id}`,
                 validateStatus: (response, result) => response.status === 200 && !result.isError
             }),
             transformResponse: (response) => {
-                const user = { ...response, id: response.user._id };
-                return user;
+                const user = { ...response?.user, id: response.user._id };
+
+                return usersAdapter.setOne(initialState, user);
             },
-            providesTags: (result, error, arg) => {
-                if (result?.id) {
-                    return [{ type: "User", id: result.id }];
-                } else {
-                    return [];
-                }
-            }
+            providesTags: ["User"]
         }),
         createUser: builder.mutation({
             query: userData => ({
@@ -54,15 +27,36 @@ const usersApiSlice = apiSlice.injectEndpoints({
                 method: "POST",
                 body: { ...userData }
             }),
-            invalidatesTags: [{ type: "User", id: "LIST" }]
+            invalidatesTags: [{ type: "User" }]
+        }),
+        updateUser: builder.mutation({
+            query: userData => ({
+                url: "/users",
+                method: "PATCH",
+                body: { ...userData }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: "User", id: arg.id }
+            ]
+        }),
+        deleteUser: builder.mutation({
+            query: ({ id }) => ({
+                url: "/users",
+                method: "DELETE",
+                body: { id }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: "User", id: arg.id }
+            ]
         })
     })
 });
 
 export const {
-    useGetUsersQuery,
     useGetUserQuery,
-    useCreateUserMutation
+    useCreateUserMutation,
+    useUpdateUserMutation,
+    useDeleteUserMutation
 } = usersApiSlice;
 
 export default usersApiSlice;

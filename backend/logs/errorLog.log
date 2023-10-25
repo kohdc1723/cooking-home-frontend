@@ -1,0 +1,8 @@
+20231023	14:55:45	11e0f01b-8e40-4b7f-9be8-5f09aea3a1fa	ReferenceError: foundUser is not defined	PATCH	/users	http://localhost:3000
+20231024	18:17:39	5139c745-a50d-489d-81c1-688eafe05b09	TypeError: Preference.save is not a function	PATCH	/preference	http://localhost:3000
+20231024	18:19:33	24d97dd2-d76d-4341-8c20-26be3602b3de	TypeError: Preference.save is not a function	PATCH	/preference	http://localhost:3000
+20231024	18:19:37	608268ba-f558-4db8-a08c-5a93441a99a5	TypeError: Preference.save is not a function	PATCH	/preference	http://localhost:3000
+20231024	18:19:46	90508d6f-598f-4c7a-808d-25be41a7051f	TypeError: Preference.save is not a function	PATCH	/preference	http://localhost:3000
+20231024	18:29:03	2149c04a-d250-4960-8a9c-bd3a25cc3eb2	TypeError: Preference.save is not a function	PATCH	/preference	http://localhost:3000
+20231024	18:29:05	a5b66fdc-0ae5-4e01-b078-6be4f564dd2b	TypeError: Preference.save is not a function	PATCH	/preference	http://localhost:3000
+20231024	18:29:06	effc710a-9a52-4e8b-8528-4d5e7dc169fb	TypeError: Preference.save is not a function	PATCH	/preference	http://localhost:3000

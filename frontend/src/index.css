@@ -725,6 +725,212 @@ body {
 
 /***** Profile Component *****/
 .profile {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 auto;
     padding: 20px;
+    min-height: calc(100vh - 67.5px);
+    width: 80%;
+    background-color: var(--licorice);
+}
+
+/***** AccountSetting Component *****/
+.account-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.account-setting form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.account-setting__form-row {
+    display: flex;
+    align-items: center;
+}
+
+.account-setting__form-row label {
+    color: var(--sea-salt);
+    font-weight: bold;
+    font-size: large;
+    min-width: 120px;
+}
+
+.account-setting__form-row input {
+    width: 400px;
+    border-radius: 10px;
+    border: 2px solid var(--sea-salt);
+    padding: 10px 20px;
+    background-color: var(--raisin-black);
+    color: var(--sea-salt);
+    font-weight: bold;
+}
+
+.account-setting__form-row input:disabled {
+    border: 2px solid var(--raisin-black);
+}
+
+.account-setting h2 {
+    color: var(--avocado);
+}
+
+.account-setting__button-container {
+    display: flex;
+    gap: 20px;
+}
+
+.account-setting__button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: var(--sea-salt);
+    font-weight: bold;
+}
+
+.account-setting__button:hover {
+    cursor: pointer;
+}
+
+.account-setting__edit-button {
+    background-color: var(--sage);
+    border: 2px solid var(--sage);
+}
+
+.account-setting__cancel-button {
+    background-color: var(--tomato);
+    border: 2px solid var(--tomato);
+}
+
+.account-setting__save-button {
+    background-color: var(--asparagus);
+    border: 2px solid var(--asparagus);
+}
+
+.account-setting__save-button:disabled {
+    cursor: default;
+    background-color: var(--raisin-black);
+    border: 2px solid var(--raisin-black);
+}
+
+/***** PreferenceSetting Component *****/
+.preference-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preference-setting h2 {
+    color: var(--avocado);
+}
+
+.preference-setting h4 {
+    color: var(--sea-salt);
+    font-weight: bold;
+    font-size: large;
+}
+
+.preference-setting__error {
+    color: var(--tomato);
+    font-weight: bold;
+}
+
+.preference-setting__loading {
+    color: var(--citron);
+    font-weight: bold;
+}
+
+.preference-setting__initialize {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--raisin-black);
+    border-radius: 10px;
+}
+
+.preference-setting__initialize-button {
+    background-color: var(--raisin-black);
+    color: var(--avocado);
+    font-weight: bold;
+    font-size: medium;
+    font-style: italic;
+    border: none;
+}
+
+.preference-setting__initialize-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.preference-setting__error {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--raisin-black);
+    border-radius: 10px;
+    color: var(--tomato);
+}
+
+.preference-setting__favorites {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preference-setting__chip-container {
+    background-color: var(--raisin-black);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preference-setting__chip {
+    padding: 5px 10px;
+    background-color: var(--asparagus);
+    border-radius: 17px;
+    display: flex;
+    align-items: center;
+    font-size: small;
+    gap: 3px;
+}
+
+.preference-setting__chip:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.preference-setting__add {
+    display: flex;
+    gap: 10px;
+}
+
+.preference-setting__input {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid var(--sea-salt);
+    background-color: var(--raisin-black);
+    color: var(--sea-salt);
+    width: 400px;
+}
+
+.preference-setting__add-button {
+    background-color: var(--sage);
+    color: var(--sea-salt);
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid var(--sage);
+}
+
+.preference-setting__ingredients {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

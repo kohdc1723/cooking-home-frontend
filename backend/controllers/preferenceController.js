@@ -1,5 +1,4 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../models/User");
 const Preference = require("../models/Preference");
 
 /**
@@ -52,8 +51,17 @@ const createPreference = asyncHandler(async (req, res) => {
 **/
 const updatePreference = asyncHandler(async (req, res) => {
     const { id, favorites, ingredients } = req.body;
+
     if (!id) {
         return res.status(400).json({ message: "Preference id is required" });
+    }
+
+    if (favorites && favorites.length < 2) {
+        return res.status(400).json({ message: "Favorites must be at least 2" });
+    }
+
+    if (ingredients && ingredients.length < 4) {
+        return res.status(400).json({ message: "Ingredients must be at least 4" });
     }
 
     const preference = await Preference.findById(id).exec();

@@ -24,7 +24,7 @@ const PreferenceSetting = () => {
         return (
             <div className="preference-setting">
                 <h2>Preference Setting</h2>
-                <div className="preference-setting__loading">Preference setting is loading...</div>
+                <div className="preference-setting__loading">Loading...</div>
             </div>
         );
     } else if (isError) {
@@ -42,7 +42,7 @@ const PreferenceSetting = () => {
         return (
             <div className="preference-setting">
                 <h2>Preference Setting</h2>
-                <div className="preference-setting__error">Failed to load preference setting</div>
+                <div className="preference-setting__error">Failed to load</div>
             </div>
         );
     }

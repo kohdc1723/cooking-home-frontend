@@ -5,37 +5,34 @@ import { GiCancel } from "react-icons/gi";
 const PreferenceSettingForm = ({ id, favorites, ingredients }) => {
     const [favorite, setFavorite] = useState("");
     const [ingredient, setIngredient] = useState("");
+    const [errMsg, setErrMsg] = useState("");
 
-    const [updatePreference] = useUpdatePreferenceMutation();
+    const [updatePreference, { isError, error }] = useUpdatePreferenceMutation();
+
+    useEffect(() => {
+        setErrMsg(error?.data?.message);
+    }, [isError]);
 
     const onChangeFavorite = e => setFavorite(e.target.value);
     const onChangeIngredient = e => setIngredient(e.target.value);
     const onClickAddFavorite = async () => {
-        try {
-            if (favorite) {
-                await updatePreference({
-                    id,
-                    favorites: [...favorites, favorite],
-                    ingredients
-                });
-                setFavorite("");
-            }
-        } catch (err) {
-            console.error(err);
+        if (favorite) {
+            await updatePreference({
+                id,
+                favorites: [...favorites, favorite],
+                ingredients
+            });
+            setFavorite("");
         }
     };
     const onClickAddIngredient = async () => {
-        try {
-            if (ingredient) {
-                await updatePreference({
-                    id,
-                    favorites,
-                    ingredients: [...ingredients, ingredient]
-                });
-                setIngredient("");
-            }
-        } catch (err) {
-            console.error(err);
+        if (ingredient) {
+            await updatePreference({
+                id,
+                favorites,
+                ingredients: [...ingredients, ingredient]
+            });
+            setIngredient("");
         }
     };
     const onClickFavoriteChip = async (indexToRemove) => {
@@ -58,6 +55,7 @@ const PreferenceSettingForm = ({ id, favorites, ingredients }) => {
     return (
         <div className="preference-setting">
             <h2>Preference Setting</h2>
+            <p className="preference-setting__errmsg">{errMsg}</p>
             <div className="preference-setting__favorites">
                 <h4>Favorites</h4>
                 <div className="preference-setting__add">

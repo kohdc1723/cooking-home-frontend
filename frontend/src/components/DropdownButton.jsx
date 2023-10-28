@@ -45,7 +45,7 @@ const DropdownButton = ({ title, items }) => {
                 <div className="dropdown-button__title">{title}</div>
                 {!open ? <FaChevronDown /> : <FaChevronUp />}
             </div>
-            <div className={`${open ? "dropdown-button__list" : "off-screen"}`}>
+            <div className={open ? "dropdown-button__list" : "off-screen"}>
                 <div
                     className="dropdown-button__item"
                     onClick={onClickHome}
@@ -62,7 +62,7 @@ const DropdownButton = ({ title, items }) => {
                     className="dropdown-button__item dropdown-button__signout"
                     onClick={onClickSignOut}
                 >
-                    Sign Out
+                    Logout
                 </div>
             </div>
         </div>

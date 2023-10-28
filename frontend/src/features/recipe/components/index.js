@@ -5,6 +5,8 @@ import RecipeResult from "./RecipeResult";
 import RecipeSuggest from "./RecipeSuggest";
 import SingleSelect from "./SingleSelect";
 import MultipleSelect from "./MultipleSelect";
+import SuggestContainer from "./SuggestContainer";
+import SuggestCard from "./SuggestCard";
 
 export {
     RecipeCard,
@@ -13,5 +15,7 @@ export {
     RecipeResult,
     RecipeSuggest,
     SingleSelect,
-    MultipleSelect
+    MultipleSelect,
+    SuggestContainer,
+    SuggestCard
 };

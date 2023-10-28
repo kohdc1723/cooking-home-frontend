@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthButton } from "../features/auth/components";
+import { MdFoodBank } from "react-icons/md";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -24,7 +25,12 @@ const Header = () => {
 
     return (
         <header className={`header ${isScrolled && "header__scrolled"}`}>
-            <h1>COOKING HOME</h1>
+            <h1>
+                <MdFoodBank />
+                <span>
+                    COOKING<br />HOME
+                </span>
+            </h1>
             <nav className="header__nav">
                 <Link to="/recipes">Search</Link>
                 <Link to="/suggest">Suggest</Link>

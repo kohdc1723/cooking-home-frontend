@@ -1,31 +1,17 @@
+import { MdFoodBank } from "react-icons/md";
+import { SiMongodb, SiRedux, SiReact, SiNodedotjs, SiExpress } from "react-icons/si";
+
+
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer__title-column">
-                <h1>COOKING HOME</h1>
-                <p>created by kohdc in 2023</p>
-            </div>
-            <div className="footer__column">
-                <h5>TECH STACK</h5>
-                <p>MongoDB</p>
-                <p>Express.js</p>
-                <p>React.js</p>
-                <p>Node.js</p>
-                <p>Redux Toolkit</p>
-            </div>
-            <div className="footer__column">
-                <h5>QUICK LINKS</h5>
-                <p>About Us</p>
-                <p>Contact Us</p>
-                <p>Privacy Policy</p>
-                <p>Sitemap</p>
-            </div>
-            <div className="footer__column">
-                <h5>SOCIAL LINKS</h5>
-                <p>Facebook</p>
-                <p>Twitter</p>
-                <p>LinkedIn</p>
-                <p>Github</p>
+            <h1><MdFoodBank /> COOKING HOME</h1>
+            <div className="footer__tech-stack">
+                <span className="footer__tech-stack-item"><SiMongodb color="#00684A" />MongoDB</span>
+                <span className="footer__tech-stack-item"><SiExpress color="#353535" />Express.js</span>
+                <span className="footer__tech-stack-item"><SiReact color="#087EA4" />React.js</span>
+                <span className="footer__tech-stack-item"><SiNodedotjs color="#026E00" />Node.js</span>
+                <span className="footer__tech-stack-item"><SiRedux color="#764ABC" />Redux Toolkit</span>
             </div>
         </footer>
     );

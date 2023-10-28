@@ -14,7 +14,6 @@ const suggestApiSlice = edamamApiSlice.injectEndpoints({
             query: (query) => {
                 const queryString = createQueryStringNewVersion(query);
                 const validateStatus = (response, result) => response.status === 200 && !result.isError;
-                console.log(queryString);
 
                 return {
                     url: `/api/recipes/v2${queryString}`,
@@ -22,7 +21,6 @@ const suggestApiSlice = edamamApiSlice.injectEndpoints({
                 };
             },
             transformResponse: response => {
-                console.log(response);
                 const loadedRecipes = response?.hits?.map(hit => {
                     const recipeId = hit.recipe.uri.split("#recipe_")[1];
                     hit.recipe.id = recipeId;

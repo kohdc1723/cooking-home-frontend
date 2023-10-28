@@ -1,46 +1,51 @@
-import { useEffect, useState } from "react";
-import { useGetRandomRecipesQuery } from "../../recipe/suggestApiSlice";
-
-const favorites = ["pasta", "sandwich", "burger", "soup"];
-const ingredients = ["beef", "garlic", "tomato", "potato", "onion", "egg", "cheese", "carrot", "chicken", "shrimp"];
-
-const getRandomTwo = (array) => {
-    const randomlySortedArray = array.slice().sort(() => 0.5 - Math.random());
-    return randomlySortedArray.slice(0, 2).toString();
-};
+import { useGetPreferenceQuery } from "../../preference/preferenceApiSlice";
+import useAuth from "../../../hooks/useAuth";
+import { SuggestContainer } from "./";
 
 const RecipeSuggest = () => {
-    const [randomQuery, setRandomQuery] = useState("");
+    const { id } = useAuth();
 
     const {
-        data: recipes,
+        data: preference,
         isLoading,
         isSuccess,
         isError
-    } = useGetRandomRecipesQuery(randomQuery, { skip: !randomQuery });
+    } = useGetPreferenceQuery(id);
 
-    useEffect(() => {
-        setRandomQuery(getRandomTwo(ingredients));
-    }, []);
+    if (isSuccess) {
+        const { entities, ids } = preference;
+        const currentPreference = entities[ids[0]];
+        const favorites = currentPreference?.favorites;
+        const ingredients = currentPreference?.ingredients;
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    } else if (isError) {
-        return <p>Error...</p>;
-    } else if (isSuccess) {
-        const { ids, entities } = recipes;
+        const shuffledFavorites = favorites.slice().sort(() => 0.5 - Math.random());
+        const shuffledIngredients = ingredients.slice().sort(() => 0.5 - Math.random());
 
         return (
-            <section>
-                <h2>Since you have {randomQuery}</h2>
-                {ids.map(id => (
-                    <div>{`${entities[id].label}`}</div>
-                ))}
-            </section>
+            <div className="recipe-suggest">
+                <SuggestContainer type="favorites" query={shuffledFavorites[0]} />
+                <SuggestContainer type="favorites" query={shuffledFavorites[1]} />
+                <SuggestContainer type="ingredients" query={shuffledIngredients.slice(0, 2)} />
+                <SuggestContainer type="ingredients" query={shuffledIngredients.slice(2, 4)} />
+            </div>
+        );
+    } else if (isLoading) {
+        return (
+            <div className="recipe-suggest recipe-suggest__msg loading">
+                <p>Loading...</p>
+            </div>
+        );
+    } else if (isError) {
+        return (
+            <div className="recipe-suggest recipe-suggest__msg error">
+                <p>Ooops... Error occurred...</p>
+            </div>
         );
     } else {
         return (
-            <div>RecipeSuggest</div>
+            <div className="recipe-suggest recipe-suggest__msg error">
+                <p>Ooops... Failed to load...</p>
+            </div>
         );
     }
 };

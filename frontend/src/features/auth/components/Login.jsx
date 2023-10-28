@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { MdFoodBank } from "react-icons/md";
 import { setCredentials } from "../authSlice";
 import { useLoginMutation } from "../authApiSlice";
 import useLocalStorage from "../../../hooks/useLocalStorage";
@@ -62,7 +63,7 @@ const Login = () => {
     return (
         <main className="login">
             <div className="login__container">
-                <h1 onClick={handleClickHome}>COOKING HOME</h1>
+                <h1 onClick={handleClickHome}><MdFoodBank /> COOKING HOME</h1>
                 <h2>Login</h2>
                 <p
                     ref={errorRef}

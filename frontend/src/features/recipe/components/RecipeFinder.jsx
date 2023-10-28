@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { MdFoodBank } from "react-icons/md";
 import { dietLabels, healthLabels, cuisineTypeLabels, mealTypeLabels, dishTypeLabels } from "../../../constants/labels";
 import { RecipeResult, SingleSelect, MultipleSelect } from "./";
 import { AuthButton } from "../../auth/components";
@@ -56,7 +57,7 @@ const RecipeFinder = () => {
                 <div className="recipe-finder__header-row">
                     <div className="recipe-finder__search-bar-container">
                         <h1 onClick={onClickHome}>
-                            COOKING<br />HOME
+                            <MdFoodBank />
                         </h1>
                         <input
                             type="text"

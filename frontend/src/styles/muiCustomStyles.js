@@ -24,13 +24,19 @@ const muiStyles = {
         flex: 1
     },
     select: {
+        ".MuiSelect-select.MuiSelect-outlined.MuiSelect-multiple.MuiInputBase-input.MuiOutlinedInput-input": {
+            padding: "10px 30px 10px 20px"
+        },
+        ".MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input": {
+            padding: "10px 30px 10px 20px"
+        },
         ".MuiOutlinedInput-notchedOutline": {
             borderColor: "#FCFAF9",
-            borderWidth: "2px",
+            borderWidth: "1px",
             borderRadius: "28px",
         },
         "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#FCFAF9"
+            borderColor: "#FCFAF9",
         },
         "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: "#FCFAF9"
@@ -42,7 +48,7 @@ const muiStyles = {
             color: "#BABD8D",
             fontWeight: "bold",
         },
-        color: "#FCFAF9"
+        color: "#FCFAF9",
     },
     inputLabel: {
         "&.MuiInputLabel-outlined.Mui-focused": {
@@ -50,6 +56,11 @@ const muiStyles = {
         },
         "&.MuiInputLabel-outlined": {
             color: "#FCFAF9"
+        },
+        "&.MuiFormLabel-root.MuiInputLabel-root": {
+            fontSize: "small",
+            top: "-3px",
+            left: "5px"
         }
     },
     box: {

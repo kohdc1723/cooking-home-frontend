@@ -1,6 +1,7 @@
 import useAuth from "../../../hooks/useAuth";
 import { useGetUserQuery } from "../usersApiSlice";
 import { AccountSettingForm } from "./";
+import "../../../styles/css/account-setting.css";
 
 const AccountSetting = () => {
     const { id } = useAuth();
@@ -9,8 +10,7 @@ const AccountSetting = () => {
         data: user,
         isLoading,
         isSuccess,
-        isError,
-        error
+        isError
     } = useGetUserQuery(id);
 
     if (isSuccess) {
@@ -27,21 +27,27 @@ const AccountSetting = () => {
         return (
             <div className="account-setting">
                 <h2>Account Setting</h2>
-                <div className="account-setting__loading">Account setting is loading...</div>
+                <div className="account-setting__loading">
+                    <p>Loading...</p>
+                </div>
             </div>
         );
     } else if (isError) {
         return (
             <div className="account-setting">
                 <h2>Account Setting</h2>
-                <div className="account-setting__error">Error</div>
+                <div className="account-setting__error">
+                    <p>Ooops... Error occurred...</p>
+                </div>
             </div>
         );
     } else {
         return (
             <div className="account-setting">
                 <h2>Account Setting</h2>
-                <div className="account-setting__error">Failed to load account setting</div>
+                <div className="account-setting__error">
+                    <p>Ooops... Failed to load...</p>
+                </div>
             </div>
         );
     }

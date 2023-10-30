@@ -1,6 +1,7 @@
 import { useGetPreferenceQuery } from "../preferenceApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { NewPreference, PreferenceSettingForm } from "./";
+import "../../../styles/css/preference-setting.css";
 
 const PreferenceSetting = () => {
     const { id } = useAuth();

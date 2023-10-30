@@ -1,0 +1,28 @@
+@import "./colors.css";
+
+.account-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 198.5px;
+}
+
+.account-setting h2 {
+    color: var(--avocado);
+}
+
+.account-setting__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tomato);
+    flex: 1;
+}
+
+.account-setting__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--citron);
+    flex: 1;
+}

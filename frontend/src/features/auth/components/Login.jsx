@@ -5,6 +5,7 @@ import { MdFoodBank } from "react-icons/md";
 import { setCredentials } from "../authSlice";
 import { useLoginMutation } from "../authApiSlice";
 import useLocalStorage from "../../../hooks/useLocalStorage";
+import "../../../styles/css/login.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState("");
     const [persist, setPersist] = useLocalStorage("persist", false);
 
-    const [login, { isLoading }] = useLoginMutation();
+    const [login] = useLoginMutation();
 
     useEffect(() => {
         usernameRef.current.focus();
@@ -64,7 +65,7 @@ const Login = () => {
         <main className="login">
             <div className="login__container">
                 <h1 onClick={handleClickHome}><MdFoodBank /> COOKING HOME</h1>
-                <h2>Login</h2>
+                <h2>Sign In</h2>
                 <p
                     ref={errorRef}
                     aria-live="assertive"
@@ -95,7 +96,7 @@ const Login = () => {
                         placeholder="Password"
                         className="login__input"
                     />
-                    <button>Login</button>
+                    <button className="clickable-box">Sign In</button>
                     <div className="login__persist">
                         <label htmlFor="persist">Trust this device?</label>
                         <input
@@ -108,7 +109,7 @@ const Login = () => {
                 </form>
                 <p>
                     Need an account?
-                    <Link to="/register"> Register here</Link>
+                    <Link to="/register" className="clickable-text"> Register here</Link>
                 </p>
             </div>
         </main>

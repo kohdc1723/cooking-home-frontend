@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../authSlice";
 import { useRefreshMutation } from "../authApiSlice";
 import usePersist from "../../../hooks/usePersist";
+import "../../../styles/css/persist-login.css";
 
 const PersistLogin = () => {
     const [persist] = usePersist();
@@ -16,8 +17,7 @@ const PersistLogin = () => {
         isUninitialized,
         isLoading,
         isSuccess,
-        isError,
-        error
+        isError
     }] = useRefreshMutation();
 
     useEffect(() => {
@@ -42,7 +42,11 @@ const PersistLogin = () => {
     if (!persist) { // persist X
         return <Outlet />;
     } else if (isLoading) { // persist O, token X
-        return <p>Loading...</p>;
+        return (
+            <div className="persist-login">
+                <p className="loading">Loading...</p>
+            </div>
+        );
     } else if (isError) { // persist O, token X
         return <Outlet />;
     } else if (isSuccess && trueSuccess) { // persist O, token O

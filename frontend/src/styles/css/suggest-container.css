@@ -1,0 +1,38 @@
+@import "./colors.css";
+
+.suggest-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.suggest-container__title {
+    color: var(--avocado);
+    font-size: large;
+}
+
+.suggest-container__scrollable {
+    background-color: var(--sea-salt);
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+}
+
+.suggest-container__default {
+    min-height: 360px;
+    width: 100%;
+    background-color: rgba(35, 32, 32, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suggest-container__error {
+    color: var(--tomato);
+    font-weight: bold;
+}
+
+.suggest-container__loading {
+    color: var(--citron);
+}

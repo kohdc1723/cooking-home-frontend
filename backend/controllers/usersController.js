@@ -122,13 +122,14 @@ const deleteUser = asyncHandler(async (req, res) => {
 
     const preference = await Preference.findOne({ user: id }).lean().exec();
     if (preference) {
-        await preference.deleteOne();
+        await Preference.deleteOne({ user: id }).exec();
     }
 
     const user = await User.findById(id).exec();
     if (!user) {
         return res.status(404).json({ message: "User is not found" });
     } else {
+        await user.deleteOne();
         return res.json({ message: "User and its preference are deleted" });
     }
 });

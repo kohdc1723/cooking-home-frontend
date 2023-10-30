@@ -1,0 +1,47 @@
+@import "../css/colors.css";
+
+.welcome {
+    background-image: linear-gradient(to bottom, rgba(252, 250, 249, 0), rgba(252, 250, 249, 0), rgba(252, 250, 249, 0), rgba(252, 250, 249, 0), rgba(252, 250, 249, 0), rgba(252, 250, 249, 0.5), rgba(252, 250, 249, 1)), url("../../images/welcome.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    color: var(--sea-salt);
+    padding: 50px;
+    padding-top: 120px;
+}
+
+.welcome__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-shadow: 0px 0px 5px var(--raisin-black);
+}
+
+.welcome__text h2 {
+    font-size: 48px;
+    padding-bottom: 10px;
+    color: var(--sea-salt);
+    text-shadow: 0px 0px 5px var(--raisin-black);
+}
+
+.welcome__text p {
+    font-size: large;
+    text-shadow: 0px 0px 5px var(--raisin-black);
+}
+
+.welcome__text span {
+    color: var(--avocado);
+    font-size: x-large;
+    text-shadow: 0px 0px 5px var(--raisin-black);
+}
+
+.welcome__text a {
+    background-color: var(--avocado);
+    padding: 10px 40px;
+    text-decoration: none;
+    color: var(--sea-salt);
+    font-size: large;
+    border-radius: 5px;
+}

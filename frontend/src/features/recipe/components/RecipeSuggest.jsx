@@ -1,6 +1,7 @@
 import { useGetPreferenceQuery } from "../../preference/preferenceApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { SuggestContainer } from "./";
+import "../../../styles/css/recipe-suggest.css";
 
 const RecipeSuggest = () => {
     const { id } = useAuth();

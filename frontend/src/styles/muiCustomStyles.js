@@ -45,8 +45,8 @@ const muiStyles = {
             color: "#FCFAF9"
         },
         ".MuiSelect-select": {
-            color: "#BABD8D",
-            fontWeight: "bold",
+            color: "#423E3B",
+            fontSize: "small"
         },
         color: "#FCFAF9",
     },
@@ -59,8 +59,8 @@ const muiStyles = {
         },
         "&.MuiFormLabel-root.MuiInputLabel-root": {
             fontSize: "small",
-            top: "-3px",
-            left: "5px"
+            left: "5px",
+            top: "-3px"
         }
     },
     box: {
@@ -69,16 +69,16 @@ const muiStyles = {
         gap: 1
     },
     pagination: {
-        ".MuiPaginationItem-root": { color: "white" },
-        ".MuiButtonBase-root": { color: "white", background: "#232020" },
-        ".MuiPaginationItem-previousNext": { background: "#232020" },
-        ".MuiPaginationItem-text": { color: "white" },
-        "&.MuiPagination-root .Mui-selected": { background: "#598B2C" },
-        ".MuiButtonBase-root.MuiPaginationItem-root:hover": { background: "black" },
+        ".MuiPaginationItem-root": { color: "#FCFAF9" },
+        ".MuiButtonBase-root": { color: "#232020", background: "#FCFAF9" },
+        ".MuiPaginationItem-previousNext": { background: "#FCFAF9" },
+        ".MuiPaginationItem-text": { color: "#232020" },
+        "&.MuiPagination-root .Mui-selected": { background: "#60935dff" },
+        ".MuiButtonBase-root.MuiPaginationItem-root:hover": { background: "#a1cf6bff" },
         padding: "20px",
         display: "flex",
         justifyContent: "center",
-        color: "white"
+        color: "#FCFAF9"
     }
 };
 

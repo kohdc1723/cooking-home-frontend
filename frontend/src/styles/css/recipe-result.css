@@ -1,0 +1,181 @@
+@import "./colors.css";
+
+.recipe-result {
+    background-color: var(--sea-salt);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    color: var(--raisin-black);
+    padding: 120.5px 80px 0 80px;
+}
+
+.recipe-result__error {
+    align-items: center;
+    color: var(--tomato);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.recipe-result__loading {
+    align-items: center;
+    color: var(--pumpkin);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.recipe-result__container {
+    display: flex;
+    flex: 1;
+    background-color: var(--sea-salt);
+    box-shadow: 0 0 5px 0 var(--raisin-black);
+}
+
+.recipe-result__list-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.recipe-result__count {
+    height: 60px;
+    background-color: rgba(96, 147, 93, 0.75);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: var(--sea-salt);
+    font-size: small;
+}
+
+.recipe-result__card-container {
+    flex: 1;
+    overflow-y: scroll;
+    background-color: var(--sea-salt);
+}
+
+.recipe-result__no-card-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(66, 62, 59, 0.05);
+    align-items: center;
+    overflow-y: scroll;
+    height: 100%;
+    padding: 10px;
+    gap: 20px;
+}
+
+.recipe-result__no-card-container h4 {
+    font-size: large;
+    color: var(--asparagus);
+}
+
+.recipe-result__detail-container {
+    flex: 1;
+    overflow-y: scroll;
+    background-color: var(--sea-salt);
+}
+
+.recipe-result__no-recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--raisin-black);
+    background-color: rgba(66, 62, 59, 0.05);
+    height: 100%;
+    padding: 10px;
+    gap: 20px;
+}
+
+.recipe-result__no-recipe h4 {
+    font-size: large;
+    color: var(--asparagus);
+}
+
+.recipe-result__search-label {
+    width: 100%;
+}
+
+.recipe-result__labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.recipe-result__label {
+    width: 240px;
+    height: 160px;
+    color: var(--sea-salt);
+    border-radius: 10px;
+    box-shadow: 0 0 1px 0 var(--raisin-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 5px var(--raisin-black);
+}
+
+.recipe-result__pasta {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/pasta.jpg");
+    background-size: cover;
+}
+
+.recipe-result__pizza {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/pizza.jpg");
+    background-size: cover;
+}
+
+.recipe-result__sandwich {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/sandwich.jpg");
+    background-size: cover;
+}
+
+.recipe-result__salad {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/salad.jpg");
+    background-size: cover;
+}
+
+.recipe-result__burger {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/burger.jpg");
+    background-size: cover;
+}
+
+.recipe-result__stew {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/stew.jpg");
+    background-size: cover;
+}
+
+.recipe-result__egg {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/egg.jpg");
+    background-size: cover;
+}
+
+.recipe-result__beef {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/beef.jpg");
+    background-size: cover;
+}
+
+.recipe-result__onion {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/onion.jpg");
+    background-size: cover;
+}
+
+.recipe-result__cheese {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/cheese.jpg");
+    background-size: cover;
+}
+
+.recipe-result__chicken {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/chicken.jpg");
+    background-size: cover;
+}
+
+.recipe-result__potato {
+    background-image: linear-gradient(rgba(252, 250, 249, 0.3), rgba(252, 250, 249, 0.3)), url("../../images/potato.jpg");
+    background-size: cover;
+}
+
+.recipe-result__not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

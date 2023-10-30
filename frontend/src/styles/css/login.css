@@ -1,0 +1,93 @@
+@import "./colors.css";
+
+.login {
+    height: 100vh;
+    background-image: linear-gradient(rgba(252, 250, 249, 0.5), rgba(252, 250, 249, 0.5)), url("../../images/login.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login__container {
+    color: var(--raisin-black);
+    background-color: var(--sea-salt);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    width: 400px;
+    font-size: small;
+}
+
+.login h1 {
+    text-align: center;
+    color: var(--avocado);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login h1:hover {
+    cursor: pointer;
+}
+
+.login h2 {
+    text-align: center;
+}
+
+.login a {
+    text-decoration: none;
+    color: var(--bittersweet);
+    font-style: italic;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    font-size: small;
+}
+
+.login__input {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    border: 2px solid var(--asparagus);
+    font-family: "Poppins", sans-serif;
+}
+
+.login__form button {
+    border-radius: 10px;
+    border: none;
+    background-color: var(--asparagus);
+    color: var(--sea-salt);
+    width: 100%;
+    padding: 10px;
+}
+
+.login__form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.login__persist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login__persist input {
+    height: 15px;
+    width: 15px;
+}
+
+.login__errmsg {
+    text-align: center;
+    color: var(--tomato);
+}

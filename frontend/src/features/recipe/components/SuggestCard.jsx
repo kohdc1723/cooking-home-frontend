@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { AiOutlineLink } from "react-icons/ai";
+import "../../../styles/css/suggest-card.css";
 
 const SuggestCard = ({ recipe }) => {
     const {

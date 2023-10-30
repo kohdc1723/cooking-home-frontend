@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCurrentSearchParams, setParams, init } from "../features/recipe/searchParamsSlice";
+import { selectCurrentSearchParams, setParams } from "../features/recipe/searchParamsSlice";
 
 const useQueryString = () => {
     const navigate = useNavigate();

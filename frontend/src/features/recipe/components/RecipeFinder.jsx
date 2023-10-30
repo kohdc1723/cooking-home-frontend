@@ -7,6 +7,7 @@ import { AuthButton } from "../../auth/components";
 import useQueryString from "../../../hooks/useQueryString";
 import { setParam, reset } from "../searchParamsSlice";
 import { useDispatch } from "react-redux";
+import "../../../styles/css/recipe-finder.css";
 
 const RecipeFinder = () => {
     const navigate = useNavigate();

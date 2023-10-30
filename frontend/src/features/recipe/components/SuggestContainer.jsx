@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGetRandomRecipesQuery } from "../suggestApiSlice";
 import { SuggestCard } from "./";
+import "../../../styles/css/suggest-container.css";
 
 const SuggestContainer = ({ type, query }) => {
     const [randomQuery, setRandomQuery] = useState("");

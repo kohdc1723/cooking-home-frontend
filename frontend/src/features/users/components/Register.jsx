@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { Link, useNavigate } from "react-router-dom";
+import { MdFoodBank } from "react-icons/md";
+import { faCheck, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCreateUserMutation } from "../usersApiSlice";
-import { useCreatePreferenceMutation } from "../../preference/preferenceApiSlice";
+import "../../../styles/css/register.css";
 
 const USERNAME_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -81,55 +82,77 @@ const Register = () => {
         }
     };
 
+    let registerInstruction = null;
+    if (username && !validUsername) {
+        registerInstruction = (
+            <div
+                id="username-note"
+                className="register__instruction"
+            >
+                <p><FontAwesomeIcon icon={faInfoCircle} /> Invalid Username</p>
+                <p><FontAwesomeIcon icon={faCheck} /> 4 to 24 characters.</p>
+                <p><FontAwesomeIcon icon={faCheck} /> Must begin with a letter.</p>
+                <p><FontAwesomeIcon icon={faCheck} /> Letters, numbers, underscores, hyphens allowed.</p>
+            </div>
+        );
+    } else if (password && !validPassword) {
+        registerInstruction = (
+            <div
+                id="password-note"
+                className="register__instruction"
+            >
+                <p><FontAwesomeIcon icon={faInfoCircle} /> Invalid Password</p>
+                <p><FontAwesomeIcon icon={faCheck} /> 8 to 24 characters.</p>
+                <p><FontAwesomeIcon icon={faCheck} /> Must include uppercase and lowercase letters, a number and a special character.</p>
+                <p>
+                    <FontAwesomeIcon icon={faCheck} /> Allowed special characters:{" "}
+                    <span aria-label="exclamation mark">!</span>{" "}
+                    <span aria-label="at symbol">@</span>{" "}
+                    <span aria-label="hashtag">#</span>{" "}
+                    <span aria-label="dollar sign">$</span>{" "}
+                    <span aria-label="percent">%</span>
+                </p>
+            </div>
+        );
+    } else if (confirmPassword && !validConfirmPassword) {
+        registerInstruction = (
+            <div
+                id="confirm-note"
+                className="register__instruction"
+            >
+                <p><FontAwesomeIcon icon={faInfoCircle} /> Password not match</p>
+                <p><FontAwesomeIcon icon={faCheck} /> Must match the first password input field.</p>
+            </div>
+        );
+    } else {
+        registerInstruction = (
+            <div className="register__instruction">
+                <p>
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                    {" Please enter username and password to register."}
+                </p>
+            </div>
+        );
+    }
+
     return (
         <main className="register">
             <div className="register__container">
-                <h1 onClick={handleClickHome}>COOKING HOME</h1>
+                <h1 onClick={handleClickHome}><MdFoodBank /> COOKING HOME</h1>
                 <h2>Sign Up</h2>
                 <p
                     ref={errorRef}
                     aria-live="assertive"
                     className={isError ? "register__errmsg" : "off-screen"}
                 >
-                    Error occurred
+                    {error?.data?.message}
                 </p>
                 <p
                     className={isSuccess ? "register__sucmsg" : "off-screen"}
                 >
                     Successfully registered
                 </p>
-                <div
-                    id="username-note"
-                    className={(usernameFocus && username && !validUsername) ? "register__instruction" : "off-screen"}
-                >
-                    <p><FontAwesomeIcon icon={faInfoCircle} /> Invalid Username</p>
-                    <p><FontAwesomeIcon icon={faCheck} /> 4 to 24 characters.</p>
-                    <p><FontAwesomeIcon icon={faCheck} /> Must begin with a letter.</p>
-                    <p><FontAwesomeIcon icon={faCheck} /> Letters, numbers, underscores, hyphens allowed.</p>
-                </div>
-                <div
-                    id="password-note"
-                    className={(passwordFocus && !validPassword) ? "register__instruction" : "off-screen"}
-                >
-                    <p><FontAwesomeIcon icon={faInfoCircle} /> Invalid Password</p>
-                    <p><FontAwesomeIcon icon={faCheck} /> 8 to 24 characters.</p>
-                    <p><FontAwesomeIcon icon={faCheck} /> Must include uppercase and lowercase letters, a number and a special character.</p>
-                    <p>
-                        <FontAwesomeIcon icon={faCheck} /> Allowed special characters:{" "}
-                        <span aria-label="exclamation mark">!</span>{" "}
-                        <span aria-label="at symbol">@</span>{" "}
-                        <span aria-label="hashtag">#</span>{" "}
-                        <span aria-label="dollar sign">$</span>{" "}
-                        <span aria-label="percent">%</span>
-                    </p>
-                </div>
-                <div
-                    id="confirm-note"
-                    className={(confirmPasswordFocus && !validConfirmPassword) ? "register__instruction" : "off-screen"}
-                >
-                    <p><FontAwesomeIcon icon={faInfoCircle} /> Password not match</p>
-                    <p><FontAwesomeIcon icon={faCheck} /> Must match the first password input field.</p>
-                </div>
+                {registerInstruction}
                 <form
                     className="register__form"
                     onSubmit={handleSubmit}
@@ -172,11 +195,16 @@ const Register = () => {
                         placeholder="Confirm Password"
                         className={`register__input ${(!validConfirmPassword && confirmPassword) && "register__input-invalid"}`}
                     />
-                    <button disabled={!isSubmittable}>Sign Up</button>
+                    <button
+                        className="clickable-box"
+                        disabled={!isSubmittable}
+                    >
+                        Sign Up
+                    </button>
                 </form>
                 <p>
                     Already have an account?
-                    <Link to="/login"> Login here</Link>
+                    <Link to="/login" className="clickable-text"> Login here</Link>
                 </p>
             </div>
         </main>

@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthButton } from "../features/auth/components";
 import { MdFoodBank } from "react-icons/md";
+import "../styles/css/header.css";
 
 const Header = () => {
+    const navigate = useNavigate();
+
     const [isScrolled, setIsScrolled] = useState(false);
 
     const handleScroll = () => {
@@ -23,17 +26,19 @@ const Header = () => {
         };
     }, []);
 
+    const onClickHome = () => navigate("/");
+
     return (
         <header className={`header ${isScrolled && "header__scrolled"}`}>
-            <h1>
+            <h1 className="header__home" onClick={onClickHome}>
                 <MdFoodBank />
                 <span>
                     COOKING<br />HOME
                 </span>
             </h1>
             <nav className="header__nav">
-                <Link to="/recipes">Search</Link>
-                <Link to="/suggest">Suggest</Link>
+                <Link to="/recipes" className="clickable-text">Search</Link>
+                <Link to="/suggest" className="clickable-text">Suggest</Link>
                 <AuthButton />
             </nav>
         </header>

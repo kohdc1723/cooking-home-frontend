@@ -1,14 +1,11 @@
 import { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDeleteUserMutation, useUpdateUserMutation } from "../usersApiSlice";
-import { useSignoutMutation } from "../../auth/authApiSlice";
+import { useUpdateUserMutation } from "../usersApiSlice";
+import "../../../styles/css/account-setting-form.css";
 
 const USERNAME_REGEX = /^[a-zA-Z0-9]{3,20}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const AccountSettingForm = ({ user }) => {
-    const navigate = useNavigate();
-
     const usernameRef = useRef();
 
     const [isEditable, setIsEditable] = useState(false);
@@ -19,20 +16,12 @@ const AccountSettingForm = ({ user }) => {
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(false);
 
-    const [logout] = useSignoutMutation();
-
     const [updateUser, {
         isLoading: isUpdateLoading,
         isSuccess: isUpdateSuccess,
         isError: isUpdateError,
         error: updateError
     }] = useUpdateUserMutation();
-
-    const [deleteUser, {
-        isSuccess: isDeleteSuccess,
-        isError: isDeleteError,
-        error: deleteError
-    }] = useDeleteUserMutation();
 
     useEffect(() => {
         usernameRef.current.focus();
@@ -52,16 +41,6 @@ const AccountSettingForm = ({ user }) => {
             setIsEditable(false);
         }
     }, [isUpdateSuccess]);
-
-    useEffect(() => {
-        if (isDeleteSuccess) {
-            setUsername("");
-            setPassword("");
-
-            logout();
-            navigate("/");
-        }
-    }, [isDeleteSuccess, navigate]);
 
     const isValid = password
         ? (validUsername && validPassword && !isUpdateLoading)
@@ -89,11 +68,11 @@ const AccountSettingForm = ({ user }) => {
     };
 
     return (
-        <form>
-            <p className={(isUpdateError || isDeleteError) ? "account-setting-form__errmsg" : "off-screen"}>
+        <form className="account-setting-form">
+            <p className={(isUpdateError) ? "error" : "off-screen"}>
                 {updateError?.data?.message}
             </p>
-            <div className="account-setting__form-row">
+            <div className="account-setting-form__row">
                 <label htmlFor="username">Username:</label>
                 <input
                     type="text"
@@ -105,7 +84,7 @@ const AccountSettingForm = ({ user }) => {
                     ref={usernameRef}
                 />
             </div>
-            <div className="account-setting__form-row">
+            <div className="account-setting-form__row">
                 <label htmlFor="password">Password:</label>
                 <input
                     type="password"
@@ -118,25 +97,25 @@ const AccountSettingForm = ({ user }) => {
                 />
             </div>
             {!isEditable ? (
-                <div className="account-setting__button-container">
+                <div className="account-setting-form__button-container">
                     <button
-                        className="account-setting__edit-button account-setting__button"
+                        className="account-setting-form__edit-button account-setting-form__button"
                         onClick={onClickEdit}
                     >
                         Edit
                     </button>
                 </div>
             ) : (
-                <div className="account-setting__button-container">
+                <div className="account-setting-form__button-container">
                     <button
-                        className="account-setting__save-button account-setting__button"
+                        className="account-setting-form__save-button account-setting-form__button"
                         onClick={onClickSave}
                         disabled={!isValid}
                     >
                         Save
                     </button>
                     <button
-                        className="account-setting__cancel-button account-setting__button"
+                        className="account-setting-form__cancel-button account-setting-form__button"
                         onClick={onClickCancel}
                     >
                         Cancel

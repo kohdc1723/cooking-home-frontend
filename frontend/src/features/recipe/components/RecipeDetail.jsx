@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { AiOutlineLink } from "react-icons/ai";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../../styles/css/recipe-detail.css";
 
 const RecipeDetail = ({ recipe }) => {
     if (recipe) {
         const {
-            id,
             image,
             label,
             cuisineType,
@@ -53,7 +53,7 @@ const RecipeDetail = ({ recipe }) => {
                         <h2>Ingredients</h2>
                         {ingredientLines.map((line, index) => (
                             <p key={`${index}${line}`}>
-                                <FontAwesomeIcon icon={faCheck} color="#e0c879ff" /> {line}
+                                <FontAwesomeIcon icon={faCheck} color="#423E3B" /> {line}
                             </p>
                         ))}
                     </div>
@@ -62,7 +62,7 @@ const RecipeDetail = ({ recipe }) => {
                         {cautions?.length ? (
                             cautions.map(caution => (
                                 <p key={`${caution}`}>
-                                    <FontAwesomeIcon icon={faCheck} color="#F95738" /> {caution}
+                                    <FontAwesomeIcon icon={faCheck} color="#423E3B" /> {caution}
                                 </p>
                             ))
                         ) : (

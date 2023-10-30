@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineLink } from "react-icons/ai";
 import { setParam, selectCurrentId } from "../searchParamsSlice";
+import "../../../styles/css/recipe-card.css";
 
 const capitalizeFirstLetter = (array) => {
     return array.map(ele => ele.charAt(0).toUpperCase() + ele.slice(1));

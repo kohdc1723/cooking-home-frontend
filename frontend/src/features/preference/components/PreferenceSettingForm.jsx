@@ -55,7 +55,7 @@ const PreferenceSettingForm = ({ id, favorites, ingredients }) => {
     return (
         <div className="preference-setting">
             <h2>Preference Setting</h2>
-            <p className="preference-setting__errmsg">{errMsg}</p>
+            <p className={errMsg ? "preference-setting__errmsg" : "off-screen"}>{errMsg}</p>
             <div className="preference-setting__favorites">
                 <h4>Favorites</h4>
                 <div className="preference-setting__add">

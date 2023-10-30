@@ -1,0 +1,128 @@
+@import "./colors.css";
+
+.preference-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 429px;
+}
+
+.preference-setting__error {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--tomato);
+}
+
+.preference-setting__loading {
+    color: var(--citron);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.preference-setting h2 {
+    color: var(--avocado);
+}
+
+.preference-setting h4 {
+    color: var(--raisin-black);
+    font-size: large;
+}
+
+.preference-setting__initialize {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(35, 32, 32, 0.1);
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.preference-setting__initialize-button {
+    background-color: transparent;
+    color: var(--asparagus);
+    font-weight: bold;
+    font-size: medium;
+    font-style: italic;
+    border: none;
+}
+
+.preference-setting__initialize-button:hover {
+    text-shadow: 0 0 5px var(--asparagus);
+    cursor: pointer;
+}
+
+.preference-setting__errmsg {
+    color: var(--tomato);
+}
+
+.preference-setting__favorites {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preference-setting__chip-container {
+    background-color: rgba(35, 32, 32, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preference-setting__chip {
+    padding: 5px 10px;
+    background-color: var(--asparagus);
+    border-radius: 17px;
+    display: flex;
+    align-items: center;
+    font-size: small;
+    gap: 3px;
+}
+
+.preference-setting__chip:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.preference-setting__add {
+    display: flex;
+    gap: 10px;
+}
+
+.preference-setting__input {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(35, 32, 32, 0.5);
+    background-color: var(--sea-salt);
+    color: var(--raisin-black);
+    width: 400px;
+}
+
+.preference-setting__add-button {
+    background-color: var(--asparagus);
+    color: var(--sea-salt);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid var(--asparagus);
+}
+
+.preference-setting__add-button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px 0 var(--raisin-black);
+}
+
+.preference-setting__ingredients {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

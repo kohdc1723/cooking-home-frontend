@@ -13,3 +13,6 @@
 20231027	14:05:21	71709249-95ca-48ea-b74b-29d5a6038199	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "user" for model "Preference"	GET	/preference/undefined	http://localhost:3000
 20231027	14:05:24	3bf738c4-1433-40a2-8f28-3a713b54bc92	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "user" for model "Preference"	GET	/preference/undefined	http://localhost:3000
 20231027	14:05:31	e9280ede-12b8-4d0c-87ed-2f219f9ae8f1	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "user" for model "Preference"	GET	/preference/undefined	http://localhost:3000
+20231029	16:45:34	7000e0ae-1615-44b9-9d5c-5b3c54408c24	TypeError: preference.deleteOne is not a function	DELETE	/users	http://localhost:3000
+20231029	16:46:23	9c7837fb-c56f-4955-9a34-6ad1bc7567ae	TypeError: preference.deleteOne is not a function	DELETE	/users	http://localhost:3000
+20231029	16:47:53	84c5e7b6-ed45-4d1e-b193-bd26177fd47a	TypeError: preference.delete is not a function	DELETE	/users	http://localhost:3000

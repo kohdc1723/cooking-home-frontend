@@ -1,0 +1,53 @@
+@import "./colors.css";
+
+.dropdown-button {
+    background-color: transparent;
+    position: relative;
+    border: 1px solid var(--raisin-black);
+    border-radius: 20px;
+    padding: 3px 10px;
+    text-decoration: none;
+    color: var(--raisin-black);
+}
+
+.dropdown-button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px var(--raisin-black);
+}
+
+.dropdown-button__main {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-button__main h6 {
+    font-size: small;
+}
+
+.dropdown-button__list {
+    background-color: rgba(252, 250, 249, 0.5);
+    box-shadow: 0 0 5px 0 var(--raisin-black);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 30px;
+    left: 0px;
+    width: 100%;
+    border: 1px solid var(--raisin-black);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.dropdown-button__item {
+    border: none;
+    width: 100%;
+    padding: 10px 0px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dropdown-button__signout {
+    color: var(--tomato);
+}

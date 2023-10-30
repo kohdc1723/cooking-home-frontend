@@ -1,0 +1,41 @@
+@import "./colors.css";
+
+.suggest-card {
+    padding: 10px;
+    background-color: rgba(35, 32, 32, 0.1);
+    box-shadow: 5px 5px 10px 0 var(--raisin-black);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.suggest-card img {
+    width: 240px;
+    height: 180px;
+    box-shadow: 0 0 1px 0 var(--raisin-black);
+}
+
+.suggest-card a {
+    color: var(--bittersweet);
+    font-style: italic;
+    text-decoration: none;
+    font-size: small;
+}
+
+.suggest-card a:hover {
+    text-shadow: 0 0 3px var(--bittersweet);
+}
+
+.suggest-card__title {
+    font-size: medium;
+    text-align: center;
+}
+
+.suggest-card__desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    align-items: center;
+}

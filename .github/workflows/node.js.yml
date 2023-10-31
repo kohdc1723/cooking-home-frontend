@@ -6,6 +6,7 @@ name: Node.js CI/CD
 on:
   push:
     branches: [ "main" ]
+    
 jobs:
   build:
     runs-on: self-hosted
@@ -16,14 +17,14 @@ jobs:
       matrix:
         node-version: [20.9.0]
     steps:
+    - name: Change directory to backend
+      run: cd backend
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Change directory to backend
-      run: cd backend
     - name: Install dependencies
       run: npm ci
     - name: Create .env file

@@ -5,11 +5,7 @@ name: Node.js CI/CD
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'backend/**'
-    
+    branches: [ "main" ]
 
 jobs:
   build:

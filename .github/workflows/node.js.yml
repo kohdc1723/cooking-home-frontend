@@ -12,22 +12,29 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+
     strategy:
       matrix:
         node-version: [20.9.0]
+
+    defaults:
+      run:
+        working-directory: ./backend
+
     steps:
     - uses: actions/checkout@v3
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: './backend/package-lock.json'
+
     - name: Install dependencies
       run: npm ci
-      working-directory: ./backend
+      
     - name: Create .env file
       run: |
         touch .env
         echo "${{ secrets.BACKEND_ENV }}" > .env
-      working-directory: ./backend

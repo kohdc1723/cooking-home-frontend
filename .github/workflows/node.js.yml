@@ -18,21 +18,14 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: 20.9.0
+        node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: './backend/package-lock.json'
-    - name: Change directory to backend
-      run: cd backend
     - name: Install dependencies
-      run: |
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
+      run: npm ci
+      working-directory: ./backend
     - name: Create .env file
       run: |
         touch .env
         echo "{{ secrets.BACKEND_ENV }}" > .env
+      working-directory: ./backend

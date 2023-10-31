@@ -32,4 +32,4 @@ jobs:
     - name: Create .env file
       run: |
         touch .env
-        echo "{{ secrets.BACKEND_ENV }}"
+        echo "{{ secrets.BACKEND_ENV }}" > .env

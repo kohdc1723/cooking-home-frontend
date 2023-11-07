@@ -1,3 +1,4 @@
+import { Oval } from "react-loader-spinner";
 import { useGetPreferenceQuery } from "../../preference/preferenceApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { SuggestContainer } from "./";
@@ -33,7 +34,15 @@ const RecipeSuggest = () => {
     } else if (isLoading) {
         return (
             <div className="recipe-suggest recipe-suggest__msg loading">
-                <p>Loading...</p>
+                <Oval
+                    height={80}
+                    width={80}
+                    visible={true}
+                    color="#60935dff"
+                    secondaryColor="#60935dff"
+                    strokeWidth={2}
+                    strokeWidthSecondary={2}
+                />
             </div>
         );
     } else if (isError) {

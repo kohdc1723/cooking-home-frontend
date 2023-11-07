@@ -12,8 +12,6 @@
 .recipe-result__error {
     align-items: center;
     color: var(--tomato);
-    font-size: x-large;
-    font-weight: bold;
 }
 
 .recipe-result__loading {
@@ -28,6 +26,15 @@
     flex: 1;
     background-color: var(--sea-salt);
     box-shadow: 0 0 5px 0 var(--raisin-black);
+}
+
+.recipe-result__not-found-container {
+    background-color: var(--sea-salt);
+    box-shadow: 0 0 5px 0 var(--raisin-black);
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .recipe-result__list-container {

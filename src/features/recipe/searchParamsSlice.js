@@ -29,7 +29,7 @@ const searchParamsSlice = createSlice({
             state[key] = value;
         },
         reset: (state) => {
-            state.currentId = "";
+            //state.currentId = "";
             state.page = 1;
             state.diet = "";
             state.mealType = "";

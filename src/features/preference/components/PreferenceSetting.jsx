@@ -1,3 +1,4 @@
+import { Oval } from "react-loader-spinner";
 import { useGetPreferenceQuery } from "../preferenceApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { NewPreference, PreferenceSettingForm } from "./";
@@ -25,7 +26,17 @@ const PreferenceSetting = () => {
         return (
             <div className="preference-setting">
                 <h2>Preference Setting</h2>
-                <div className="preference-setting__loading">Loading...</div>
+                <div className="preference-setting__loading">
+                    <Oval
+                        height={80}
+                        width={80}
+                        visible={true}
+                        color="#60935dff"
+                        secondaryColor="#60935dff"
+                        strokeWidth={2}
+                        strokeWidthSecondary={2}
+                    />
+                </div>
             </div>
         );
     } else if (isError) {

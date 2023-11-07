@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Oval } from "react-loader-spinner";
 import { Pagination } from "@mui/material";
 import { useGetRecipesQuery } from "../searchApiSlice";
 import { RecipeCard, RecipeDetail } from "./";
@@ -48,12 +49,12 @@ const RecipeResult = () => {
 
         return (
             <div className="recipe-result">
-                <div className="recipe-result__container">
-                    <div className="recipe-result__list-container">
-                        <div className="recipe-result__count">
-                            {ids?.length ? (`${count} results (${from} - ${to})`) : ""}
-                        </div>
-                        {ids?.length ? (
+                {ids?.length ? (
+                    <div className="recipe-result__container">
+                        <div className="recipe-result__list-container">
+                            <div className="recipe-result__count">
+                                {ids?.length ? (`${count} results (${from} - ${to})`) : ""}
+                            </div>
                             <div className="recipe-result__card-container">
                                 {ids?.map(id => (
                                     <RecipeCard key={id} recipe={entities[id]} />
@@ -65,28 +66,36 @@ const RecipeResult = () => {
                                     onChange={onChangePage}
                                 />
                             </div>
-                        ) : (
-                            <div className="recipe-result__not-found">
-                                No recipe found
-                            </div>
-                        )}
+                        </div>
+                        <div className="recipe-result__detail-container">
+                            <RecipeDetail recipe={entities[currentId]} />
+                        </div>
                     </div>
-                    <div className="recipe-result__detail-container">
-                        <RecipeDetail recipe={entities[currentId]} />
+                ) : (
+                    <div className="recipe-result__not-found-container">
+                        Ooops... Recipe not found...
                     </div>
-                </div>
+                )}
             </div>
         );
     } else if (isLoading) {
         return (
             <div className="recipe-result recipe-result__loading">
-                Loading...
+                <Oval
+                    height={80}
+                    width={80}
+                    visible={true}
+                    color="#60935dff"
+                    secondaryColor="#60935dff"
+                    strokeWidth={2}
+                    strokeWidthSecondary={2}
+                />
             </div>
         );
     } else if (isError) {
         return (
             <div className="recipe-result recipe-result__error">
-                Ooops... there is an error
+                Ooops... there is an error...
             </div>
         );
     } else {

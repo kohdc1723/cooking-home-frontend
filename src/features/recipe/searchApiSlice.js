@@ -1,6 +1,7 @@
 import { createEntityAdapter } from "@reduxjs/toolkit";
 import edamamApiSlice from "../../app/api/edamamApiSlice";
 import { createQueryStringOldVersion } from "../../utils/recipeApiUtils";
+import { setParam } from "./searchParamsSlice";
 
 const searchAdapter = createEntityAdapter({
     selectId: recipe => recipe.id

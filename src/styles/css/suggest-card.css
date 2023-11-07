@@ -2,8 +2,8 @@
 
 .suggest-card {
     padding: 10px;
-    background-color: rgba(35, 32, 32, 0.1);
-    box-shadow: 5px 5px 10px 0 var(--raisin-black);
+    background-color: var(--sea-salt);
+    box-shadow: 3px 3px 7px 0 var(--raisin-black);
     display: flex;
     flex-direction: column;
     gap: 10px;

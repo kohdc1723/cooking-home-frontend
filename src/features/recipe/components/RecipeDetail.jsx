@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineLink } from "react-icons/ai";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Oval } from "react-loader-spinner";
 import "../../../styles/css/recipe-detail.css";
 
 const RecipeDetail = ({ recipe }) => {
@@ -95,7 +96,7 @@ const RecipeDetail = ({ recipe }) => {
     } else {
         return (
             <div className="recipe-detail__no-recipe">
-                Recipe not selected
+                Ooops... Recipe not selected...
             </div>
         );
     }

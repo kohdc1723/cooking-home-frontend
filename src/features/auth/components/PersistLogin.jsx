@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Oval } from "react-loader-spinner";
 import { selectCurrentToken } from "../authSlice";
 import { useRefreshMutation } from "../authApiSlice";
 import usePersist from "../../../hooks/usePersist";
@@ -44,7 +45,15 @@ const PersistLogin = () => {
     } else if (isLoading) { // persist O, token X
         return (
             <div className="persist-login">
-                <p className="loading">Loading...</p>
+                <Oval
+                    height={80}
+                    width={80}
+                    visible={true}
+                    color="#60935dff"
+                    secondaryColor="#60935dff"
+                    strokeWidth={2}
+                    strokeWidthSecondary={2}
+                />
             </div>
         );
     } else if (isError) { // persist O, token X

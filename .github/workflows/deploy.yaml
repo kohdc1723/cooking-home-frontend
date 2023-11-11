@@ -1,4 +1,4 @@
-name: CI/CD cooking-home-frontend
+name: CI/CD Cooking Home Frontend
 
 on:
   push:

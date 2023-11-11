@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Deploy:
+  build:
     name: React app build and deploy
     runs-on: ubuntu-latest
     steps:

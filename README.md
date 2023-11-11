@@ -1,11 +1,12 @@
 # Cooking Home
-***Cooking Home*** is an application that offers users a extensive ***recipe search engine*** and ***recommends recipes*** based on their favorite foods and the ingredients they have in their refrigerator.
+***Cooking Home*** offers users an extensive ***recipe search engine*** and ***recommends recipes*** based on their favorite foods and the ingredients they have at home.
+- Backend Repo: [https://github.com/kohdc1723/cooking-home-backend](https://github.com/kohdc1723/cooking-home-backend)
 
 # cooking-home-frontend
-***cooking-home-frontend*** repository contains the codebase of the frontend-side of the ***Cooking Home*** application.
+***cooking-home-frontend*** repository contains the frontend-side codebase of the ***Cooking Home*** application.
+- Project URL: [https://cooking-home.kro.kr](https://cooking-home.kro.kr)
 
-### Link
-[https://cooking-home.kro.kr](https://cooking-home.kro.kr)
+---
 
 ### Built with
 ![javascript-logo]

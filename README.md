@@ -6,3 +6,14 @@
 
 ### Link
 [https://cooking-home.kro.kr](https://cooking-home.kro.kr)
+
+### Built with
+![javascript-logo]
+
+### CI/CD with
+![route53-logo]
+![github-actions-logo]
+
+[javascript-logo]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[route53-logo]: https://img.shields.io/badge/Amazon%20Route53-8C4FFF?style=for-the-badge&logo=amazonroute53&logoColor=white
+[github-actions-logo]: https://img.shields.io/badge/Github%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white

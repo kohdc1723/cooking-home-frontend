@@ -25,17 +25,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: React build
+      - name: Build React app
         run: npm run build
         env:
           CI: false
       
-      - name: Deploy
+      - name: Deploy to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 cp \
-            --recursive \
-            --region ca-central-1 \
-            build s3://cooking-home
+          aws s3 rm s3://cooking-home --recursive
+          aws s3 cp --recursive --region ca-central-1 build s3://cooking-home
+          echo "Deployed to http://cooking-home.s3-website.ca-central-1.amazonaws.com"

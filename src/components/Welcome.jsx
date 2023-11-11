@@ -11,7 +11,7 @@ const Welcome = () => {
                 <p>Discover recipes perfect for you and cook at home.</p>
                 <p>Dine well and stay healthy with <span>COOKING HOME</span>.</p>
                 <br />
-                <Link to="/recipes" className="clickable-box">Go to Recipe Finder</Link>
+                <Link to="/recipes" className="clickable-box">Try Recipe Finder</Link>
             </div>
         </section>
     );

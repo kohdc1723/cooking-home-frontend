@@ -15,13 +15,19 @@ const RecipeResult = () => {
 
     const searchParams = new URLSearchParams(location.search);
     const currentId = searchParams.get("currentId");
+
+    const queryStringWithoutCurrentId = useMemo(() => {
+        const params = new URLSearchParams(location.search);
+        params.delete("currentId");
+        return params.toString();
+    }, [location.search]);
     
     const {
         data: recipes,
         isLoading,
         isSuccess,
         isError
-    } = useGetRecipesQuery(location.search, {
+    } = useGetRecipesQuery(queryStringWithoutCurrentId, {
         skip: !searchParams.has("query")
     });
 

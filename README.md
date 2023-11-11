@@ -17,3 +17,4 @@
 [javascript-logo]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 [route53-logo]: https://img.shields.io/badge/Amazon%20Route53-8C4FFF?style=for-the-badge&logo=amazonroute53&logoColor=white
 [github-actions-logo]: https://img.shields.io/badge/Github%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white
+[react-logo]: https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white

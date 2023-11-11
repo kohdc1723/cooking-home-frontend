@@ -26,7 +26,11 @@ jobs:
         run: npm install
 
       - name: Build React app
-        run: npm run build
+        run: |
+          REACT_APP_EDAMAM_APP_ID=${{ secrets.FRONTEND_ENV.REACT_APP_EDAMAM_APP_ID }} \
+          REACT_APP_EDAMAM_API_KEY=${{ secrets.FRONTEND_ENV.REACT_APP_EDAMAM_API_KEY }} \
+          REACT_APP_BACKEND_SERVER_URL=${{ secrets.FRONTEND_ENV.REACT_APP_BACKEND_SERVER_URL }} \
+          npm run build
         env:
           CI: false
 

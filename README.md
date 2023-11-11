@@ -19,6 +19,8 @@
 ![route53-logo]
 ![github-actions-logo]
 
+---
+
 # Screenshots
 ### Welcome Page
 <img width="1422" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/fad4b307-a89b-46be-93da-8a40b141216b">

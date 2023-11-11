@@ -23,6 +23,7 @@ const createQueryStringOldVersion = (searchParamsString) => {
     
     const page = searchParams.get("page");
     searchParams.delete("page");
+    searchParams.delete("currentId");
     searchParams.set("from", (page - 1) * 10);
     searchParams.set("to", page * 10);
     const queryString = `${searchParams.toString()}${authString}`;

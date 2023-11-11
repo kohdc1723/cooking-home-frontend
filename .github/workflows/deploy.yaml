@@ -27,9 +27,9 @@ jobs:
 
       - name: Build React app
         run: |
-          REACT_APP_EDAMAM_APP_ID=${{ secrets.FRONTEND_ENV.REACT_APP_EDAMAM_APP_ID }} \
-          REACT_APP_EDAMAM_API_KEY=${{ secrets.FRONTEND_ENV.REACT_APP_EDAMAM_API_KEY }} \
-          REACT_APP_BACKEND_SERVER_URL=${{ secrets.FRONTEND_ENV.REACT_APP_BACKEND_SERVER_URL }} \
+          REACT_APP_EDAMAM_APP_ID=${{ secrets.REACT_APP_EDAMAM_APP_ID }} \
+          REACT_APP_EDAMAM_API_KEY=${{ secrets.REACT_APP_EDAMAM_API_KEY }} \
+          REACT_APP_BACKEND_SERVER_URL=${{ secrets.REACT_APP_BACKEND_SERVER_URL }} \
           npm run build
         env:
           CI: false
@@ -43,3 +43,9 @@ jobs:
       
       - name: Deploy to S3
         run: aws s3 sync build/ s3://cooking-home --delete
+      
+      - name: CloudFront invalidation
+        env:
+          CLOUD_FRONT_ID: ${{ secrets.AWS_CLOUDFRONT_ID}}
+        run: |
+          aws cloudfront create-invalidation --distribution-id $CLOUD_FRONT_ID --paths /*

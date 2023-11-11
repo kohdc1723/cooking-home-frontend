@@ -42,6 +42,8 @@
 ### Profile Page
 <img width="1422" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/058a49fa-6032-420d-8c92-6cb499062ad9">
 
+---
+
 [javascript-logo]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 [route53-logo]: https://img.shields.io/badge/Amazon%20Route53-8C4FFF?style=for-the-badge&logo=amazonroute53&logoColor=white
 [github-actions-logo]: https://img.shields.io/badge/Github%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white

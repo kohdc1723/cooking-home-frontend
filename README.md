@@ -4,7 +4,7 @@
 
 # cooking-home-frontend
 ***cooking-home-frontend*** repository contains the frontend-side codebase of the ***Cooking Home*** application.
-- Project URL: [https://cooking-home.kro.kr](https://cooking-home.kro.kr)
+- Client URL: [https://cooking-home.kro.kr](https://cooking-home.kro.kr)
 
 ---
 

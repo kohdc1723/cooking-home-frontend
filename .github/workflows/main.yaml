@@ -5,10 +5,10 @@ on:
     branches:
       - main
 
-env:
-  REACT_APP_EDAMAM_APP_ID: ${{ secrets.REACT_APP_EDAMAM_APP_ID }}
-  REACT_APP_EDAMAM_API_KEY: ${{ secrets.REACT_APP_EDAMAM_API_KEY }}
-  REACT_APP_BACKEND_SERVER_URL: ${{ secrets.REACT_APP_BACKEND_SERVER_URL }}
+# env:
+#   REACT_APP_EDAMAM_APP_ID: ${{ secrets.REACT_APP_EDAMAM_APP_ID }}
+#   REACT_APP_EDAMAM_API_KEY: ${{ secrets.REACT_APP_EDAMAM_API_KEY }}
+#   REACT_APP_BACKEND_SERVER_URL: ${{ secrets.REACT_APP_BACKEND_SERVER_URL }}
 
 jobs:
   build:

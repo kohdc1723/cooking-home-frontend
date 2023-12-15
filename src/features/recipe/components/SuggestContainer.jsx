@@ -40,7 +40,7 @@ const SuggestContainer = ({ type, query }) => {
                         <BiRefresh />
                     </button>
                 </div>
-                <div className="flex gap-3 overflow-x-scroll">
+                <div className="flex gap-3 overflow-x-scroll p-2">
                     {ids.map(id => (
                         <SuggestCard recipe={entities[id]} key={id} />
                     ))}
@@ -49,72 +49,54 @@ const SuggestContainer = ({ type, query }) => {
         );
     } else if (isLoading) {
         return (
-            <div className="suggest-container__loading">
-                <div className="suggest-container__header">
+            <div className="flex flex-col gap-5 py-10">
+                <div className="flex gap-5">
                     {type === "favorites" ? (
-                        <h4 className="suggest-container__title">Since you like {query.toString()}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you like "{query.toString()}"</h4>
                     ) : (
-                        <h4 className="suggest-container__title">Since you have {query.toString().replace(",", " and ")}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you have "{query.toString().replace(",", " and ")}"</h4>
                     )}
-                    <button
-                        className="suggest-container__refresh-button"
-                        onClick={onClickRefresh}
-                    >
-                        <BiRefresh /> Refresh
-                    </button>
                 </div>
-                <div className="suggest-container__scrollable-loading">
+                <div className="flex justify-center items-center p-10">
                     <Oval
-                        height={80}
-                        width={80}
+                        height={60}
+                        width={60}
                         visible={true}
-                        color="#60935dff"
-                        secondaryColor="#60935dff"
-                        strokeWidth={2}
-                        strokeWidthSecondary={2}
+                        color="#EF4444" // red-500
+                        secondaryColor="#EF4444" // red-500
+                        strokeWidth={3}
+                        strokeWidthSecondary={3}
                     />
                 </div>
             </div>
         );
     } else if (isError) {
         return (
-            <div className="suggest-container__error">
-                <div className="suggest-container__header">
+            <div className="flex flex-col gap-5 py-10">
+                <div className="flex gap-5">
                     {type === "favorites" ? (
-                        <h4 className="suggest-container__title">Since you like {query.toString()}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you like "{query.toString()}"</h4>
                     ) : (
-                        <h4 className="suggest-container__title">Since you have {query.toString().replace(",", " and ")}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you have "{query.toString().replace(",", " and ")}"</h4>
                     )}
-                    <button
-                        className="suggest-container__refresh-button"
-                        onClick={onClickRefresh}
-                    >
-                        <BiRefresh /> Refresh
-                    </button>
                 </div>
-                <div className="suggest-container__scrollable-error">
-                    Ooops... Error occurred...
+                <div className="flex justify-center items-center p-10">
+                    <p className="text-red-700 font-bold">Ooops... Error occurred...</p>
                 </div>
             </div>
         );
     } else {
         return (
-            <div className="suggest-container__error">
-                <div className="suggest-container__header">
+            <div className="flex flex-col gap-5 py-10">
+                <div className="flex gap-5">
                     {type === "favorites" ? (
-                        <h4 className="suggest-container__title">Since you like {query.toString()}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you like "{query.toString()}"</h4>
                     ) : (
-                        <h4 className="suggest-container__title">Since you have {query.toString().replace(",", " and ")}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you have "{query.toString().replace(",", " and ")}"</h4>
                     )}
-                    <button
-                        className="suggest-container__refresh-button"
-                        onClick={onClickRefresh}
-                    >
-                        <BiRefresh /> Refresh
-                    </button>
                 </div>
-                <div className="suggest-container__scrollable-error">
-                    Ooops... Failed to load...
+                <div className="flex justify-center items-center p-10">
+                    <p className="text-red-700 font-bold">Ooops... Failed to load...</p>
                 </div>
             </div>
         );

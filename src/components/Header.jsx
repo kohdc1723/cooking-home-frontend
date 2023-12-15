@@ -37,11 +37,7 @@ const Header = () => {
                     height={48}
                 />
             </h1>
-            <nav className="flex gap-3 items-center text-sm">
-                <Link to="/recipes" className="clickable-text">Search</Link>
-                <Link to="/suggest" className="clickable-text">Suggest</Link>
-                <AuthButton />
-            </nav>
+            <AuthButton />
         </header>
     );
 };

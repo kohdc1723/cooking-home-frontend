@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useSignoutMutation } from "../features/auth/authApiSlice";
-import "../styles/css/dropdown-button.css";
 
 const DropdownButton = ({ title }) => {
     const navigate = useNavigate();
@@ -34,33 +33,48 @@ const DropdownButton = ({ title }) => {
     const onClickHome = () => navigate("/");
     const onClickSignOut = () => logout();
     const onClickProfile = () => navigate("/profile");
+    const onClickSearch = () => navigate("/recipes");
+    const onClickSuggest = () => navigate("/suggest");
 
     return (
         <div
-            className="dropdown-button"
+            className="bg-slate-50 hover:bg-red-100 border-2 border-red-500 text-red-500 flex justify-center items-center relative px-3 py-1 rounded-lg hover:cursor-pointer"
             onClick={onClickButton}
             onBlur={onClickButton}
             ref={dropdownRef}
         >
-            <div className="dropdown-button__main">
+            <div className="flex justify-center items-center gap-2">
                 <h6>{title}</h6>
                 {!open ? <FaChevronDown /> : <FaChevronUp />}
             </div>
-            <div className={open ? "dropdown-button__list" : "off-screen"}>
+            <div className={`transition-transform transition-opacity duration-100 ${open ? "transform scale-y-100 opacity-100" : "transform scale-y-0 opacity-0"} absolute top-10 bg-red-100 flex flex-col justify-center items-center rounded-lg w-full text-bold`}
+            >
                 <div
-                    className="dropdown-button__item clickable-text"
+                    className="rounded-t-lg w-full py-2 flex justify-center hover:bg-red-300"
                     onClick={onClickHome}
                 >
                     Home
                 </div>
                 <div
-                    className="dropdown-button__item clickable-text"
+                    className="w-full py-2 flex justify-center hover:bg-red-300"
+                    onClick={onClickSearch}
+                >
+                    Search
+                </div>
+                <div
+                    className="w-full py-2 flex justify-center hover:bg-red-300"
+                    onClick={onClickSuggest}
+                >
+                    Suggest
+                </div>
+                <div
+                    className="w-full py-2 flex justify-center hover:bg-red-300"
                     onClick={onClickProfile}
                 >
                     Profile
                 </div>
                 <div
-                    className="dropdown-button__item dropdown-button__signout clickable-text"
+                    className="rounded-b-lg w-full py-2 flex justify-center text-red-700 hover:bg-red-300"
                     onClick={onClickSignOut}
                 >
                     Logout

@@ -2,7 +2,7 @@ import { Oval } from "react-loader-spinner";
 import { useGetPreferenceQuery } from "../../preference/preferenceApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { SuggestContainer } from "./";
-import "../../../styles/css/recipe-suggest.css";
+// import "../../../styles/css/recipe-suggest.css";
 
 const RecipeSuggest = () => {
     const { id } = useAuth();
@@ -24,7 +24,7 @@ const RecipeSuggest = () => {
         const shuffledIngredients = ingredients.slice().sort(() => 0.5 - Math.random());
 
         return (
-            <div className="recipe-suggest">
+            <div className="pt-[72px] pb-10 flex flex-col gap-10 px-5 md:px-10 lg:px-20">
                 <SuggestContainer type="favorites" query={shuffledFavorites[0]} />
                 <SuggestContainer type="favorites" query={shuffledFavorites[1]} />
                 <SuggestContainer type="ingredients" query={shuffledIngredients.slice(0, 2)} />
@@ -33,28 +33,28 @@ const RecipeSuggest = () => {
         );
     } else if (isLoading) {
         return (
-            <div className="recipe-suggest recipe-suggest__msg loading">
+            <div className="pt-[72px] min-h-[calc(100vh-72px)] flex justify-center items-center">
                 <Oval
-                    height={80}
-                    width={80}
+                    height={60}
+                    width={60}
                     visible={true}
-                    color="#60935dff"
-                    secondaryColor="#60935dff"
-                    strokeWidth={2}
-                    strokeWidthSecondary={2}
+                    color="#EF4444"
+                    secondaryColor="#EF4444"
+                    strokeWidth={3}
+                    strokeWidthSecondary={3}
                 />
             </div>
         );
     } else if (isError) {
         return (
-            <div className="recipe-suggest recipe-suggest__msg error">
-                <p>Ooops... Error occurred...</p>
+            <div className="pt-[72px] min-h-[calc(100vh-72px)] flex justify-center items-center">
+                <p className="text-red-700 font-bold">Ooops... Error occurred...</p>
             </div>
         );
     } else {
         return (
-            <div className="recipe-suggest recipe-suggest__msg error">
-                <p>Ooops... Failed to load...</p>
+            <div className="pt-[72px] min-h-[calc(100vh-72px)] flex justify-center items-center">
+                <p className="text-red-700 font-bold">Ooops... Failed to load...</p>
             </div>
         );
     }

@@ -3,7 +3,6 @@ import { Oval } from "react-loader-spinner";
 import { BiRefresh } from "react-icons/bi"
 import { useGetRandomRecipesQuery } from "../suggestApiSlice";
 import { SuggestCard } from "./";
-import "../../../styles/css/suggest-container.css";
 
 const SuggestContainer = ({ type, query }) => {
     const [randomQuery, setRandomQuery] = useState("");
@@ -26,21 +25,22 @@ const SuggestContainer = ({ type, query }) => {
         const { entities, ids } = recipes;
 
         return (
-            <div className="suggest-container">
-                <div className="suggest-container__header">
+            <div className="flex flex-col gap-5 py-10">
+                <div className="flex gap-5">
                     {type === "favorites" ? (
-                        <h4 className="suggest-container__title">Since you like {query.toString()}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you like "{query.toString()}"</h4>
                     ) : (
-                        <h4 className="suggest-container__title">Since you have {query.toString().replace(",", " and ")}</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you have "{query.toString().replace(",", " and ")}"</h4>
                     )}
                     <button
-                        className="suggest-container__refresh-button"
+                        className="bg-red-500 flex gap-1 justify-center items-center text-slate-50 px-3 py-1 rounded-lg hover:bg-red-700"
                         onClick={onClickRefresh}
                     >
-                        <BiRefresh /> Refresh
+                        Refresh
+                        <BiRefresh />
                     </button>
                 </div>
-                <div className="suggest-container__scrollable">
+                <div className="flex gap-3 overflow-x-scroll">
                     {ids.map(id => (
                         <SuggestCard recipe={entities[id]} key={id} />
                     ))}

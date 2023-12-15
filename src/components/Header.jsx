@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthButton } from "../features/auth/components";
-import { MdFoodBank } from "react-icons/md";
-import "../styles/css/header.css";
+import Logo from "../images/logo.png";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -29,14 +28,16 @@ const Header = () => {
     const onClickHome = () => navigate("/");
 
     return (
-        <header className={`header ${isScrolled && "header__scrolled"}`}>
-            <h1 className="header__home" onClick={onClickHome}>
-                <MdFoodBank />
-                <span>
-                    COOKING<br />HOME
-                </span>
+        <header className={`bg-neutral-50 fixed top-0 flex justify-between items-center py-3 px-5 w-full z-50 ${isScrolled ? "shadow-sm shadow-slate-300" : ""}`}>
+            <h1 className="hover:cursor-pointer" onClick={onClickHome}>
+                <img
+                    src={Logo}
+                    alt="cooking-home"
+                    width={48}
+                    height={48}
+                />
             </h1>
-            <nav className="header__nav">
+            <nav className="flex gap-3 items-center text-sm">
                 <Link to="/recipes" className="clickable-text">Search</Link>
                 <Link to="/suggest" className="clickable-text">Suggest</Link>
                 <AuthButton />

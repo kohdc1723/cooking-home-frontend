@@ -68,12 +68,12 @@ const AccountSettingForm = ({ user }) => {
     };
 
     return (
-        <form className="account-setting-form">
-            <p className={(isUpdateError) ? "error" : "off-screen"}>
+        <form className="flex flex-col gap-5">
+            <p className={(isUpdateError) ? "text-red-700" : "hidden"}>
                 {updateError?.data?.message}
             </p>
-            <div className="account-setting-form__row">
-                <label htmlFor="username">Username:</label>
+            <div className="max-w-lg flex gap-5 justify-between items-center">
+                <label className="font-bold" htmlFor="username">Username:</label>
                 <input
                     type="text"
                     id="username"
@@ -82,10 +82,11 @@ const AccountSettingForm = ({ user }) => {
                     onChange={onChangeUsername}
                     disabled={!isEditable}
                     ref={usernameRef}
+                    className="bg-red-100 flex-1 px-4 py-2 border-2 border-red-300 rounded-lg text-sm"
                 />
             </div>
-            <div className="account-setting-form__row">
-                <label htmlFor="password">Password:</label>
+            <div className="max-w-lg flex gap-5 justify-between items-center">
+                <label className="font-bold" htmlFor="password">Password:</label>
                 <input
                     type="password"
                     id="password"
@@ -94,28 +95,29 @@ const AccountSettingForm = ({ user }) => {
                     onChange={onChangePassword}
                     placeholder="Password [Empty = No change]"
                     disabled={!isEditable}
+                    className="bg-red-100 flex-1 px-4 py-2 border-2 border-red-300 rounded-lg text-sm"
                 />
             </div>
             {!isEditable ? (
-                <div className="account-setting-form__button-container">
+                <div className="flex">
                     <button
-                        className="account-setting-form__edit-button account-setting-form__button"
+                        className="bg-red-500 text-slate-50 px-4 py-2 rounded-lg hover:bg-red-700"
                         onClick={onClickEdit}
                     >
                         Edit
                     </button>
                 </div>
             ) : (
-                <div className="account-setting-form__button-container">
+                <div className="flex gap-5">
                     <button
-                        className="account-setting-form__save-button account-setting-form__button"
+                        className="bg-green-700 text-slate-50 px-4 py-2 rounded-lg hover:bg-green-900"
                         onClick={onClickSave}
                         disabled={!isValid}
                     >
                         Save
                     </button>
                     <button
-                        className="account-setting-form__cancel-button account-setting-form__button"
+                        className="bg-red-500 text-slate-50 px-4 py-2 rounded-lg hover:bg-red-700"
                         onClick={onClickCancel}
                     >
                         Cancel

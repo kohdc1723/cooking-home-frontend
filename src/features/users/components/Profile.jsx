@@ -27,11 +27,11 @@ const Profile = () => {
     };
 
     return (
-        <section className="profile">
+        <section className="pt-[72px] pb-10 px-5 sm:px-10 md:px-20 lg:px-32 flex flex-col gap-10">
             <AccountSetting />
             <PreferenceSetting />
             <button
-                className="profile__delete"
+                className="bg-red-700 text-slate-50 text-sm md:text-base px-4 py-2 rounded-lg w-fit self-end hover:bg-red-900"
                 onClick={onClickDelete}
             >
                 Delete Account

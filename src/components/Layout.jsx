@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { Header, Footer } from "./";
-import "../styles/css/layout.css";
 
 const Layout = () => {
     return (
         <>
             <Header />
-            <main className="layout__main">
+            <main className="min-h-[calc(100vh-144px)]">
                 <Outlet />
             </main>
             <Footer />

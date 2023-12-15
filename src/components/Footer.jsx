@@ -1,18 +1,15 @@
-import { MdFoodBank } from "react-icons/md";
-import { SiMongodb, SiRedux, SiReact, SiNodedotjs, SiExpress } from "react-icons/si";
-import "../styles/css/footer.css";
+import { useNavigate } from "react-router-dom";
+import Logo from "../images/logo.png";
 
 const Footer = () => {
+    const navigate = useNavigate();
+    const onClickHome = () => navigate("/");
+
     return (
-        <footer className="footer">
-            <h1><MdFoodBank /> COOKING HOME</h1>
-            <div className="footer__tech-stack">
-                <span><SiMongodb color="#00684A" />MongoDB</span>
-                <span><SiExpress color="#353535" />Express.js</span>
-                <span><SiReact color="#087EA4" />React.js</span>
-                <span><SiNodedotjs color="#026E00" />Node.js</span>
-                <span><SiRedux color="#764ABC" />Redux Toolkit</span>
-            </div>
+        <footer className="py-3 px-5 w-full flex justify-end">
+            <span className="hover:cursor-pointer" onClick={onClickHome}>
+                <img src={Logo} alt="cooking-home" width={48} height={48} />
+            </span>
         </footer>
     );
 };

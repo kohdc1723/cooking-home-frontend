@@ -2,7 +2,6 @@ import { Oval } from "react-loader-spinner";
 import { useGetPreferenceQuery } from "../preferenceApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { NewPreference, PreferenceSettingForm } from "./";
-import "../../../styles/css/preference-setting.css";
 
 const PreferenceSetting = () => {
     const { id } = useAuth();
@@ -24,17 +23,19 @@ const PreferenceSetting = () => {
         return <PreferenceSettingForm id={ids[0]} favorites={favorites} ingredients={ingredients} />;
     } else if (isLoading) {
         return (
-            <div className="preference-setting">
-                <h2>Preference Setting</h2>
-                <div className="preference-setting__loading">
+            <div className="flex flex-col gap-10 py-10">
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">
+                    Preference Setting
+                </h2>
+                <div className="p-20 flex justify-center items-center">
                     <Oval
-                        height={80}
-                        width={80}
+                        height={60}
+                        width={60}
                         visible={true}
-                        color="#60935dff"
-                        secondaryColor="#60935dff"
-                        strokeWidth={2}
-                        strokeWidthSecondary={2}
+                        color="#EF4444"
+                        secondaryColor="#EF4444"
+                        strokeWidth={3}
+                        strokeWidthSecondary={3}
                     />
                 </div>
             </div>
@@ -45,16 +46,20 @@ const PreferenceSetting = () => {
         }
 
         return (
-            <div className="preference-setting">
-                <h2>Preference Setting</h2>
-                <div className="preference-setting__error">Error</div>
+            <div className="flex flex-col gap-10 py-10">
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Preference Setting</h2>
+                <div className="p-20 flex justify-center items-center">
+                    <p className="text-red-700 font-bold">Ooops... Error occurred</p>
+                </div>
             </div>
         );
     } else {
         return (
-            <div className="preference-setting">
-                <h2>Preference Setting</h2>
-                <div className="preference-setting__error">Failed to load</div>
+            <div className="flex flex-col gap-10 py-10">
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Preference Setting</h2>
+                <div className="p-20 flex justify-center items-center">
+                    <p className="text-red-700 font-bold">Ooops... Error occurred</p>
+                </div>
             </div>
         );
     }

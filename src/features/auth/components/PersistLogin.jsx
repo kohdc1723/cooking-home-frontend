@@ -44,15 +44,15 @@ const PersistLogin = () => {
         return <Outlet />;
     } else if (isLoading) { // persist O, token X
         return (
-            <div className="persist-login">
+            <div className="min-h-[calc(100vh-72px)] flex justify-center items-center">
                 <Oval
-                    height={80}
-                    width={80}
+                    height={60}
+                    width={60}
                     visible={true}
-                    color="#60935dff"
-                    secondaryColor="#60935dff"
-                    strokeWidth={2}
-                    strokeWidthSecondary={2}
+                    color="#EF4444" // red-500
+                    secondaryColor="#EF4444" // red-500
+                    strokeWidth={3}
+                    strokeWidthSecondary={3}
                 />
             </div>
         );

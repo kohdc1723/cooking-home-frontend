@@ -53,14 +53,14 @@ const PreferenceSettingForm = ({ id, favorites, ingredients }) => {
     };
     
     return (
-        <div className="preference-setting">
-            <h2>Preference Setting</h2>
-            <p className={errMsg ? "preference-setting__errmsg" : "off-screen"}>{errMsg}</p>
-            <div className="preference-setting__favorites">
-                <h4>Favorites</h4>
-                <div className="preference-setting__add">
+        <div className="flex flex-col gap-10 py-10">
+            <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Preference Setting</h2>
+            <p className={errMsg ? "text-red-700 font-bold" : "hidden"}>{errMsg}</p>
+            <div className="flex flex-col gap-5">
+                <h4 className="text-xl font-bold">Favorites</h4>
+                <div className="flex gap-5">
                     <input
-                        className="preference-setting__input"
+                        className="px-4 py-2 text-sm bg-red-100 border-2 border-red-300 rounded-lg"
                         type="text"
                         autoComplete="off"
                         value={favorite}
@@ -68,16 +68,16 @@ const PreferenceSettingForm = ({ id, favorites, ingredients }) => {
                         placeholder="ex) pasta, burger, salad"
                     />
                     <button
-                        className="preference-setting__add-button"
+                        className="px-4 py-2 text-sm bg-red-500 rounded-lg text-slate-50 hover:bg-red-700"
                         onClick={onClickAddFavorite}
                     >
                         Add
                     </button>
                 </div>
-                <div className="preference-setting__chip-container">
+                <div className="flex flex-wrap gap-3 bg-red-100 rounded-lg p-3">
                     {favorites.map((favorite, index) => (
                         <span
-                            className="preference-setting__chip"
+                            className="flex gap-1 justify-center items-center bg-red-500 px-3 py-1 rounded-full text-sm hover:cursor-pointer hover:bg-red-700 text-slate-50"
                             key={index}
                             onClick={() => onClickFavoriteChip(index)}
                         >
@@ -86,11 +86,11 @@ const PreferenceSettingForm = ({ id, favorites, ingredients }) => {
                     ))}
                 </div>
             </div>
-            <div className="preference-setting__ingredients">
-                <h4>Ingredients</h4>
-                <div className="preference-setting__add">
+            <div className="flex flex-col gap-5">
+                <h4 className="text-xl font-bold">Ingredients</h4>
+                <div className="flex gap-5">
                     <input
-                        className="preference-setting__input"
+                        className="px-4 py-2 text-sm bg-rose-100 border-2 border-rose-300 rounded-lg"
                         type="text"
                         autoComplete="off"
                         value={ingredient}
@@ -98,16 +98,16 @@ const PreferenceSettingForm = ({ id, favorites, ingredients }) => {
                         placeholder="ex) egg, beef, pork"
                     />
                     <button
-                        className="preference-setting__add-button"
+                        className="px-4 py-2 text-sm bg-rose-500 rounded-lg text-slate-50 hover:bg-rose-700"
                         onClick={onClickAddIngredient}
                     >
                         Add
                     </button>
                 </div>
-                <div className="preference-setting__chip-container">
+                <div className="flex flex-wrap gap-3 bg-rose-100 rounded-lg p-3">
                     {ingredients.map((ingredient, index) => (
                         <span
-                            className="preference-setting__chip"
+                            className="flex gap-1 justify-center items-center bg-rose-500 px-3 py-1 rounded-full text-sm hover:cursor-pointer hover:bg-rose-700 text-slate-50"
                             key={index}
                             onClick={() => onClickIngredientChip(index)}
                         >

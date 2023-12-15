@@ -2,7 +2,6 @@ import { Oval } from "react-loader-spinner";
 import useAuth from "../../../hooks/useAuth";
 import { useGetUserQuery } from "../usersApiSlice";
 import { AccountSettingForm } from "./";
-import "../../../styles/css/account-setting.css";
 
 const AccountSetting = () => {
     const { id } = useAuth();
@@ -19,43 +18,43 @@ const AccountSetting = () => {
         const currentUser = entities[ids[0]];
 
         return (
-            <div className="account-setting">
-                <h2>Account Setting</h2>
+            <div className="flex flex-col gap-10 py-10">
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
                 <AccountSettingForm user={currentUser} />
             </div>
         );
     } else if (isLoading) {
         return (
-            <div className="account-setting">
-                <h2>Account Setting</h2>
-                <div className="account-setting__loading">
+            <div className="flex flex-col gap-10 py-10">
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
+                <div className="p-20 flex justify-center items-center">
                     <Oval
-                        height={80}
-                        width={80}
+                        height={60}
+                        width={60}
                         visible={true}
-                        color="#60935dff"
-                        secondaryColor="#60935dff"
-                        strokeWidth={2}
-                        strokeWidthSecondary={2}
+                        color="#EF4444"
+                        secondaryColor="#EF4444"
+                        strokeWidth={3}
+                        strokeWidthSecondary={3}
                     />
                 </div>
             </div>
         );
     } else if (isError) {
         return (
-            <div className="account-setting">
-                <h2>Account Setting</h2>
-                <div className="account-setting__error">
-                    <p>Ooops... Error occurred...</p>
+            <div className="flex flex-col gap-10 py-10">
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
+                <div className="p-20 flex justify-center items-center">
+                    <p className="text-red-700 font-bold">Ooops... Error occurred...</p>
                 </div>
             </div>
         );
     } else {
         return (
-            <div className="account-setting">
-                <h2>Account Setting</h2>
-                <div className="account-setting__error">
-                    <p>Ooops... Failed to load...</p>
+            <div className="flex flex-col gap-10 py-10">
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
+                <div className="p-20 flex justify-center items-center">
+                    <p className="text-red-700">Ooops... Failed to load...</p>
                 </div>
             </div>
         );

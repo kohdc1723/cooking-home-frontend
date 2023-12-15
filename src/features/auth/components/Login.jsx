@@ -1,11 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { MdFoodBank } from "react-icons/md";
 import { setCredentials } from "../authSlice";
 import { useLoginMutation } from "../authApiSlice";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-import "../../../styles/css/login.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -62,19 +60,24 @@ const Login = () => {
     };
 
     return (
-        <main className="login">
-            <div className="login__container">
-                <h1 onClick={handleClickHome}><MdFoodBank /> COOKING HOME</h1>
-                <h2>Sign In</h2>
+        <div className="h-screen flex justify-center items-center">
+            <div className="bg-red-100 p-5 flex flex-col gap-5 items-center rounded-lg w-80 md:w-96">
+                <h1
+                    onClick={handleClickHome}
+                    className="font-black text-2xl text-red-500 hover:cursor-pointer w-fit"
+                >
+                    COOKING HOME
+                </h1>
+                <h2 className="text-xl font-medium">Sign In</h2>
                 <p
                     ref={errorRef}
                     aria-live="assertive"
-                    className={errMsg ? "login__errmsg" : "off-screen"}
+                    className={errMsg ? "text-red-700 font-medium" : "hidden"}
                 >
                     {errMsg}
                 </p>
                 <form
-                    className="login__form"
+                    className="flex flex-col gap-5 w-full text-sm"
                     onSubmit={handleSubmit}
                 >
                     <input
@@ -86,7 +89,7 @@ const Login = () => {
                         value={username}
                         onChange={handleChangeUsername}
                         placeholder="Username"
-                        className="login__input"
+                        className="p-2 rounded-lg w-full border-2 border-red-300 font-medium"
                     />
                     <input
                         type="password"
@@ -94,10 +97,10 @@ const Login = () => {
                         value={password}
                         onChange={handleChangePassword}
                         placeholder="Password"
-                        className="login__input"
+                        className="p-2 rounded-lg w-full border-2 border-red-300 font-medium"
                     />
-                    <button className="clickable-box">Sign In</button>
-                    <div className="login__persist">
+                    <button className="w-full bg-red-500 text-slate-50 p-2 rounded-lg hover:bg-red-700">Sign In</button>
+                    <div className="flex gap-2">
                         <label htmlFor="persist">Trust this device?</label>
                         <input
                             type="checkbox"
@@ -107,12 +110,12 @@ const Login = () => {
                         />
                     </div>
                 </form>
-                <p>
+                <p className="text-sm text-left w-full">
                     Need an account?
-                    <Link to="/register" className="clickable-text"> Register here</Link>
+                    <Link to="/register" className="font-medium text-red-500 hover:text-orange-700"> Register here</Link>
                 </p>
             </div>
-        </main>
+        </div>
     );
 };
 

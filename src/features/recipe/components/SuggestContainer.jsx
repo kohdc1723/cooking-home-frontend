@@ -26,11 +26,11 @@ const SuggestContainer = ({ type, query }) => {
 
         return (
             <div className="flex flex-col gap-5 py-10">
-                <div className="flex gap-5">
+                <div className="flex gap-5 items-center">
                     {type === "favorites" ? (
-                        <h4 className="text-red-500 font-bold text-xl">Since you like "{query.toString()}"</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you like<br />"{query.toString()}"</h4>
                     ) : (
-                        <h4 className="text-red-500 font-bold text-xl">Since you have "{query.toString().replace(",", " and ")}"</h4>
+                        <h4 className="text-red-500 font-bold text-xl">Since you have<br />"{query.toString().replace(",", " and ")}"</h4>
                     )}
                     <button
                         className="bg-red-500 flex gap-1 justify-center items-center text-slate-50 px-3 py-1 rounded-lg hover:bg-red-700"

@@ -5,7 +5,6 @@ import { Oval } from "react-loader-spinner";
 import { selectCurrentToken } from "../authSlice";
 import { useRefreshMutation } from "../authApiSlice";
 import usePersist from "../../../hooks/usePersist";
-import "../../../styles/css/persist-login.css";
 
 const PersistLogin = () => {
     const [persist] = usePersist();

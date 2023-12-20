@@ -16,7 +16,7 @@ const RecipeFinder = () => {
     const isLarge = useMediaQuery("(min-width: 1024px)");
 
     const searchParams = useQueryString();
-    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
     const [input, setInput] = useState(searchParams?.query || "");
 
     useEffect(() => {
@@ -54,14 +54,14 @@ const RecipeFinder = () => {
     }
     const onClickReset = () => dispatch(reset());
 
-    const toggleDrawer = (open) => (event) => {
+    const toggleFilterDrawer = (open) => (event) => {
         if (event
             && event.type === 'keydown'
             && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
 
-        setDrawerOpen(open);
+        setFilterDrawerOpen(open);
     };
 
     return (
@@ -139,20 +139,20 @@ const RecipeFinder = () => {
                     ) : (
                         <div className="flex items-center justify-end h-[56px] bg-white">
                             <button
-                                onClick={toggleDrawer(true)}
+                                onClick={toggleFilterDrawer(true)}
                                 className="flex items-center justify-center gap-3 py-3 px-5 bg-red-500 hover:bg-red-700 text-white rounded-lg"
                             >
                                 <IoFilterSharp /> Filters
                             </button>
                             <SwipeableDrawer
                                 anchor="right"
-                                open={drawerOpen}
-                                onClose={toggleDrawer(false)}
-                                onOpen={toggleDrawer(true)}
+                                open={filterDrawerOpen}
+                                onClose={toggleFilterDrawer(false)}
+                                onOpen={toggleFilterDrawer(true)}
                             >
                                 <div
                                     className="w-60 h-full bg-white p-3 flex flex-col gap-3"
-                                    onKeyDown={toggleDrawer(false)}
+                                    onKeyDown={toggleFilterDrawer(false)}
                                 >
                                     <h6 className="font-bold text-center text-xl py-3 text-red-500">Filters</h6>
                                     <SingleSelect

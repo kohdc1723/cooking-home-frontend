@@ -1,8 +1,9 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Oval } from "react-loader-spinner";
-import { Pagination, useMediaQuery } from "@mui/material";
+import { Pagination, SwipeableDrawer, useMediaQuery } from "@mui/material";
+import { IoArrowBack } from "react-icons/io5";
 import { useGetRecipesQuery } from "../searchApiSlice";
 import { RecipeCard, RecipeDetail } from "./";
 import { muiStyles } from "../../../styles/muiCustomStyles";
@@ -13,6 +14,8 @@ const RecipeResult = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const isLarge = useMediaQuery("(min-width: 1024px)");
+
+    const [detailDrawerOpen, setDetailDrawerOpen] = useState(false);
 
     const searchParams = new URLSearchParams(location.search);
     const currentId = searchParams.get("currentId");
@@ -46,6 +49,16 @@ const RecipeResult = () => {
 
     const onClickLabel = (label) => dispatch(setParam("query", label));
 
+    const toggleDetailDrawer = (open) => (event) => {
+        if (event
+            && event.type === 'keydown'
+            && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setDetailDrawerOpen(open);
+    };
+
     if (isSuccess) {
         const { ids, entities, count } = recipes;
 
@@ -64,7 +77,9 @@ const RecipeResult = () => {
                             </div>
                             <div className="overflow-y-scroll">
                                 {ids?.map(id => (
-                                    <RecipeCard key={id} recipe={entities[id]} />
+                                    <div key={id} onClick={toggleDetailDrawer(true)}>
+                                        <RecipeCard recipe={entities[id]} />
+                                    </div>
                                 ))}
                                 <Pagination
                                     sx={muiStyles.pagination}
@@ -74,10 +89,29 @@ const RecipeResult = () => {
                                 />
                             </div>
                         </div>
-                        {isLarge && (
+                        {isLarge ? (
                             <div className="flex-1 overflow-y-scroll">
                                 <RecipeDetail recipe={entities[currentId]} />
                             </div>
+                        ) : (
+                            <SwipeableDrawer
+                                anchor="bottom"
+                                open={detailDrawerOpen}
+                                onClose={toggleDetailDrawer(false)}
+                                onOpen={toggleDetailDrawer(true)}
+                            >
+                                <div className="flex flex-col h-[90vh]">
+                                    <div className="p-5">
+                                        <button
+                                            onClick={toggleDetailDrawer(false)}
+                                            className="text-2xl hover:text-red-500"
+                                        >
+                                            <IoArrowBack />
+                                        </button>
+                                    </div>
+                                    <RecipeDetail recipe={entities[currentId]} />
+                                </div>
+                            </SwipeableDrawer>
                         )}
                     </div>
                 ) : (

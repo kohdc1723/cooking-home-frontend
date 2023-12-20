@@ -21,7 +21,9 @@ const RecipeCard = ({ recipe }) => {
 
     const currentId = useSelector(selectCurrentId);
 
-    const handleClickCard = () => dispatch(setParam("currentId", recipe?.id));
+    const handleClickCard = () => {
+        dispatch(setParam("currentId", recipe?.id));
+    };
 
     return (
         <div

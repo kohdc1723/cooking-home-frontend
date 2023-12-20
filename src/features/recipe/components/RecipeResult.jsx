@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Oval } from "react-loader-spinner";
-import { Pagination } from "@mui/material";
+import { Pagination, useMediaQuery } from "@mui/material";
 import { useGetRecipesQuery } from "../searchApiSlice";
 import { RecipeCard, RecipeDetail } from "./";
 import { muiStyles } from "../../../styles/muiCustomStyles";
@@ -12,6 +12,7 @@ import "../../../styles/css/recipe-result.css";
 const RecipeResult = () => {
     const location = useLocation();
     const dispatch = useDispatch();
+    const isLarge = useMediaQuery("(min-width: 1024px)");
 
     const searchParams = new URLSearchParams(location.search);
     const currentId = searchParams.get("currentId");
@@ -51,17 +52,17 @@ const RecipeResult = () => {
         const totalPage = Math.ceil(count / 10);
         const page = Number(searchParams.get("page"));
         const from = (page - 1) * 10 + 1;
-        const to = page * 10;
+        const to = Math.min(page * 10, count);
 
         return (
-            <div className="recipe-result">
+            <div className="h-screen pt-[136px] lg:px-20 flex justify-center bg-slate-100">
                 {ids?.length ? (
-                    <div className="recipe-result__container">
-                        <div className="recipe-result__list-container">
-                            <div className="recipe-result__count">
+                    <div className="flex shadow-lg flex-1">
+                        <div className="flex flex-col flex-1">
+                            <div className="bg-red-300 p-3 text-sm">
                                 {ids?.length ? (`${count} results (${from} - ${to})`) : ""}
                             </div>
-                            <div className="recipe-result__card-container">
+                            <div className="overflow-y-scroll">
                                 {ids?.map(id => (
                                     <RecipeCard key={id} recipe={entities[id]} />
                                 ))}
@@ -73,9 +74,11 @@ const RecipeResult = () => {
                                 />
                             </div>
                         </div>
-                        <div className="recipe-result__detail-container">
-                            <RecipeDetail recipe={entities[currentId]} />
-                        </div>
+                        {isLarge && (
+                            <div className="flex-1 overflow-y-scroll">
+                                <RecipeDetail recipe={entities[currentId]} />
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <div className="recipe-result__not-found-container">

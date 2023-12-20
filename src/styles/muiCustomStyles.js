@@ -5,7 +5,9 @@ const MenuProps = {
     PaperProps: {
         style: {
             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 200
+            width: "fit-content",
+            fontFamily: "'Ubuntu', sans-serif",
+            background: "#FEE2E2" // red-100
         }
     }
 };
@@ -21,47 +23,38 @@ const getStyles = (labelsArray, label, theme) => {
 
 const muiStyles = {
     formControl: {
-        flex: 1
+        // width: "160px"
+        // flex: 1
     },
     select: {
-        ".MuiSelect-select.MuiSelect-outlined.MuiSelect-multiple.MuiInputBase-input.MuiOutlinedInput-input": {
-            padding: "10px 30px 10px 20px"
-        },
-        ".MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input": {
-            padding: "10px 30px 10px 20px"
-        },
         ".MuiOutlinedInput-notchedOutline": {
-            borderColor: "#FCFAF9",
-            borderWidth: "1px",
-            borderRadius: "28px",
+            borderColor: "#EF4444",
+            borderWidth: "2px",
         },
         "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#FCFAF9",
+            borderColor: "#EF4444",
         },
         "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#FCFAF9"
+            borderColor: "#EF4444"
         },
         ".MuiSvgIcon-root": {
-            color: "#FCFAF9"
+            color: "#EF4444"
         },
         ".MuiSelect-select": {
-            color: "#423E3B",
-            fontSize: "small"
+            color: "#EF4444",
         },
-        color: "#FCFAF9",
+        color: "#EF4444",
+        background: "white",
+        minWidth: "160px",
     },
     inputLabel: {
         "&.MuiInputLabel-outlined.Mui-focused": {
-            color: "#FCFAF9"
+            color: "#EF4444"
         },
         "&.MuiInputLabel-outlined": {
-            color: "#FCFAF9"
+            color: "#EF4444"
         },
-        "&.MuiFormLabel-root.MuiInputLabel-root": {
-            fontSize: "small",
-            left: "5px",
-            top: "-3px"
-        }
+        fontFamily: "'Ubuntu', sans-serif",
     },
     box: {
         display: "flex",
@@ -69,16 +62,17 @@ const muiStyles = {
         gap: 1
     },
     pagination: {
-        ".MuiPaginationItem-root": { color: "#FCFAF9" },
-        ".MuiButtonBase-root": { color: "#232020", background: "#FCFAF9" },
-        ".MuiPaginationItem-previousNext": { background: "#FCFAF9" },
-        ".MuiPaginationItem-text": { color: "#232020" },
-        "&.MuiPagination-root .Mui-selected": { background: "#60935dff" },
-        ".MuiButtonBase-root.MuiPaginationItem-root:hover": { background: "#a1cf6bff" },
-        padding: "20px",
+        ".MuiButtonBase-root": { background: "white" },
+        ".MuiPaginationItem-previousNext": { background: "white" },
+        ".MuiPaginationItem-text": { color: "black" },
+        "&.MuiPagination-root .Mui-selected": { background: "#EF4444" },
+        ".MuiButtonBase-root.MuiPaginationItem-root:hover": { background: "#FCA5A5" },
+        padding: "10px",
         display: "flex",
         justifyContent: "center",
-        color: "#FCFAF9"
+        color: "#FCFAF9",
+        background: "white",
+        fontFamily: "'Ubuntu', sans-serif",
     }
 };
 

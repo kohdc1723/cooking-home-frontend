@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { useUpdateUserMutation } from "../usersApiSlice";
-import "../../../styles/css/account-setting-form.css";
 
 const USERNAME_REGEX = /^[a-zA-Z0-9]{3,20}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;

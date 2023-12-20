@@ -100,7 +100,7 @@ const Login = () => {
                         className="p-2 rounded-lg w-full border-2 border-red-300 font-medium"
                     />
                     <button className="w-full bg-red-500 text-slate-50 p-2 rounded-lg hover:bg-red-700">Sign In</button>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 items-center">
                         <label htmlFor="persist">Trust this device?</label>
                         <input
                             type="checkbox"

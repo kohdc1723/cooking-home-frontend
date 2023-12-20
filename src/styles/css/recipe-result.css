@@ -1,13 +1,13 @@
 @import "./colors.css";
 
-.recipe-result {
+/* .recipe-result {
     background-color: var(--sea-salt);
-    height: 100vh;
+    height: calc(100vh - 140px);
     display: flex;
     justify-content: center;
     color: var(--raisin-black);
-    padding: 120.5px 80px 0 80px;
-}
+    padding: 0px 80px 0 80px;
+} */
 
 .recipe-result__error {
     align-items: center;

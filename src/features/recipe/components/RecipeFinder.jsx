@@ -79,7 +79,7 @@ const RecipeFinder = () => {
                     <div className="flex max-w-3xl flex-1">
                         <input
                             type="text"
-                            className="bg-red-50 border-2 border-red-500 border-r-0 rounded-l-lg px-3 py-2 flex-1"
+                            className="bg-red-50 border-2 border-red-500 rounded-l-lg px-3 py-2 flex-1"
                             placeholder="Search recipes by "
                             onChange={onChangeInput}
                             value={input}

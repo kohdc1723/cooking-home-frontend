@@ -12,11 +12,4 @@
 
 body {
     font-family: "Ubuntu", sans-serif;
-    /* min-height: 100vh;
-    background-color: var(--sea-salt);
-    color: var(--raisin-black); */
-    min-height: 100vh;
-    @supports (-webkit-appearance:none) and (stroke-color: transparent) {
-        min-height: -webkit-fill-available;
-    }
 }

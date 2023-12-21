@@ -12,8 +12,6 @@ import { muiStyles } from "../../../styles/muiCustomStyles";
 import { setParam } from "../searchParamsSlice";
 
 const RecipeResult = () => {
-    let vh = window.innerHeight * 0.01
-
     const location = useLocation();
     const dispatch = useDispatch();
     const isLarge = useMediaQuery("(min-width: 1024px)");
@@ -69,7 +67,7 @@ const RecipeResult = () => {
         const to = Math.min(page * 10, count);
 
         return (
-            <div className={`h-[calc(${vh}*100)] mt-[136px] lg:px-20 flex flex-1 justify-center bg-slate-100`}>
+            <div className={`h-dvh mt-[136px] lg:px-20 flex flex-1 justify-center bg-slate-100`}>
                 {ids?.length ? (
                     <div className="flex shadow-lg flex-1">
                         <div className="flex flex-col flex-1">

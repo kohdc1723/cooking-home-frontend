@@ -4,41 +4,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-@import "./styles/css/colors.css";
-
-/***** General *****/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-weight: normal;
 }
 
 body {
     font-family: "Ubuntu", sans-serif;
-    min-height: 100vh;
+    /* min-height: 100vh;
     background-color: var(--sea-salt);
-    color: var(--raisin-black);
-}
-
-.off-screen {
-    display: none;
-}
-
-.error {
-    color: var(--tomato);
-}
-
-.loading {
-    color: var(--citron);
-}
-
-.clickable-text:hover {
-    cursor: pointer;
-    text-shadow: 0 0 10px var(--raisin-black);
-}
-
-.clickable-box:hover {
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 var(--raisin-black);
+    color: var(--raisin-black); */
+    min-height: 100vh;
+    @supports (-webkit-appearance:none) and (stroke-color: transparent) {
+        min-height: -webkit-fill-available;
+    }
 }

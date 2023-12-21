@@ -4,11 +4,12 @@ import { useDispatch } from "react-redux";
 import { Oval } from "react-loader-spinner";
 import { Pagination, SwipeableDrawer, useMediaQuery } from "@mui/material";
 import { IoArrowBack } from "react-icons/io5";
+import { TbDatabaseSearch, TbError404 } from "react-icons/tb";
+import { BiSolidError } from "react-icons/bi";
 import { useGetRecipesQuery } from "../searchApiSlice";
 import { RecipeCard, RecipeDetail } from "./";
 import { muiStyles } from "../../../styles/muiCustomStyles";
 import { setParam } from "../searchParamsSlice";
-import "../../../styles/css/recipe-result.css";
 
 const RecipeResult = () => {
     const location = useLocation();
@@ -46,8 +47,6 @@ const RecipeResult = () => {
     }, [recipes]);
 
     const onChangePage = (event, value) => dispatch(setParam("page", value));
-
-    const onClickLabel = (label) => dispatch(setParam("query", label));
 
     const toggleDetailDrawer = (open) => (event) => {
         if (event
@@ -115,123 +114,44 @@ const RecipeResult = () => {
                         )}
                     </div>
                 ) : (
-                    <div className="recipe-result__not-found-container">
-                        Ooops... Recipe not found...
+                    <div className="flex justify-center items-center">
+                        <p className="flex flex-col justify-center items-center gap-1 font-bold text-red-700">
+                            <TbError404 className="text-5xl" />
+                            Ooops... Recipe not found...
+                        </p>
                     </div>
                 )}
             </div>
         );
     } else if (isLoading) {
         return (
-            <div className="recipe-result recipe-result__loading">
+            <div className="pt-[136px] min-h-screen flex justify-center items-center flex-1">
                 <Oval
-                    height={80}
-                    width={80}
+                    height={60}
+                    width={60}
                     visible={true}
-                    color="#60935dff"
-                    secondaryColor="#60935dff"
-                    strokeWidth={2}
-                    strokeWidthSecondary={2}
+                    color="#EF4444" // red-500
+                    secondaryColor="#EF4444" // red-500
+                    strokeWidth={3}
+                    strokeWidthSecondary={3}
                 />
             </div>
         );
     } else if (isError) {
         return (
-            <div className="recipe-result recipe-result__error">
-                Ooops... there is an error...
+            <div className="pt-[136px] min-h-screen flex justify-center items-center flex-1">
+                <p className="flex flex-col justify-center items-center gap-1 font-bold text-red-700">
+                    <BiSolidError className="text-5xl" />
+                    Ooops... there is an error...
+                </p>
             </div>
         );
     } else {
         return (
-            <div className="recipe-result">
-                <div className="recipe-result__container">
-                    <div className="recipe-result__list-container">
-                        <div className="recipe-result__no-card-container">
-                            <h4>Search recipes by names</h4>
-                            <div className="recipe-result__labels">
-                                <div
-                                    className="recipe-result__label recipe-result__pasta clickable-box"
-                                    onClick={() => onClickLabel("pasta")}
-                                >
-                                    Pasta
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__sandwich clickable-box"
-                                    onClick={() => onClickLabel("sandwich")}
-                                >
-                                    Sandwich
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__salad clickable-box"
-                                    onClick={() => onClickLabel("salad")}
-                                >
-                                    Salad
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__pizza clickable-box"
-                                    onClick={() => onClickLabel("pizza")}
-                                >
-                                    Pizza
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__burger clickable-box"
-                                    onClick={() => onClickLabel("burger")}
-                                >
-                                    Burger
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__stew clickable-box"
-                                    onClick={() => onClickLabel("stew")}
-                                >
-                                    Stew
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recipe-result__detail-container">
-                        <div className="recipe-result__no-recipe">
-                            <h4>Search recipes by ingredients</h4>
-                            <div className="recipe-result__labels">
-                                <div
-                                    className="recipe-result__label recipe-result__egg clickable-box"
-                                    onClick={() => onClickLabel("egg")}
-                                >
-                                    Egg
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__beef clickable-box"
-                                    onClick={() => onClickLabel("beef")}
-                                >
-                                    Beef
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__cheese clickable-box"
-                                    onClick={() => onClickLabel("cheese")}
-                                >
-                                    Cheese
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__chicken clickable-box"
-                                    onClick={() => onClickLabel("chicken")}
-                                >
-                                    Chicken
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__potato clickable-box"
-                                    onClick={() => onClickLabel("potato")}
-                                >
-                                    Potato
-                                </div>
-                                <div
-                                    className="recipe-result__label recipe-result__onion clickable-box"
-                                    onClick={() => onClickLabel("onion")}
-                                >
-                                    Onion
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="pt-[136px] min-h-screen flex flex-col justify-center items-center flex-1 bg-white bg-no-repeat bg-cover">
+                <p className="flex flex-col justify-center items-center text-red-500 gap-1 font-bold break-words">
+                    <TbDatabaseSearch className="text-5xl" />
+                    Search recipes by food names or ingredients</p>
             </div>
         );
     }

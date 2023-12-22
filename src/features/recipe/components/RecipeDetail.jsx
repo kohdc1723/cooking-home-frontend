@@ -3,6 +3,7 @@ import { AiOutlineLink } from "react-icons/ai";
 import { useMediaQuery } from "@mui/material";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { VscTasklist } from "react-icons/vsc";
 import { Oval } from "react-loader-spinner";
 
 const RecipeDetail = ({ recipe }) => {
@@ -107,8 +108,9 @@ const RecipeDetail = ({ recipe }) => {
         );
     } else {
         return (
-            <div className="recipe-detail__no-recipe">
-                Ooops... Recipe not selected...
+            <div className="flex flex-col justify-center items-center">
+                <VscTasklist />
+                <p>Select a recipe to see details</p>
             </div>
         );
     }

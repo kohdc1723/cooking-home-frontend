@@ -47,9 +47,9 @@ The search engine utilizes the URL querystring parameters
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/16227ab4-6aa7-4797-9a15-6144a398e8a1">
 
 ### Mobile
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/96bb5305-cbee-4ea8-af36-b09cd504d544">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/db5415d1-07b1-4664-886e-3df700475bb5">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/8bb4284e-696c-47b4-86c8-52b4e2c13be8">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/96bb5305-cbee-4ea8-af36-b09cd504d544">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/db5415d1-07b1-4664-886e-3df700475bb5">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/8bb4284e-696c-47b4-86c8-52b4e2c13be8">
 
 ---
 
@@ -59,9 +59,9 @@ The search engine utilizes the URL querystring parameters
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/0641097c-f550-4445-a304-33966e2c8d01">
 
 ### Mobile
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/208b1135-a6f0-4707-8457-891497265530">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/a3306b4f-baac-4709-a048-6708d221c53b">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/6c303289-3a59-400b-bb4a-d07dd311d0f4">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/208b1135-a6f0-4707-8457-891497265530">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/a3306b4f-baac-4709-a048-6708d221c53b">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/6c303289-3a59-400b-bb4a-d07dd311d0f4">
 
 ---
 
@@ -71,9 +71,9 @@ The search engine utilizes the URL querystring parameters
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/3fa024e5-aaf1-4cc0-8d7a-af13ddde0477">
 
 ### Mobile
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/8b976443-ff67-40c2-adaf-3f1eaf10e4cc">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/27d21bad-43f8-4f89-a215-d66f21174b72">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/56a52e48-4f56-4628-b68d-39ad58deaa91">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/8b976443-ff67-40c2-adaf-3f1eaf10e4cc">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/27d21bad-43f8-4f89-a215-d66f21174b72">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/56a52e48-4f56-4628-b68d-39ad58deaa91">
 
 ---
 
@@ -83,9 +83,9 @@ The search engine utilizes the URL querystring parameters
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/5288f117-6d82-47d8-8df3-43a152141234">
 
 ### Mobile
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/00437a13-2cc3-489c-a0e0-970881cba2eb">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/a55968b2-184a-45e1-9902-fa641d6a6877">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/c68fa270-274b-4856-9e3b-ea64845db809">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/00437a13-2cc3-489c-a0e0-970881cba2eb">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/a55968b2-184a-45e1-9902-fa641d6a6877">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/c68fa270-274b-4856-9e3b-ea64845db809">
 
 ---
 
@@ -95,9 +95,9 @@ The search engine utilizes the URL querystring parameters
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/01aa5978-010f-4e2c-a13e-4fb20b8e578c">
 
 ### Mobile
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/a09526c6-0eeb-4c68-8591-cc4c324e6997">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/768b80e9-79ec-4df7-9646-17fdaf0f5995">
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/60ef03b1-6fb6-4d37-80fd-3e5ea1c22626">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/a09526c6-0eeb-4c68-8591-cc4c324e6997">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/768b80e9-79ec-4df7-9646-17fdaf0f5995">
+<img width="273" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/60ef03b1-6fb6-4d37-80fd-3e5ea1c22626">
 
 ---
 ---

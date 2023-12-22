@@ -4,6 +4,7 @@ import { Divider, SwipeableDrawer, useMediaQuery } from "@mui/material";
 import { dietLabels, healthLabels, cuisineTypeLabels, mealTypeLabels, dishTypeLabels } from "../../../constants/labels";
 import { RecipeResult, SingleSelect, MultipleSelect } from "./";
 import useQueryString from "../../../hooks/useQueryString";
+import useInnerHeight from "../../../hooks/useInnerHeight";
 import { setParam, reset } from "../searchParamsSlice";
 import { useDispatch } from "react-redux";
 import Logo from "../../../images/logo.png";
@@ -13,6 +14,7 @@ const RecipeFinder = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const queryRef = useRef();
+    const vh = useInnerHeight();
     const isLarge = useMediaQuery("(min-width: 1024px)");
 
     const searchParams = useQueryString();
@@ -65,7 +67,7 @@ const RecipeFinder = () => {
     };
 
     return (
-        <div className="h-screen flex flex-1">
+        <div className={`h-[${100*vh}px] flex flex-1`}>
             <header className="bg-white fixed top-0 w-full px-5 py-3 flex flex-col gap-3 shadow-md z-50">
                 <div className="flex justify-start items-center gap-3">
                     <h1 className="hover:cursor-pointer" onClick={onClickHome}>

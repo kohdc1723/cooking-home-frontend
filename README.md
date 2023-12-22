@@ -47,7 +47,7 @@ The search engine utilizes the URL querystring parameters
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/16227ab4-6aa7-4797-9a15-6144a398e8a1">
 
 ### Mobile
-<img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/96bb5305-cbee-4ea8-af36-b09cd504d544">
+<img width="200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/96bb5305-cbee-4ea8-af36-b09cd504d544">
 <img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/db5415d1-07b1-4664-886e-3df700475bb5">
 <img width="334" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/8bb4284e-696c-47b4-86c8-52b4e2c13be8">
 

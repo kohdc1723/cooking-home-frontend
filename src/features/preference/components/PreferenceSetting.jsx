@@ -1,4 +1,5 @@
 import { Oval } from "react-loader-spinner";
+import { BiSolidError } from "react-icons/bi";
 import { useGetPreferenceQuery } from "../preferenceApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { NewPreference, PreferenceSettingForm } from "./";
@@ -48,8 +49,9 @@ const PreferenceSetting = () => {
         return (
             <div className="flex flex-col gap-10 py-10">
                 <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Preference Setting</h2>
-                <div className="p-20 flex justify-center items-center">
-                    <p className="text-red-700 font-bold">Ooops... Error occurred</p>
+                <div className="p-20 flex flex-col gap-1 justify-center items-center text-red-700">
+                    <BiSolidError className="text-5xl" />
+                    <p className="font-bold">Ooops... Error occurred...</p>
                 </div>
             </div>
         );
@@ -57,8 +59,9 @@ const PreferenceSetting = () => {
         return (
             <div className="flex flex-col gap-10 py-10">
                 <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Preference Setting</h2>
-                <div className="p-20 flex justify-center items-center">
-                    <p className="text-red-700 font-bold">Ooops... Error occurred</p>
+                <div className="p-20 flex flex-col gap-1 justify-center items-center text-red-700">
+                    <BiSolidError className="text-5xl" />
+                    <p className="font-bold">Ooops... Error occurred...</p>
                 </div>
             </div>
         );

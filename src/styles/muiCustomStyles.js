@@ -7,7 +7,7 @@ const MenuProps = {
             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
             width: "fit-content",
             fontFamily: "'Ubuntu', sans-serif",
-            background: "#FEE2E2" // red-100
+            background: "white"
         }
     }
 };
@@ -23,8 +23,7 @@ const getStyles = (labelsArray, label, theme) => {
 
 const muiStyles = {
     formControl: {
-        // width: "160px"
-        // flex: 1
+        flex: 1
     },
     select: {
         ".MuiOutlinedInput-notchedOutline": {
@@ -45,7 +44,8 @@ const muiStyles = {
         },
         color: "#EF4444",
         background: "white",
-        minWidth: "160px",
+        // flex: 1,
+        // minWidth: "160px",
     },
     inputLabel: {
         "&.MuiInputLabel-outlined.Mui-focused": {

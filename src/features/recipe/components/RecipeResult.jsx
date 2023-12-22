@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Oval } from "react-loader-spinner";
 import { Pagination, SwipeableDrawer, useMediaQuery } from "@mui/material";
-import useInnerHeight from "../../../hooks/useInnerHeight";
 import { IoArrowBack } from "react-icons/io5";
 import { TbDatabaseSearch, TbError404 } from "react-icons/tb";
 import { BiSolidError } from "react-icons/bi";
 import { useGetRecipesQuery } from "../searchApiSlice";
+import { Footer } from "../../../components";
 import { RecipeCard, RecipeDetail } from "./";
 import { muiStyles } from "../../../styles/muiCustomStyles";
 import { setParam } from "../searchParamsSlice";
@@ -15,7 +15,6 @@ import { setParam } from "../searchParamsSlice";
 const RecipeResult = () => {
     const location = useLocation();
     const dispatch = useDispatch();
-    const vh = useInnerHeight();
     const isLarge = useMediaQuery("(min-width: 1024px)");
 
     const [detailDrawerOpen, setDetailDrawerOpen] = useState(false);
@@ -69,14 +68,14 @@ const RecipeResult = () => {
         const to = Math.min(page * 10, count);
 
         return (
-            <div className={`h-screen pt-[136px] lg:px-20 flex flex-1 justify-center bg-slate-100`}>
+            <div className="h-screen pt-[136px] lg:px-20 flex flex-1 justify-center bg-slate-100">
                 {ids?.length ? (
-                    <div className={`flex shadow-lg flex-1`}>
+                    <div className="flex shadow-lg flex-1">
                         <div className="flex flex-col flex-1">
                             <div className="bg-red-300 p-3 text-sm">
                                 {ids?.length ? (`${count} results (${from} - ${to})`) : ""}
                             </div>
-                            <div className={`h-[${100*vh-180}px] overflow-y-scroll`}>
+                            <div className="overflow-y-scroll">
                                 {ids?.map(id => (
                                     <div key={id} onClick={toggleDetailDrawer(true)}>
                                         <RecipeCard recipe={entities[id]} />
@@ -88,6 +87,7 @@ const RecipeResult = () => {
                                     page={page}
                                     onChange={onChangePage}
                                 />
+                                <Footer />
                             </div>
                         </div>
                         {isLarge ? (
@@ -153,7 +153,8 @@ const RecipeResult = () => {
             <div className="h-screen pt-[136px] flex flex-col justify-center items-center flex-1 bg-white bg-no-repeat bg-cover">
                 <p className="flex flex-col justify-center items-center text-red-500 gap-1 font-bold break-words">
                     <TbDatabaseSearch className="text-5xl" />
-                    Search recipes by food names or ingredients</p>
+                    Search recipes by food names or ingredients
+                </p>
             </div>
         );
     }

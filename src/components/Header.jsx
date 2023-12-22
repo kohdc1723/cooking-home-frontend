@@ -28,13 +28,13 @@ const Header = () => {
     const onClickHome = () => navigate("/");
 
     return (
-        <header className={`bg-neutral-50 fixed top-0 flex justify-between items-center py-3 px-5 w-full z-50 ${isScrolled ? "shadow-sm shadow-slate-300" : ""}`}>
+        <header className={`bg-white fixed top-0 flex justify-between items-center py-3 px-5 w-full z-50 ${isScrolled ? "shadow-sm shadow-slate-300" : ""}`}>
             <h1 className="hover:cursor-pointer" onClick={onClickHome}>
                 <img
                     src={Logo}
                     alt="cooking-home"
-                    width={48}
-                    height={48}
+                    width={40}
+                    height={40}
                 />
             </h1>
             <AuthButton />

@@ -1,5 +1,0 @@
-@import "./colors.css";
-
-.layout__main {
-    min-height: calc(100vh - 68px);
-}

@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
 import { AiOutlineLink } from "react-icons/ai";
-import { useMediaQuery } from "@mui/material";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VscTasklist } from "react-icons/vsc";
-import { Oval } from "react-loader-spinner";
 
 const RecipeDetail = ({ recipe }) => {
-    const isLarge = useMediaQuery("(min-width: 1024px)");
-
     if (recipe) {
         const {
             image,
@@ -30,7 +26,7 @@ const RecipeDetail = ({ recipe }) => {
             <div className="p-5 flex flex-col gap-10">
                 <div className="flex flex-col lg:flex-row justify-between gap-3">
                     <img src={image} alt="food" width={240} height={240} />
-                    <div className="flex flex-col justify-between">
+                    <div className="flex flex-col flex-1 justify-between">
                         <h1 className="text-red-500 text-xl font-bold">{label}</h1>
 
                         <div className="flex justify-between items-center">
@@ -108,8 +104,8 @@ const RecipeDetail = ({ recipe }) => {
         );
     } else {
         return (
-            <div className="flex flex-col justify-center items-center">
-                <VscTasklist />
+            <div className="flex flex-col h-full justify-center items-center font-bold text-red-500">
+                <VscTasklist className="text-5xl" />
                 <p>Select a recipe to see details</p>
             </div>
         );

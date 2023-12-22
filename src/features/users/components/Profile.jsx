@@ -5,8 +5,6 @@ import { useSignoutMutation } from "../../auth/authApiSlice";
 import useAuth from "../../../hooks/useAuth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../../styles/css/profile.css";
-
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -27,7 +25,7 @@ const Profile = () => {
     };
 
     return (
-        <section className="pt-[72px] pb-10 px-5 sm:px-10 md:px-20 lg:px-32 flex flex-col gap-10">
+        <section className="pt-[72px] pb-10 px-5 sm:px-10 md:px-20 lg:px-32 flex flex-col">
             <AccountSetting />
             <PreferenceSetting />
             <button

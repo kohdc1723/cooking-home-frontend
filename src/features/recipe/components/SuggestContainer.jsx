@@ -33,10 +33,10 @@ const SuggestContainer = ({ type, query }) => {
                         <h4 className="text-red-500 font-bold text-xl">Since you have<br />"{query.toString().replace(",", " and ")}"</h4>
                     )}
                     <button
-                        className="bg-red-500 flex gap-1 justify-center items-center text-slate-50 px-3 py-1 rounded-lg hover:bg-red-700"
+                        className="bg-red-500 flex gap-1 justify-center items-center text-white px-3 py-1 rounded-lg hover:bg-red-700 text-sm"
                         onClick={onClickRefresh}
                     >
-                        Refresh
+                        Reload
                         <BiRefresh />
                     </button>
                 </div>

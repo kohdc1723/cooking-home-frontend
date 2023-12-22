@@ -1,4 +1,5 @@
 import { Oval } from "react-loader-spinner";
+import { BiSolidError } from "react-icons/bi";
 import useAuth from "../../../hooks/useAuth";
 import { useGetUserQuery } from "../usersApiSlice";
 import { AccountSettingForm } from "./";
@@ -19,14 +20,18 @@ const AccountSetting = () => {
 
         return (
             <div className="flex flex-col gap-10 py-10">
-                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">
+                    Account Setting
+                </h2>
                 <AccountSettingForm user={currentUser} />
             </div>
         );
     } else if (isLoading) {
         return (
             <div className="flex flex-col gap-10 py-10">
-                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">
+                    Account Setting
+                </h2>
                 <div className="p-20 flex justify-center items-center">
                     <Oval
                         height={60}
@@ -43,18 +48,24 @@ const AccountSetting = () => {
     } else if (isError) {
         return (
             <div className="flex flex-col gap-10 py-10">
-                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
-                <div className="p-20 flex justify-center items-center">
-                    <p className="text-red-700 font-bold">Ooops... Error occurred...</p>
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">
+                    Account Setting
+                </h2>
+                <div className="p-20 flex flex-col gap-1 justify-center items-center text-red-700">
+                    <BiSolidError className="text-5xl" />
+                    <p className="font-bold">Ooops... Error occurred...</p>
                 </div>
             </div>
         );
     } else {
         return (
             <div className="flex flex-col gap-10 py-10">
-                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">Account Setting</h2>
-                <div className="p-20 flex justify-center items-center">
-                    <p className="text-red-700">Ooops... Failed to load...</p>
+                <h2 className="text-red-500 text-xl md:text-2xl lg:text-3xl font-black">
+                    Account Setting
+                </h2>
+                <div className="p-20 flex flex-col gap-1 justify-center items-center text-red-700">
+                    <BiSolidError className="text-5xl" />
+                    <p className="font-bold">Ooops... Failed to load...</p>
                 </div>
             </div>
         );

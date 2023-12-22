@@ -43,7 +43,7 @@ const PersistLogin = () => {
         return <Outlet />;
     } else if (isLoading) { // persist O, token X
         return (
-            <div className="pt-[72px] min-h-[calc(100vh-72px)] flex justify-center items-center">
+            <div className="pt-[64px] h-[calc(100vh-76px)] flex justify-center items-center">
                 <Oval
                     height={60}
                     width={60}

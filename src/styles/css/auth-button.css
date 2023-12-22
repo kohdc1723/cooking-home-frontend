@@ -1,8 +1,0 @@
-@import "./colors.css";
-
-.auth-button__login {
-    border: 1px solid var(--raisin-black);
-    border-radius: 20px;
-    padding: 3px 15px;
-    text-decoration: none;
-}

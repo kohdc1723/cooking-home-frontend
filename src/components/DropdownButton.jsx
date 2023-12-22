@@ -38,7 +38,7 @@ const DropdownButton = ({ title }) => {
 
     return (
         <div
-            className="bg-slate-50 hover:bg-red-100 border-2 border-red-500 text-red-500 flex justify-center items-center relative px-3 py-1 rounded-lg hover:cursor-pointer"
+            className="bg-white text-sm hover:bg-red-100 border-2 border-red-500 text-red-500 flex justify-center items-center relative px-3 py-1 rounded-lg hover:cursor-pointer"
             onClick={onClickButton}
             onBlur={onClickButton}
             ref={dropdownRef}

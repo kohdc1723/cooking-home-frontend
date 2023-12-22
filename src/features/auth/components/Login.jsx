@@ -60,8 +60,8 @@ const Login = () => {
     };
 
     return (
-        <div className="h-screen flex justify-center items-center">
-            <div className="bg-red-100 p-5 flex flex-col gap-5 items-center rounded-lg w-80 md:w-96">
+        <div className="h-screen flex justify-center items-center bg-red-50">
+            <div className="bg-red-100 shadow-lg p-5 flex flex-col gap-5 items-center rounded-lg w-80 md:w-96">
                 <h1
                     onClick={handleClickHome}
                     className="font-black text-2xl text-red-500 hover:cursor-pointer w-fit"

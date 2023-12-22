@@ -33,9 +33,9 @@
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/1febd087-f45e-4ef1-9625-705969dfafeb">
 
 ### Mobile
-<img width="270" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/95113d88-f906-4d28-83ad-a9004ad4e977">
-<img width="270" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/f8455ed9-964a-4222-9b05-af37c2fe7395">
-<img width="270" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/3c92341c-7648-4960-9678-77d7d0430a18">
+<img width="275" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/95113d88-f906-4d28-83ad-a9004ad4e977">
+<img width="275" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/f8455ed9-964a-4222-9b05-af37c2fe7395">
+<img width="275" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/3c92341c-7648-4960-9678-77d7d0430a18">
 
 ---
 

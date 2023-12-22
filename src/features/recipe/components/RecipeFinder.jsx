@@ -65,7 +65,7 @@ const RecipeFinder = () => {
     };
 
     return (
-        <div className="h-screen flex flex-1">
+        <div className="h-dvh flex flex-1">
             <header className="bg-white fixed top-0 w-full px-5 py-3 flex flex-col gap-3 shadow-md z-50">
                 <div className="flex justify-start items-center gap-3">
                     <h1 className="hover:cursor-pointer" onClick={onClickHome}>

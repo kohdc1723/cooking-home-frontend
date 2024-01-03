@@ -1,14 +1,16 @@
-# Cooking Home
-***Cooking Home*** offers users an extensive ***recipe search engine*** and ***recommends recipes*** based on their favorite foods and the ingredients they have at home.
-- Backend Repo: [https://github.com/kohdc1723/cooking-home-backend](https://github.com/kohdc1723/cooking-home-backend)
-
 # cooking-home-frontend
+***Cooking Home*** offers users an extensive ***recipe search engine*** and ***recommends recipes*** based on their favorite foods and the ingredients they have at home.
+
 ***cooking-home-frontend*** repository contains the frontend-side codebase of the ***Cooking Home*** application.
-- Client URL: [https://cooking-home.kro.kr](https://cooking-home.kro.kr)
+
+> Client URL: [https://cooking-home.kro.kr](https://cooking-home.kro.kr)
+
+> github/cooking-home-backend: [https://github.com/kohdc1723/cooking-home-backend](https://github.com/kohdc1723/cooking-home-backend)
 
 ---
 ---
 
+# Tech stack
 ### Built with
 ![javascript-logo]
 ![react-logo]

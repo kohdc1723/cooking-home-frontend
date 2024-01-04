@@ -28,6 +28,111 @@
 ---
 ---
 
+# File structure
+    .
+    ├── public
+    │   ├── favicon.ico
+    │   ├── index.html
+    │   ├── logo192.png
+    │   ├── logo512.png
+    │   ├── manifest.json
+    │   └── robots.txt
+    │
+    ├── src
+    │   ├── app
+    │   │   ├── api
+    │   │   │   ├── apiSlice.js
+    │   │   │   └── edamamApiSlice.js
+    │   │   │
+    │   │   └── store.js
+    │   │
+    │   ├── components
+    │   │   ├── DropdownButton.jsx
+    │   │   ├── Footer.jsx
+    │   │   ├── Header.jsx
+    │   │   ├── Layout.jsx
+    │   │   ├── Welcome.jsx
+    │   │   └── index.js
+    │   │
+    │   ├── constants
+    │   │   └── labels.js
+    │   │
+    │   ├── features
+    │   │   ├── auth
+    │   │   │   ├── components
+    │   │   │   │   ├── AuthBotton.jsx
+    │   │   │   │   ├── Login.jsx
+    │   │   │   │   ├── PersistLogin.jsx
+    │   │   │   │   ├── RequireAuth.jsx
+    │   │   │   │   └── index.js
+    │   │   │   │
+    │   │   │   ├── authApiSlice.js
+    │   │   │   └── authSlice.js
+    │   │   │
+    │   │   ├── preference
+    │   │   │   ├── components
+    │   │   │   │   ├── NewPreference.jsx
+    │   │   │   │   ├── PreferenceSetting.jsx
+    │   │   │   │   ├── PreferenceSettingForm.jsx
+    │   │   │   │   └── index.js
+    │   │   │   │
+    │   │   │   └── preferenceApiSlice.js
+    │   │   │
+    │   │   ├── recipe
+    │   │   │   ├── components
+    │   │   │   │   ├── MultipleSelect.jsx
+    │   │   │   │   ├── RecipeCard.jsx
+    │   │   │   │   ├── RecipeDetail.jsx
+    │   │   │   │   ├── RecipeFinder.jsx
+    │   │   │   │   ├── RecipeResult.jsx
+    │   │   │   │   ├── RecipeSuggest.jsx
+    │   │   │   │   ├── SingleSelect.jsx
+    │   │   │   │   ├── SuggestCard.jsx
+    │   │   │   │   ├── SuggestContainer.jsx
+    │   │   │   │   └── index.js
+    │   │   │   │
+    │   │   │   ├── searchApiSlice.js
+    │   │   │   ├── searchParamsSlice.js
+    │   │   │   └── suggestApiSlice.js
+    │   │   │
+    │   │   └── users
+    │   │       ├── components
+    │   │       │   ├── AccountSetting.jsx
+    │   │       │   ├── AccountSettingForm.jsx
+    │   │       │   ├── Profile.jsx
+    │   │       │   ├── Register.jsx
+    │   │       │   └── index.js
+    │   │       │
+    │   │       └── usersApiSlice.js
+    │   │
+    │   ├── hooks
+    │   │   ├── useAuth.js
+    │   │   ├── useLocalStorage.js
+    │   │   ├── usePersist.js
+    │   │   └── useQueryString.js
+    │   │
+    │   ├── images
+    │   │   ├── logo.png
+    │   │   ├── welcome-primary.png
+    │   │   └── welcome-secondary.png
+    │   │
+    │   ├── styles
+    │   │   └── muiCustomStyles.js
+    │   │
+    │   ├── utils
+    │   │   └── recipeApiUtils.js
+    │   │
+    │   ├── App.jsx
+    │   ├── index.css
+    │   └── index.js
+    │
+    ├── tailwind.config.js
+    ├── .gitignore
+    └── README.md
+
+---
+---
+
 # Screenshots
 
 ## Welcome Page

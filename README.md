@@ -30,105 +30,105 @@
 
 # File structure
     .
-    ├── public
-    │   ├── favicon.ico
-    │   ├── index.html
-    │   ├── logo192.png
-    │   ├── logo512.png
-    │   ├── manifest.json
-    │   └── robots.txt
+    ├── public                                      # static files
+    │   ├── favicon.ico                             # favicon
+    │   ├── index.html                              # main HTML file
+    │   ├── logo192.png                             # image for small screen
+    │   ├── logo512.png                             # image for large screen
+    │   ├── manifest.json                           # manifest file for progressive web
+    │   └── robots.txt                              # file for the web crawlers
     │
-    ├── src
-    │   ├── app
-    │   │   ├── api
-    │   │   │   ├── apiSlice.js
-    │   │   │   └── edamamApiSlice.js
+    ├── src                                         # source code for the react app
+    │   ├── app                                     # app folder
+    │   │   ├── api                                 # api slices
+    │   │   │   ├── apiSlice.js                     # redux slice for
+    │   │   │   └── edamamApiSlice.js               # redux slice for Edamam API
     │   │   │
-    │   │   └── store.js
+    │   │   └── store.js                            # redux store configuration
     │   │
-    │   ├── components
-    │   │   ├── DropdownButton.jsx
-    │   │   ├── Footer.jsx
-    │   │   ├── Header.jsx
-    │   │   ├── Layout.jsx
-    │   │   ├── Welcome.jsx
-    │   │   └── index.js
+    │   ├── components                              # reusable react components
+    │   │   ├── DropdownButton.jsx                  # DropdownButton component
+    │   │   ├── Footer.jsx                          # Footer component
+    │   │   ├── Header.jsx                          # Header component
+    │   │   ├── Layout.jsx                          # Layout component
+    │   │   ├── Welcome.jsx                         # Welcome component
+    │   │   └── index.js                            # exporting components
     │   │
-    │   ├── constants
-    │   │   └── labels.js
+    │   ├── constants                               # constants folder
+    │   │   └── labels.js                           # labels for the recipe search filter
     │   │
-    │   ├── features
-    │   │   ├── auth
-    │   │   │   ├── components
-    │   │   │   │   ├── AuthBotton.jsx
-    │   │   │   │   ├── Login.jsx
-    │   │   │   │   ├── PersistLogin.jsx
-    │   │   │   │   ├── RequireAuth.jsx
-    │   │   │   │   └── index.js
+    │   ├── features                                # features folder
+    │   │   ├── auth                                # features related to authentication
+    │   │   │   ├── components                      # components related to authentication
+    │   │   │   │   ├── AuthBotton.jsx              # AuthButton component
+    │   │   │   │   ├── Login.jsx                   # Login component
+    │   │   │   │   ├── PersistLogin.jsx            # PersistLogin component
+    │   │   │   │   ├── RequireAuth.jsx             # RequireAuth component
+    │   │   │   │   └── index.js                    # exporting components
     │   │   │   │
-    │   │   │   ├── authApiSlice.js
-    │   │   │   └── authSlice.js
+    │   │   │   ├── authApiSlice.js                 # redux api slice for auth feature
+    │   │   │   └── authSlice.js                    # redux slice for auth states
     │   │   │
-    │   │   ├── preference
-    │   │   │   ├── components
-    │   │   │   │   ├── NewPreference.jsx
-    │   │   │   │   ├── PreferenceSetting.jsx
-    │   │   │   │   ├── PreferenceSettingForm.jsx
-    │   │   │   │   └── index.js
+    │   │   ├── preference                          # features related to preference
+    │   │   │   ├── components                      # components related to preference
+    │   │   │   │   ├── NewPreference.jsx           # NewPreference component
+    │   │   │   │   ├── PreferenceSetting.jsx       # PreferenceSetting component
+    │   │   │   │   ├── PreferenceSettingForm.jsx   # PreferenceSettingForm component
+    │   │   │   │   └── index.js                    # exporting components
     │   │   │   │
-    │   │   │   └── preferenceApiSlice.js
+    │   │   │   └── preferenceApiSlice.js           # redux api slice for preference feature
     │   │   │
-    │   │   ├── recipe
-    │   │   │   ├── components
-    │   │   │   │   ├── MultipleSelect.jsx
-    │   │   │   │   ├── RecipeCard.jsx
-    │   │   │   │   ├── RecipeDetail.jsx
-    │   │   │   │   ├── RecipeFinder.jsx
-    │   │   │   │   ├── RecipeResult.jsx
-    │   │   │   │   ├── RecipeSuggest.jsx
-    │   │   │   │   ├── SingleSelect.jsx
-    │   │   │   │   ├── SuggestCard.jsx
-    │   │   │   │   ├── SuggestContainer.jsx
-    │   │   │   │   └── index.js
+    │   │   ├── recipe                              # features related to recipe
+    │   │   │   ├── components                      # components related to recipe
+    │   │   │   │   ├── MultipleSelect.jsx          # MultipleSelect component
+    │   │   │   │   ├── RecipeCard.jsx              # RecipeCard component
+    │   │   │   │   ├── RecipeDetail.jsx            # RecipeDetail component
+    │   │   │   │   ├── RecipeFinder.jsx            # RecipeFinder component
+    │   │   │   │   ├── RecipeResult.jsx            # RecipeResult component
+    │   │   │   │   ├── RecipeSuggest.jsx           # RecipeSuggest component
+    │   │   │   │   ├── SingleSelect.jsx            # SingleSelect component
+    │   │   │   │   ├── SuggestCard.jsx             # SuggestCard component
+    │   │   │   │   ├── SuggestContainer.jsx        # SuggestContainer component
+    │   │   │   │   └── index.js                    # exporting components
     │   │   │   │
-    │   │   │   ├── searchApiSlice.js
-    │   │   │   ├── searchParamsSlice.js
-    │   │   │   └── suggestApiSlice.js
+    │   │   │   ├── searchApiSlice.js               # redux api slice for search feature
+    │   │   │   ├── searchParamsSlice.js            # redux slice for search parameters states
+    │   │   │   └── suggestApiSlice.js              # redux api slice for suggest feature
     │   │   │
-    │   │   └── users
-    │   │       ├── components
-    │   │       │   ├── AccountSetting.jsx
-    │   │       │   ├── AccountSettingForm.jsx
-    │   │       │   ├── Profile.jsx
-    │   │       │   ├── Register.jsx
-    │   │       │   └── index.js
+    │   │   └── users                               # features related to users
+    │   │       ├── components                      # components related to users
+    │   │       │   ├── AccountSetting.jsx          # AccountSetting component
+    │   │       │   ├── AccountSettingForm.jsx      # AccountSettingForm component
+    │   │       │   ├── Profile.jsx                 # Profile component
+    │   │       │   ├── Register.jsx                # Register component
+    │   │       │   └── index.js                    # exporting components
     │   │       │
-    │   │       └── usersApiSlice.js
+    │   │       └── usersApiSlice.js                # redux api slice for users feature
     │   │
-    │   ├── hooks
-    │   │   ├── useAuth.js
-    │   │   ├── useLocalStorage.js
-    │   │   ├── usePersist.js
-    │   │   └── useQueryString.js
+    │   ├── hooks                                   # custom hooks
+    │   │   ├── useAuth.js                          # handling authentication
+    │   │   ├── useLocalStorage.js                  # handling local storage
+    │   │   ├── usePersist.js                       # handling login persistence
+    │   │   └── useQueryString.js                   # handling query strings
     │   │
-    │   ├── images
-    │   │   ├── logo.png
-    │   │   ├── welcome-primary.png
-    │   │   └── welcome-secondary.png
+    │   ├── images                                  # images folder
+    │   │   ├── logo.png                            # Cooking Home logo image
+    │   │   ├── welcome-primary.png                 # image for welcome page
+    │   │   └── welcome-secondary.png               # image for welcome page
     │   │
-    │   ├── styles
-    │   │   └── muiCustomStyles.js
+    │   ├── styles                                  # styles folder
+    │   │   └── muiCustomStyles.js                  # custom styles for Material UI
     │   │
-    │   ├── utils
-    │   │   └── recipeApiUtils.js
+    │   ├── utils                                   # utility functions
+    │   │   └── recipeApiUtils.js                   # utility functions related to recipe search
     │   │
-    │   ├── App.jsx
-    │   ├── index.css
-    │   └── index.js
+    │   ├── App.jsx                                 # root component
+    │   ├── index.css                               # global css
+    │   └── index.js                                # entry point for rendering react app
     │
-    ├── tailwind.config.js
-    ├── .gitignore
-    └── README.md
+    ├── tailwind.config.js                          # configuration for Tailwind CSS
+    ├── .gitignore                                  # gitignore file
+    └── README.md                                   # README file
 
 ---
 ---

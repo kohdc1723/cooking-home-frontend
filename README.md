@@ -136,6 +136,8 @@
 # Screenshots
 
 ## Welcome Page
+- The landing page.
+
 ### Desktop
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/1febd087-f45e-4ef1-9625-705969dfafeb">
 
@@ -147,7 +149,8 @@
 ---
 
 ## RecipeFinder Page
-The search engine utilizes the URL querystring parameters
+- RecipeFinder Page provides extensive recipe search engine powered by Edamam API.
+- The search engine utilizes the URL querystring parameters.
 
 ### Desktop
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/31c46a09-7de8-4fae-9dab-ac1adc3c3802">
@@ -161,6 +164,7 @@ The search engine utilizes the URL querystring parameters
 ---
 
 ## RecipeSuggest Page
+- RecipeSuggest Page offers recipe recommendations based on users' favorite food and ingredients they have at home.
 
 ### Desktop
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/0641097c-f550-4445-a304-33966e2c8d01">
@@ -173,6 +177,7 @@ The search engine utilizes the URL querystring parameters
 ---
 
 ## Login Page
+- Users can login to the service.
 
 ### Desktop
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/3fa024e5-aaf1-4cc0-8d7a-af13ddde0477">
@@ -185,6 +190,8 @@ The search engine utilizes the URL querystring parameters
 ---
 
 ## Register Page
+- Users can create a new account.
+- Register Page provides detailed feedback messages.
 
 ### Desktop
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/5288f117-6d82-47d8-8df3-43a152141234">
@@ -197,6 +204,8 @@ The search engine utilizes the URL querystring parameters
 ---
 
 ## Profile Page
+- Users can change user information (username, password)
+- Users can change user preference (favorites, ingredients) which will be used for recipe recommendations
 
 ### Desktop
 <img width="1200" alt="image" src="https://github.com/kohdc1723/cooking-home-frontend/assets/80452136/01aa5978-010f-4e2c-a13e-4fb20b8e578c">

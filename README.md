@@ -41,8 +41,8 @@
     ├── src                                         # source code for the react app
     │   ├── app                                     # app folder
     │   │   ├── api                                 # api slices
-    │   │   │   ├── apiSlice.js                     # redux slice for
-    │   │   │   └── edamamApiSlice.js               # redux slice for Edamam API
+    │   │   │   ├── apiSlice.js                     # redux api slice for cooking-home-backend
+    │   │   │   └── edamamApiSlice.js               # redux api slice for Edamam
     │   │   │
     │   │   └── store.js                            # redux store configuration
     │   │
